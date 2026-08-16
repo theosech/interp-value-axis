@@ -137,6 +137,44 @@ verbatim. There is no exploration, no revision, no reconsidered hypothesis. The
 model says the same thing for longer, and at α = +75 it says the rating and
 stops. The length effect is a failure to terminate, not a change in how the
 model reasons.
+
+### Is the effect specific to this direction?
+
+Steering by a vector of norm 75 takes the residual stream off-distribution whatever
+direction you push, and an off-distribution state moves most readouts. So the same
+paradigm was run against **seven random unit directions** at the same α, and with a
+readout that removes length entirely: **one forward pass, no generation**, logits read
+at the single position where the answer token would go.
+
+Two things make the comparison work. First, the profiles are U-shaped, symmetric about
+the unsteered value, so a rank correlation just reports whichever arm rises further.
+Fitting each prefix as `a + bα + cα²` separates the two: `b` is the directional
+dose-response, `c` is the symmetric damage. The damage is real and large under *every*
+direction including random (for end-of-turn, `c` = +32.2 released, +27.0 corrected,
++23.4 random). Second, each channel keeps its own units, because a log-probability, a
+logit difference and a rating point are not comparable quantities.
+
+![Linear dose-response per channel against the random band](figures/w3b_lengthfree.png)
+
+| Channel (linear term *b*) | Value axis | Random ×7, mean (sd) | Random range | Distance |
+|---|---|---|---|---|
+| log P(end-of-turn) | **+12.86** | −4.32 (8.93) | [−15.83, +10.52] | +1.9 sd |
+| logit(Yes) − logit(No) | **+4.03** | +0.18 (1.37) | [−1.27, +2.08] | **+2.8 sd** |
+| E[rating] over 0–9 | +0.97 | +0.33 (1.74) | [−2.75, +2.84] | +0.4 sd |
+
+Read honestly, this is weaker than the point estimates suggest. Random directions are
+wildly variable on the end-of-turn logit (sd 8.93, one seed reaching +10.52), so +12.86
+clears the observed range but only by 1.9 sd of the random spread. The **confidence**
+channel separates more cleanly, at 2.8 sd, which means the paper's Fig 5a substantially
+survives this test and on this readout survives it better than the end-of-turn reading
+does. The graded 0–9 rating shows nothing at all: +0.97 against a random band of ±2.8.
+
+Two caveats on the control itself. Seven seeds is enough to show the spread is large, not
+enough to pin the band tightly. And the random directions were sampled without
+mean-centering; activation space is anisotropic, so a fixed random vector picks up an
+arbitrary-signed projection onto the large shared mean component, which is visible in the
+data as an asymmetry between +α and −α. Mean-centred controls would tighten this band and
+are the right next step.
 <br>
 
 ## 3. The construction contrast is invariant to where you cut
@@ -186,7 +224,7 @@ delivered is not a measurement of the reward event.
 - **The evidence is all on the construction corpus**, not AIME or Arena.
 
 Smaller caveats: the steering experiment is 15 conversations, one seed per
-condition and one probe phrasing; the layer
+condition, one probe phrasing and seven random control directions; the layer
 picture is not uniform, with a small counter-signed band around layers 25–27 in
 the prefill probes; and the LLM-judged labels behind the placebo split are
 heavily skewed, so cells that depend on them are hints rather than findings.
@@ -275,6 +313,7 @@ gives the command that regenerates each artifact. Every figure comes from
 | Ramp, cut-invariance, placebo ([§3](#3-the-construction-contrast-is-invariant-to-where-you-cut)) | `ramp_cut_invariance.py` |
 | Within-attempt cells, non-habituation, level by phase ([§3](#3-the-construction-contrast-is-invariant-to-where-you-cut)) | `attempt_split_report.py` |
 | Steering, generation readout ([§2](#2-steering-shortens-responses)) | `steering_probe_report.py` |
+| Steering, length-free readout and random band ([§2](#2-steering-shortens-responses)) | `steering_logits_report.py` |
 | Matched-token prefills ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)) | `prefill_probes_report.py` |
 | Phrasing robustness ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)) | `prefill_rephrase_report.py` |
 | Logit lens, corrected axis ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)) | `results/logit_lens_corrected.json` |
