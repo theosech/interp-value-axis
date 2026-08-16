@@ -1,6 +1,6 @@
 # results/ manifest
 
-Most of this directory is gitignored — 1.6 GB of activation projections. Every file
+Most of this directory is gitignored, 1.6 GB of activation projections. Every file
 is listed here with the command that regenerates it, so the repo is reproducible
 without shipping the artifacts.
 
@@ -8,7 +8,7 @@ Anything marked **in git** is small and expensive to regenerate (LLM-judged labe
 the corrected axis itself), so it is committed.
 
 All GPU steps run on Modal against `Qwen/Qwen3-8B`, A10G, and need
-`modal run` plus a Hugging Face cache volume — see the README.
+`modal run` plus a Hugging Face cache volume, see the README.
 
 ## The corrected axis and its inputs
 
@@ -49,7 +49,7 @@ All GPU steps run on Modal against `Qwen/Qwen3-8B`, A10G, and need
 | `logit_lens_corrected.json` | 3 KB | `modal run modal_app.py::logit_lens_main --corrected` | **in git.** Corrected axis. Carries an `"axis"` field. This is the one to cite. |
 | `logit_lens.json` | 3.4 KB | `modal run modal_app.py::logit_lens_main` | **in git.** Shipped axis, no `"axis"` field. Kept for the shipped-vs-corrected comparison (10/30 top tokens overlap). |
 
-## LLM-judged labels (committed — regenerating these costs API calls)
+## LLM-judged labels (committed, regenerating these costs API calls)
 
 | File | Size | Produced by | Notes |
 |---|---|---|---|
@@ -57,7 +57,7 @@ All GPU steps run on Modal against `Qwen/Qwen3-8B`, A10G, and need
 | `rule_labels.jsonl` | 2.0 MB | `python judge_rules.py` → `python merge_labels.py` | **in git.** Whether the model's stated rule belief was correct. Validated by `validate_labels.py`. |
 | `reward_words.jsonl` | 227 KB | `python judge_reward_words.py` | **in git.** Semantic-criterion reward words per attempt. |
 
-## Superseded — kept for provenance, do not cite
+## Superseded, kept for provenance, do not cite
 
 These were computed against the **shipped (buggy) axis**, before the label fix. Any
 number lifted from them is a pre-correction number. Re-project against
@@ -72,7 +72,7 @@ number lifted from them is a pre-correction number. Re-project against
 | `delta_projection.csv` | 83 KB | Shipped-means delta analysis; superseded by `corrected_mean_validation.py`. |
 | `attempt_table.csv`, `attempt_sequences.csv` | 1.8 MB / 33 KB | **in git.** Exploratory attempt-level tables behind `lucky_vs_earned.ipynb`. Shipped-axis projections. |
 
-## Dead — outputs of a superseded 8-conversation smoke run
+## Dead, outputs of a superseded 8-conversation smoke run
 
 `post_discovery_means.pt`, `post_vs_discovery_axis.npy`. Replaced by the full
 `assistant_headers` run. Safe to delete.

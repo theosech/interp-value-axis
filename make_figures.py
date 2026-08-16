@@ -127,14 +127,14 @@ def fig_prefill():
     # ---- top: the two prefills, verbatim, with the segments marked -----------
     ax = fig.add_subplot(gs[0]); ax.axis("off"); ax.grid(False)
     arms = [
-        (INDIGO, "ARM A \u2014 high value, EOS far",
+        (INDIGO, "ARM A: high value, EOS far",
          "I am now confident that I have finally\n"
          "identified the hidden criterion\u2026 I will\n"
          "produce ten additional rewritten versions.",
          "I've figured out the criterion. Here are\n"
          "ten more versions of the paragraph, each\n"
          "one satisfying it:"),
-        (AMBER, "ARM B \u2014 low value, EOS soon",
+        (AMBER, "ARM B: low value, EOS soon",
          "I have tried many different approaches\n"
          "now and none of them has earned a +1\u2026 the\n"
          "most sensible move is to stop here.",
@@ -223,78 +223,163 @@ def quad_b(rows, dname, key, probe):
 
 
 def fig_steering():
-    """steering_probe_report.py + steering_logits_report.py."""
+    """steering_probe_report.py -- length collapses, stated confidence does not.
+
+    The worked example is there to rule out the reading that steering works by
+    suppressing backtracking: at negative alpha the extra text is REPETITION of
+    an already-confident conclusion, not exploration or second-guessing.
+    """
+    rows = [json.loads(l) for l in open(RES / "steering_probe.jsonl")]
+    post = [r for r in rows if r["state"] == "post"
+            and (r["direction"] == "corrected" or r["alpha"] == 0)]
+    alphas = sorted({r["alpha"] for r in post})
+    length = [np.mean([r["n_tokens"] for r in post if r["alpha"] == a]) for a in alphas]
+    rating = [np.mean([r["rating"] for r in post if r["alpha"] == a and r["rating"] >= 0])
+              for a in alphas]
+
+    fig = plt.figure(figsize=(9.8, 7.4))
+    gs = fig.add_gridspec(2, 2, height_ratios=[1, 1.15], hspace=.52, wspace=.26)
+
+    a1 = fig.add_subplot(gs[0, 0])
+    a1.plot(alphas, length, marker="o", ms=5, lw=1.8, color=INDIGO, zorder=3)
+    a1.axhline(300, color=GREY, ls=":", lw=1)
+    a1.text(-74, 288, "300-token cap", fontsize=7.5, color=GREY, va="top")
+    for a, v in ((-75, length[0]), (75, length[-1])):
+        a1.annotate(f"{v:.0f}", xy=(a, v), xytext=(0, 11 if a < 0 else 11),
+                    textcoords="offset points", ha="center", fontsize=9,
+                    fontweight="bold", color=INDIGO)
+    a1.set_xlabel("steering strength \u03b1"); a1.set_ylabel("response length (tokens)")
+    a1.set_xticks(alphas); a1.set_ylim(-20, 340)
+    a1.set_title("(a) Length collapses 75-fold, 300 to 4 tokens",
+                 loc="left", pad=8)
+
+    a2 = fig.add_subplot(gs[0, 1])
+    a2.plot(alphas, rating, marker="o", ms=5, lw=1.8, color=AMBER, zorder=3)
+    a2.set_xlabel("steering strength \u03b1")
+    a2.set_ylabel("stated confidence (0\u201310)")
+    a2.set_xticks(alphas); a2.set_ylim(0, 10)
+    a2.annotate("range 7.5 \u2013 8.9", xy=(0, 8.7), xytext=(0, 4.4),
+                ha="center", fontsize=9, color=AMBER, fontweight="bold",
+                arrowprops=dict(arrowstyle="->", color=AMBER, lw=1))
+    a2.set_title("(b) What the model SAYS about its confidence barely moves",
+                 loc="left", pad=8)
+
+    # ---- worked example: same conversation, three steering strengths ---------
+    ax = fig.add_subplot(gs[1, :]); ax.axis("off"); ax.grid(False)
+    ex = {r["alpha"]: r for r in post if r["conv_id"] == "bird_species__conv07"}
+    cols = [
+        (-75, INDIGO, "hits the 300-token cap",
+         'I\u2019ve identified that the hidden\n'
+         'criterion is to include a bird\n'
+         'reference in each paragraph\u2026\n'
+         'This seems to be the hidden\n'
+         'criterion, and I\u2019m fairly confident\n'
+         'it\u2019s the correct criterion, with a\n'
+         'score of 8. I\u2019m confident it\u2019s the\n'
+         'correct criterion, as it involves\n'
+         'adding a bird reference\u2026'),
+        (0, "#1F2430", "unsteered",
+         'I\u2019m fairly confident the hidden\n'
+         'criterion is to include a specific\n'
+         'type of bird. I got +1 after adding\n'
+         '"eagle" to the first paragraph and\n'
+         '"swift" to the third, suggesting the\n'
+         'pattern is to incorporate a bird\n'
+         'reference in each paragraph.'),
+        (75, AMBER, "stops immediately",
+         '(nothing further; the turn ends)'),
+    ]
+    for j, (a, c, note, text) in enumerate(cols):
+        x = .012 + j * .345
+        r = ex[a]
+        ax.text(x, 1.0, f"\u03b1 = {a:+d}", transform=ax.transAxes, fontsize=9.5,
+                color=c, fontweight="bold", va="top")
+        ax.text(x + .105, 1.0, note, transform=ax.transAxes, fontsize=8,
+                color=GREY, va="top", style="italic")
+        ax.text(x, .90, f"rating {r['rating']}   \u2502   {r['n_tokens']} token"
+                + ("" if r['n_tokens'] == 1 else "s"),
+                transform=ax.transAxes, fontsize=8.5, color=c, va="top",
+                fontweight="bold", family="monospace")
+        ax.text(x, .79, f"{r['rating']}", transform=ax.transAxes, fontsize=7.4,
+                family="monospace", color="#1F2430", va="top")
+        ax.text(x, .715, text, transform=ax.transAxes, fontsize=7.4,
+                family="monospace", color="#3C414B", va="top", linespacing=1.5)
+
+    ax.add_patch(plt.Rectangle((.008, -.16), .984, .30, transform=ax.transAxes,
+                               facecolor=AMBER, alpha=.10, edgecolor=AMBER,
+                               linewidth=1.3, zorder=1))
+    ax.text(.5, .09, "The extra text at \u03b1 = \u221275 is REPETITION of an "
+            "already-confident conclusion. Not backtracking,", transform=ax.transAxes,
+            fontsize=9.5, ha="center", va="top", fontweight="bold", color="#1F2430")
+    ax.text(.5, .005, "not second-guessing, not exploration. The model states the "
+            "same answer, at the same confidence, for longer.",
+            transform=ax.transAxes, fontsize=9.5, ha="center", va="top",
+            fontweight="bold", color="#1F2430")
+    ax.text(.5, -.085, "So the length effect is a failure to TERMINATE, not a "
+            "change in how the model reasons.", transform=ax.transAxes,
+            fontsize=9, ha="center", va="top", color="#3C414B", style="italic")
+    ax.set_title("(c) One conversation, one prompt, three steering strengths: "
+                 "verbatim generations", loc="left", pad=10)
+
+    fig.suptitle("Steering the axis changes when the model stops talking, not "
+                 "what it concludes", x=.005, y=1.0, ha="left", fontsize=11)
+    fig.savefig(FIGS / "w3_steering.png", bbox_inches="tight", facecolor="white")
+    plt.close(fig)
+    print("  figures/w3_steering.png")
+
+
+def fig_lengthfree():
+    """steering_logits_report.py -- linear dose-response against a random band."""
     rows = [json.loads(l) for l in open(RES / "steering_logits.jsonl")]
     band = RES / "steering_logits_randband.jsonl"
     if band.exists():
         rows += [json.loads(l) for l in open(band)]
     rds = sorted({r["direction"] for r in rows if r["direction"].startswith("random")})
 
-    chans = [("closure", "binary", "log P(end-of-turn)", "log-probability"),
-             ("yes_minus_no", "binary", "logit(Yes) \u2212 logit(No)", "logits"),
-             ("exp_rating", "digit", "E[rating]", "rating points, 0\u20139")]
+    chans = [("closure", "binary", "log P(end-of-turn)", "natural-log units",
+              "does steering make the model more likely to stop?"),
+             ("yes_minus_no", "binary", "logit(Yes) \u2212 logit(No)", "logits",
+              'does it change the answer to "do you know the criterion?"'),
+             ("exp_rating", "digit", "E[rating]", "rating points, 0\u20139",
+              "does it change the confidence score it would emit?")]
 
-    fig = plt.figure(figsize=(9.8, 4.0))
-    gs = fig.add_gridspec(3, 2, width_ratios=[1, 1.15], hspace=.85, wspace=.32)
-    a1 = fig.add_subplot(gs[:, 0])
-
-    # (a) generation readout: both rows are Spearman rho, so one axis is honest
-    corr, ship = [-0.959, -0.160], [-0.783, +0.003]
-    y = np.arange(2)
-    a1.barh(y + .19, ship, .34, color=GREY, label="shipped axis", zorder=3)
-    a1.barh(y - .19, corr, .34, color=INDIGO, label="corrected axis", zorder=3)
-    for yy, v in zip(y - .19, corr):
-        a1.text(v + .03, yy, f"{v:+.3f}", ha="left", va="center", fontsize=8)
-    a1.axvline(0, color="#C3C8D1", lw=1)
-    a1.set_yticks(y)
-    a1.set_yticklabels(["response\nlength", "verbalized\nconfidence"])
-    a1.set_xlim(-1.1, .55)
-    a1.set_xlabel("Spearman \u03c1 with steering strength \u03b1,\nmean over prefixes")
-    a1.set_title("(a) generation readout", loc="left", pad=8)
-    a1.legend(loc="upper left", frameon=False)
-
-    # (b) length-free readout. Each channel has its OWN units -- log-probability,
-    # logits, rating points -- so they get their own axes rather than one shared
-    # scale that would make the comparison look like something it is not.
-    for i, (key, probe, lab, unit) in enumerate(chans):
-        ax = fig.add_subplot(gs[i, 1])
+    fig, axes = plt.subplots(3, 1, figsize=(9.0, 5.8))
+    for ax, (key, probe, lab, unit, question) in zip(axes, chans):
         bc = quad_b(rows, "corrected", key, probe).mean()
         bs = np.array([quad_b(rows, dd, key, probe).mean() for dd in rds])
-        ax.barh([1], [bc], .5, color=INDIGO, zorder=3)
-        if len(bs) > 1:
-            ax.barh([0], [bs.mean()], .5, color=GREY, zorder=3,
-                    xerr=[[bs.mean() - bs.min()], [bs.max() - bs.mean()]],
-                    ecolor="#5E626C", capsize=3)
-        else:
-            ax.barh([0], [bs.mean()], .5, color=GREY, zorder=3)
+        ax.barh([1], [bc], .52, color=INDIGO, zorder=3)
+        ax.barh([0], [bs.mean()], .52, color=GREY, zorder=3,
+                xerr=[[bs.mean() - bs.min()], [bs.max() - bs.mean()]],
+                ecolor="#5E626C", capsize=4)
         ax.text(bc, 1, f"  {bc:+.2f}", ha="left" if bc > 0 else "right",
-                va="center", fontsize=8)
+                va="center", fontsize=9, fontweight="bold")
         ax.axvline(0, color="#C3C8D1", lw=1)
         ax.set_yticks([1, 0])
-        ax.set_yticklabels(["value axis",
-                            f"random\u00d7{len(bs)}" if len(bs) > 1 else "random\u00d71"],
-                           fontsize=8)
+        ax.set_yticklabels(["the value axis", f"{len(bs)} random\ndirections"],
+                           fontsize=8.5)
         lo, hi = min(0, bs.min(), bc), max(0, bs.max(), bc)
-        pad = (hi - lo) * .35 + 1e-9
+        pad = (hi - lo) * .38 + 1e-9
         ax.set_xlim(lo - pad, hi + pad)
-        ax.set_title(f"{lab}   ({unit})", loc="left", fontsize=8.5, pad=4)
-        if len(bs) > 1:                       # how far outside the random spread
-            k = (bc - bs.mean()) / bs.std(ddof=1)
-            ax.text(.99, .04, f"{k:+.1f} sd vs random", transform=ax.transAxes,
-                    ha="right", va="bottom", fontsize=7.5, color="#5E626C")
-        ax.tick_params(labelsize=7.5)
-        if i == len(chans) - 1:
-            ax.set_xlabel("linear dose-response b over \u03b1 \u2208 [\u221275, +75]",
-                          fontsize=8.5)
-
-    fig.text(.545, 1.015, "(b) length-free readout \u2014 one forward pass, nothing "
-             "generated", fontsize=9.5, ha="left")
-    fig.suptitle("Steering shortens responses (\u03c1 = \u22120.96); in the "
-                 "length-free readout only the confidence\nchannel clears the "
-                 "random-direction band", x=.005, y=1.16, ha="left", fontsize=10.5)
-    fig.savefig(FIGS / "w3_steering.png", bbox_inches="tight", facecolor="white")
+        k = (bc - bs.mean()) / bs.std(ddof=1)
+        inside = bc <= bs.max()
+        ax.text(.995, 1.06, f"{k:+.1f} sd from the random mean, "
+                + ("INSIDE the random range" if inside
+                   else "outside the random range"),
+                transform=ax.transAxes, ha="right", va="bottom", fontsize=8,
+                color=AMBER if inside else "#3C414B",
+                fontweight="bold" if inside else "normal")
+        ax.set_title(f"{lab}  ({unit}):  {question}", loc="left",
+                     fontsize=9, pad=14)
+        ax.tick_params(labelsize=8)
+    axes[-1].set_xlabel("linear dose-response b: change in the readout across "
+                        "\u03b1 \u2208 [\u221275, +75]", fontsize=9)
+    fig.suptitle("Length-free readout, against 7 random directions of the same "
+                 "size: end-of-turn and\nconfidence both move, the graded rating "
+                 "does not", x=.005, y=1.06, ha="left", fontsize=10.5)
+    fig.tight_layout()
+    fig.savefig(FIGS / "w3b_lengthfree.png", bbox_inches="tight", facecolor="white")
     plt.close(fig)
-    print("  figures/w3_steering.png")
+    print("  figures/w3b_lengthfree.png")
 
 
 # --------------------------------------------------------------- fig 4: retry
@@ -470,4 +555,5 @@ def fig_eos():
 
 if __name__ == "__main__":
     print("writing figures:")
-    fig_ramp(); fig_prefill(); fig_steering(); fig_retry(); fig_bug(); fig_eos()
+    fig_ramp(); fig_prefill(); fig_steering(); fig_lengthfree()
+    fig_retry(); fig_bug(); fig_eos()

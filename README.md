@@ -1,8 +1,8 @@
 # What is the value axis a value function *of*?
 
-A replication of **The Value Axis** — Jiang, Kauvar & Lindsey,
+A replication of **The Value Axis**, Jiang, Kauvar & Lindsey,
 [arXiv 2606.17056](https://arxiv.org/abs/2606.17056),
-code [nickjiang2378/value-axis](https://github.com/nickjiang2378/value-axis) — on
+code [nickjiang2378/value-axis](https://github.com/nickjiang2378/value-axis), on
 Qwen3-8B, plus evidence that on the paper's own construction corpus the direction
 dominantly tracks **proximity to episode closure** rather than how well the model
 is doing.
@@ -17,7 +17,7 @@ Two results in one line each:
   paper's own effect *stronger*: held-out AUROC 0.850 → 0.880.
 - **The construction contrast is confounded with position in the response**, and
   on byte-identical text a "give up" prefill projects *above* a "found it, more
-  to go" prefill — the sign a completion signal predicts and a value signal does
+  to go" prefill, the sign a completion signal predicts and a value signal does
   not.
 
 ---
@@ -52,12 +52,12 @@ A Jupyter kernel `value-axis-adapt (.venv)` is registered for the notebooks.
 ```
 WRITEUP.md              The argument. Read this first.
 modal_app.py            Every GPU step: projections, axis rebuild, steering.
-corrected_spans.py      The bug fix — structural span location.
+corrected_spans.py      The bug fix, structural span location.
 turns.py                Structural conversation parser everything relies on.
 results/MANIFEST.md     What every artifact is and how to regenerate it.
 replication.ipynb       Phase 1 replication, and the alignment audit (cell D3).
 lucky_vs_earned.ipynb   Attempt-level exploratory tables and EDA.
-value-axis/             Upstream, cloned (gitignored — see Setup).
+value-axis/             Upstream, cloned (gitignored, see Setup).
 ```
 
 Most of `results/` is gitignored: it is 1.6 GB of activation projections.
@@ -118,7 +118,7 @@ only need rerunning if you want to regenerate them (they cost API calls).
 
 ## Three things to know before you touch this
 
-**1. Layer indexing.** `value_axis.npy` is `(37, 4096)` — `num_hidden_layers + 1`,
+**1. Layer indexing.** `value_axis.npy` is `(37, 4096)`, `num_hidden_layers + 1`,
 because index 0 is the embedding output. Index 21, the paper's layer, is
 therefore the output of transformer block 20. Use `hidden_states[21]` and stay
 consistent.
@@ -126,15 +126,15 @@ consistent.
 **2. The repo's CPU-only AUROC is not Figure 2a.**
 `construction/compute_vector.py`'s `evaluate_heldout_auroc` projects *one*
 before-mean and *one* after-mean per held-out reward function and calls
-`roc_auc_score` on two points — which is 1.0 exactly when `after > before`. It
+`roc_auc_score` on two points, which is 1.0 exactly when `after > before`. It
 saturates at ≥ 0.98 on 34 of 37 layers and its argmax is layer 2, not 21. The
 paper's stated task is classifying paragraph *tokens*, which needs forward
 passes. That is why `modal_app.py` exists, and why the token-level AUROC is the
 replication target here.
 
 **3. Some artifacts predate the bug fix.** Anything in `results/` marked
-superseded in the manifest — `projections.npz`, `attempts.npz`,
-`discovery_tokens.npz`, `delta_projection.csv` — carries
+superseded in the manifest, `projections.npz`, `attempts.npz`,
+`discovery_tokens.npz`, `delta_projection.csv`, carries
 cosines against the **shipped** axis. Re-project against
 `results/value_axis_corrected.npy` before using any number from them. The one
 thing `projections.npz` is still exactly right for is the alignment audit in
@@ -144,7 +144,7 @@ thing `projections.npz` is still exactly right for is the alignment audit in
 
 ## Units
 
-Every projection is a cosine against the unit axis at a given layer — the paper's
+Every projection is a cosine against the unit axis at a given layer, the paper's
 Eq. 2 metric. Anchors for judging any of them:
 
 | Quantity | Value |
@@ -155,4 +155,4 @@ Eq. 2 metric. Anchors for judging any of them:
 | The paper's own headline behavioral effects | 0.02 – 0.04 |
 
 "Held-out" always means **function-held-out**, using the paper's exact split
-seeding (`Random(si*42)`, 35/13, ten splits) — not held out over conversations.
+seeding (`Random(si*42)`, 35/13, ten splits), not held out over conversations.
