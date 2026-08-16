@@ -1,48 +1,54 @@
 # Is it really a value axis? End of Assistant turn likelihood seems better
+
 A replication of **The Value Axis** (Jiang, Kauvar & Lindsey, [arXiv 2606.17056](https://arxiv.org/abs/2606.17056))
 on Qwen3-8B, and causal evidence that much of what the direction carries is
 **proximity to episode closure**, i.e. how near the Assistant is to being finished,
-rather than how well it is doing (although they are highly correlated since the Assistant usually finishes when they complete the task)
+rather than how well it is doing (although the two are highly correlated, since the Assistant usually finishes when it completes the task).
 
 **The construction contrast does not measure a value update.** It is unchanged by
 where you cut the paragraph and it appears 34% *larger* in failed attempts split
 at a word that earned nothing
 ([§3](#3-the-construction-contrast-is-invariant-to-where-you-cut)).
+<br>
+### Evidence supporting end-of-turn proximity
 
-### Evidence supporting end-of-turn specifically
-
-1. **Positive steering makes responses shorter, negative steering makes responses longer.** Response length tracks steering strength at Spearman −0.96 ([§2](#2-steering-shortens-responses)) and text that is unrelated to high vs low confidence/value.
-2. **Projection onto the axis, where value and end-of-turn proximity dissociate.**
-   On byte-identical text, a prefill that is low-value but about to end the turn
+1. **Projection onto the axis, where value and end-of-turn proximity dissociate.**
+   A prefill that is low-value but about to end the turn
    projects *above* one that is high-value with much left to write, the ordering
    value predicts against, in 65 of 65 conversations and 18 of 18 phrasing × tail
    cells ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)).
-3. **Unembedding shows typically appearing at end of assistant response.** The corrected axis promotes *afterwards, thereafter,
-   follow-up, ending* ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)).
+2. **Positive steering makes responses shorter, negative steering makes responses longer.**
+   Response length tracks steering strength at Spearman −0.96
+   ([§2](#2-steering-shortens-responses)), and the extra text is unrelated to high
+   versus low confidence or value: in the long-response example the Assistant
+   simply rambles about how it is correct.
+3. **Unembedding promotes words that typically appear at the end of an assistant response.**
+   The corrected axis promotes *afterwards, thereafter, follow-up, ending*
+   ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)).
+<br>
+### Reinterpretation of paper findings through an end-of-turn lens
+**"Verbalized confidence in AIME questions"**: answering "no" to whether its answer
+is correct is consistent with the model estimating that it will keep responding for
+longer than when it answers "yes".
 
-### Reinterpretation of paper findings through end-of-turn lens
-**"Verbalized confidence in AIME questions"**: When answering "no" to whether its answer is correct
-it is consistent with the model estimating that it will continue responding than when it answers yes.
+**"Backtracking presence on AIME questions"**: modulating the model's estimate of how
+much longer its response should be is consistent with producing more backtracking.
 
-**"Backtracking presence on AIME questions"**: Modulating the model's estimate of how
-much longer its response should be is consistent with more backtracking.
+**"Coding verbosity"**: modulating the model's estimate of how much longer its
+response should be is very consistent with fewer lines of code, fewer comments, and
+less use of type hints.
 
-**"Coding verbosity"**: Modulating the model's estimate of how
-much longer its response should be is very consistent with less lines of code, number of
-comments, and use of type hints.
-
-**"Training the models to prefer words increases the value of those words. The value increase on preferred words generalizes to natural sentences"**: In the DPO setup
+**"Training the models to prefer words increases the value of those words. The value increase on preferred words generalizes to natural sentences"**: in the DPO setup
 the preferred word is always at the end of the assistant response. Increasing
 the likelihood of the sequence ending in "Assistant: dolphin" is consistent with teaching
-the model to output the end of turn token after "dolphin" or more generally to be more likely to 
-end its response after outputing "dolphin". As a result, the projection of the end soon axis
+the model to output the end of turn token after "dolphin" or more generally to be more likely to
+end its response after outputting "dolphin". As a result, the projection of the end-soon axis
 onto the DPOed word increases and "preferred" DPOed words lead to shorter responses whereas
 "avoided" DPOed words lead to longer responses ("more verbosity"). This seems a significantly
 more natural interpretation of the discovered axis than associating verbosity with value/preference.
 
-
-
-**Backtracking, self-correction and the AIME correlations** are real effects of this direction. The harder the task,
+Why these reinterpretations all work: backtracking, self-correction and the AIME
+correlations are real effects of this direction. The harder the task,
 the more tokens are needed to reach a solution and the higher the probability of
 backtracking and self-correction. Completion probability and expected
 reward/value are strongly correlated in the settings tested and during
@@ -51,26 +57,24 @@ assigned task, shortly after they output the end of turn token. A direction that
 proximity-to-done will therefore behave like a value function almost everywhere.
 This corpus is unusual in letting the two come apart.
 
-**Base model discrepancies**. These are consistent with the base model, which hasn't been trained to
-follow User, Assistant motif and return end of turn tokens at the end of the Assistant response, not having been
-optimized to track how close assistant is to finishing response and outputting end_of_turn token.
-
+**Base model discrepancies**: the axis is weaker or absent in the base model. A base
+model has not been trained on the User/Assistant motif and does not emit an end-of-turn
+token to close an Assistant response, so it has had no pressure to track how close that
+response is to finishing. An end-of-turn direction should therefore be a post-training
+artefact, which is what is observed; a general "value" or "welfare" direction has less
+reason to be.
+<br>
 
 ## 1. When value and end-of-turn proximity conflict, the axis follows end-of-turn
 
-This is the test that names the quantity, by putting value and
-distance-to-end-of-turn in direct opposition on *identical* tokens.
-([§3](#3-the-construction-contrast-is-invariant-to-where-you-cut) separately shows that the contrast the axis was *built* from does
-not measure a value update at all.)
-
 Truncate a real conversation after three failed attempts and prefill the
-assistant turn one of two ways, then append a **byte-identical tail** to both.
+assistant turn one of two ways, then append an identical tail to both.
 Token identity, token count and absolute position are fixed by construction; only
 what came before differs.
 
 Arm A announces it has solved the criterion but has ten more paragraphs to write:
 **high value, end-of-turn far away**. Arm B gives up without ever having
-succeeded: **low value, end-of-turn imminent**. A value or welfare direction
+succeeded: **low value, end-of-turn imminent**. A value or confidence direction
 predicts A projects above B. A direction tracking proximity to the end of the
 turn predicts the reverse.
 
@@ -84,8 +88,8 @@ random-direction control of +0.0004 on the very same tokens. It holds in **65 of
 this is not a mean dragged by outliers.
 
 A single phrasing pair could carry something idiosyncratic, so the whole thing was
-rerun with 3 phrasings per arm × 2 different tails. **All 18 cells are
-completion-signed, in 100% of conversations.** Gaps run 0.0087 to 0.0566 cosine,
+rerun with 3 phrasings per arm × 2 different tails. **All 18 cells run in the
+end-of-turn direction, in 100% of conversations.** Gaps run 0.0087 to 0.0566 cosine,
 i.e. 5% to 34% of the dynamic range, and the original pair turns out to be the
 *weakest* of the set. Pooled per phrasing: 0.0286 (t = −16.0), 0.0403 (t = −26.3),
 0.0381 (t = −40.8), n = 130 each.
@@ -106,19 +110,20 @@ survive the correction (`想办法` at rank 14) but they are not what the cleane
 direction is mostly made of. Only 10 of the 30 overlap with the released axis's
 top-30, so this is largely a view the bug was obscuring. Nothing rests on a logit
 lens alone.
+<br>
 
 ## 2. Steering shortens responses
-
-Using the paper's own paradigm (the unit direction at layer 21 added as `α·d` by
-a forward hook on decoder block 20, at every position throughout generation,
-α ∈ [−75, +75], temperature 0.7, top_p 0.9) across 15 conversations × 2
-truncation states, probing for a 0–10 confidence rating and an explanation.
 
 ![Response length, stated confidence, and a worked example](figures/w3_steering.png)
 
 Length collapses 75-fold across the steering range, from the 300-token cap at
 α = −75 to a mean of 4 tokens at α = +75, while the confidence the model *states*
 stays between 7.5 and 8.9 out of 10 throughout.
+
+This uses the paper's own steering paradigm: the unit direction at layer 21 added as
+`α·d` by a forward hook on decoder block 20, at every position throughout generation,
+α ∈ [−75, +75], temperature 0.7, top_p 0.9, across 15 conversations × 2 truncation
+states, probing for a 0–10 confidence rating and an explanation.
 
 **This is not the paper's backtracking effect.** The obvious alternative reading
 is that steering low makes the model explore and second-guess, and that the extra
@@ -130,8 +135,9 @@ it's the correct criterion... I'm confident it's the correct criterion..."*. At
 α = −50 the model re-opens a `<thinking>` block and repeats the paragraph
 verbatim. There is no exploration, no revision, no reconsidered hypothesis. The
 model says the same thing for longer, and at α = +75 it says the rating and
-stops. The length effect is a failure to **terminate**, not a change in how the
+stops. The length effect is a failure to terminate, not a change in how the
 model reasons.
+<br>
 
 ## 3. The construction contrast is invariant to where you cut
 
@@ -160,12 +166,13 @@ The criterion contrast moves by about 7% of itself while the cut travels through
 **−0.077** (p = 4.5 × 10⁻³, n = 1358 attempts; −0.165 without the trim). That is
 the ramp signature.
 
-**The placebo is the sharper test.** Split *failing* attempts at the word the
-model itself said it was targeting. These earn −1, no criterion is met anywhere
+**The contrast is 34% larger when the model is wrong, before it has discovered the
+rule.** Split *failing* attempts at the word the model itself said it was targeting. These earn −1, no criterion is met anywhere
 in them, and the cut word earned nothing, yet the contrast is not smaller. It is
 **34% larger** (+0.219 against +0.163 cosine, n = 1140) and equally flat in cut
 position (ρ = −0.112). A contrast that survives at full size where no reward was
 delivered is not a measurement of the reward event.
+<br>
 
 ## 4. Scope and limits
 
@@ -178,7 +185,7 @@ delivered is not a measurement of the reward event.
   whether steering it does something.
 - **The evidence is all on the construction corpus**, not AIME or Arena.
 
-Smaller caveats: the steering experiments are 15 conversations, one seed per
+Smaller caveats: the steering experiment is 15 conversations, one seed per
 condition and one probe phrasing; the layer
 picture is not uniform, with a small counter-signed band around layers 25–27 in
 the prefill probes; and the LLM-judged labels behind the placebo split are
@@ -188,6 +195,7 @@ Throughout, "held-out" means **function-held-out**: the direction was built
 without that criterion's data, using the paper's exact split seeding
 (`Random(si*42)`, 35/13, ten splits). It does not mean held out over
 conversations. Every measurement above uses the corrected axis ([see the bug section](#unrelatedly-a-span-localization-bug-misplaces-62-of-the-training-tokens)).
+<br>
 
 ## Unrelatedly, a span-localization bug misplaces 62% of the training tokens
 
@@ -253,6 +261,7 @@ one**: roughly 62% of the training signal was a user-text-versus-assistant-text
 contrast riding on top of the intended one, and on the 146 conversations where
 the localizer happened to land correctly the effect is present and slightly
 stronger.
+<br>
 
 ## Reproducing
 
