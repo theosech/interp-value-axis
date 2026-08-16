@@ -24,7 +24,7 @@ where you cut the paragraph and it appears 34% *larger* in failed attempts split
    follow-up, ending* (§3).
 
 **More speculatively***
-
+"Verbalized confidence in AIME questions": 
 
 This does not overturn the behavioral results. Backtracking, self-correction and
 the AIME correlations are real effects of this direction. The harder the task,

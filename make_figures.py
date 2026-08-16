@@ -90,8 +90,8 @@ def fig_ramp():
     r = ax.secondary_yaxis("right", functions=(lambda v: v / RANGE * 100,
                                                lambda v: v * RANGE / 100))
     r.set_ylabel("as % of the axis's full before/after swing (0.165)")
-    ax.set_title("The contrast does not depend on where you cut — and survives "
-                 "where no reward was given", loc="left", pad=10)
+    ax.set_title("Contrast is flat across cut position; the no-reward placebo "
+                 "is 34% larger", loc="left", pad=10)
     ax.legend(loc="lower left", framealpha=.95)
     save(fig, "w1_ramp.png")
 
@@ -391,14 +391,14 @@ def fig_retry():
     deps = sorted(set(depth[retry].tolist()))
 
     fig, ax = plt.subplots(figsize=(7.2, 3.4))
-    for a, c, lab in [("diverse", INDIGO, "diverse — every attempt a new rewrite"),
-                      ("duplicate", AMBER, "duplicate — attempts 6-20 repeat verbatim\n"
+    for a, c, lab in [("diverse", INDIGO, "diverse: every attempt a new rewrite"),
+                      ("duplicate", AMBER, "duplicate: attempts 6-20 repeat verbatim\n"
                                            "(zero new information about the criterion)")]:
         ys = [cos[retry & (depth == k) & (arm == a)].mean() for k in deps]
         ax.plot(deps, ys, marker="o", ms=3.5, lw=1.4, color=c, label=lab, zorder=3)
     ax.axvline(5.5, color=GREY, ls=":", lw=1)
     ax.text(5.7, -0.056, "arms diverge here", fontsize=7.5, color=GREY)
-    ax.annotate("a value account needs the climb to REVERSE\nout here — it never does",
+    ax.annotate("a value account needs the climb to REVERSE\nout here; it never does",
                 xy=(18.5, -0.028), xytext=(9.6, -0.0165), fontsize=7.5, color="#3C414B",
                 arrowprops=dict(arrowstyle="->", color=GREY, lw=.9))
     ax.set_xlabel("consecutive failed attempts on the same paragraph")
