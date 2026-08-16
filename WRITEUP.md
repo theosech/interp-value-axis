@@ -10,21 +10,16 @@ rather than how well it is doing.
 ## The claim
 
 **The construction contrast does not measure a value update.** It is unchanged by
-where you cut the paragraph, the algebraic signature of a monotone ramp, and it
-appears 34% *larger* in failed attempts split at a word that earned nothing (§1).
+where you cut the paragraph and it appears 34% *larger* in failed attempts split.
 
-**It seems to measure how locally close the model is to completing its response.**
-Three lines of evidence:
+**It seems to measure how close the model is to completing its response:**
 
-1. **Causally, steering it moves when the model stops.** Response length tracks
-   steering strength at Spearman −0.96 (§2). A length-free version of the same
-   test — one forward pass, no generation — moves the end-of-turn logit hard
-   (+12.9), but against a band of seven random directions less decisively than
-   that number suggests; §2 is the section with the most caveats.
-2. **Projection onto the axis.** On byte-identical text, a "give up and call it
-   done" prefill projects *above* a "found the criterion, ten paragraphs still to
-   go" prefill — the ordering value predicts against — in 65 of 65 conversations
-   and 18 of 18 phrasing × tail cells (§3).
+1. **Positive steering makes responses shorter, negative steering makes responses longer** Response length tracks steering strength at Spearman −0.96 (§2)
+2. **Projection onto the axis, where value and end-of-turn proximity conflict.**
+   On byte-identical text, a prefill that is low-value but about to end the turn
+   projects *above* one that is high-value with much left to write — the ordering
+   value predicts against — in 65 of 65 conversations and 18 of 18 phrasing × tail
+   cells (§3).
 3. **Unembedding.** The corrected axis promotes *afterwards, thereafter,
    follow-up, ending* (§3).
 
@@ -167,26 +162,27 @@ random-direction arm of its own, which is the most valuable thing left to add.
 
 ---
 
-## 3. A give-up prefill projects above a success prefill on identical text
+## 3. When value and end-of-turn proximity conflict, the axis follows end-of-turn
 
 §1 shows the construction contrast is not a value update. This is the test that
-names the quantity, by constructing a case where value and completion predict
-opposite things about *identical* tokens.
+names the quantity, by putting value and distance-to-end-of-turn in direct
+opposition on *identical* tokens.
 
 Truncate a real conversation after three failed attempts and prefill the
 assistant turn one of two ways, then append a **byte-identical tail** to both.
 Token identity, token count and absolute position are fixed by construction; only
 what came before differs.
 
-Arm A announces it has solved the criterion but has ten paragraphs left to write:
-high value, low completion. Arm B gives up without ever having succeeded: low
-value, high completion. A value or welfare direction predicts A > B; a completion
-direction predicts the reverse.
+Arm A announces it has solved the criterion but has ten more paragraphs to write:
+**high value, end-of-turn far away**. Arm B gives up without ever having
+succeeded: **low value, end-of-turn imminent**. A value or welfare direction
+predicts A projects above B. A direction tracking proximity to the end of the
+turn predicts the reverse.
 
 ![The two prefills, and the per-conversation paired difference](figures/w2_prefill.png)
 
-B is higher everywhere, including on the tail, where the two arms are the same
-bytes in the same positions. On that tail the gap is **0.0087 cosine**
+B projects higher everywhere, including on the tail, where the two arms are the
+same bytes in the same positions. On that tail the gap is **0.0087 cosine**
 (95% CI ±0.0005, t = −32.4) — about 5% of the axis's full 0.165 swing, against a
 random-direction control of +0.0004 on the very same tokens. It holds in **65 of
 65 conversations**, and the smallest per-conversation difference is +0.0038, so
@@ -322,31 +318,6 @@ contrast riding on top of the intended one, and on the 146 conversations where
 the localizer happened to land correctly the effect is present and slightly
 stronger.
 
-### Replication baseline
-
-For completeness, the released-axis replication over 47,863 labeled tokens, 380
-conversations and 48 reward functions passes: the axis rebuilds bit-identically
-from the released activation means (`max|diff| = 0.0`); held-out token AUROC is
-0.850 ± 0.017 at layer 21 against 0.802 at layer 5, peaking at layer 20; random
-directions score 0.516 ± 0.051 and shuffled labels 0.500 ± 0.003, both at chance.
-
-Two gaps. **We get 0.850 where the paper reports 0.95+** — the aggregation unit
-explains most of it, since pooling tokens across criteria mixes per-criterion
-baseline offsets, and computed per conversation the same layer gives
-0.928 ± 0.112. The paper does not state its aggregation unit, so this is a
-plausible rather than a confirmed reconciliation. **Layer choice matters less than
-Fig 2a implies** — 0.802 at layer 5 against 0.850 at layer 21, with a broad flat
-curve from roughly layer 4 to layer 30.
-
-One methodological note, offered as a caution rather than a criticism.
-`compute_vector.py`'s `evaluate_heldout_auroc` projects *one* before-mean and
-*one* after-mean per held-out function and calls `roc_auc_score` on two points,
-which returns 1.0 exactly when `after > before`. It saturates at ≥ 0.98 on 34 of
-37 layers and its argmax is layer 2. The paper's stated task is classifying
-paragraph *tokens*, which needs forward passes — so the token-level number is the
-replication target used throughout.
-
----
 
 ## Reproducing
 

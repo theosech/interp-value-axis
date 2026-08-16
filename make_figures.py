@@ -121,20 +121,20 @@ def fig_prefill():
             acc.setdefault(c, []).append(v)
         return {c: float(np.mean(v)) for c, v in acc.items()}
 
-    fig = plt.figure(figsize=(9.4, 6.2))
-    gs = fig.add_gridspec(2, 1, height_ratios=[1.05, 1], hspace=.28)
+    fig = plt.figure(figsize=(9.8, 6.0))
+    gs = fig.add_gridspec(2, 1, height_ratios=[.98, 1], hspace=.13)
 
     # ---- top: the two prefills, verbatim, with the segments marked -----------
     ax = fig.add_subplot(gs[0]); ax.axis("off"); ax.grid(False)
     arms = [
-        (INDIGO, "ARM A \u2014 high value, low completion",
+        (INDIGO, "ARM A \u2014 high value, EOS far",
          "I am now confident that I have finally\n"
          "identified the hidden criterion\u2026 I will\n"
          "produce ten additional rewritten versions.",
          "I've figured out the criterion. Here are\n"
          "ten more versions of the paragraph, each\n"
          "one satisfying it:"),
-        (AMBER, "ARM B \u2014 low value, high completion",
+        (AMBER, "ARM B \u2014 low value, EOS soon",
          "I have tried many different approaches\n"
          "now and none of them has earned a +1\u2026 the\n"
          "most sensible move is to stop here.",
@@ -142,35 +142,38 @@ def fig_prefill():
          "tell me more about what the hidden\n"
          "criterion involves?"),
     ]
+    TAIL_TXT = ('"Please let me know how you would\n'
+                ' like me to proceed."')
     for j, (c, title, think, body) in enumerate(arms):
-        x = .015 + j * .52
-        ax.text(x, .97, title, transform=ax.transAxes, fontsize=9,
+        x = .015 + j * .53          # text column
+        xl = x + .345               # segment label, immediately right of the text
+        ax.text(x, .99, title, transform=ax.transAxes, fontsize=9,
                 color=c, fontweight="bold", va="top")
-        ax.text(x, .865, "<thinking>", transform=ax.transAxes, fontsize=7,
+
+        ax.text(x, .885, "<thinking>", transform=ax.transAxes, fontsize=7,
                 family="monospace", color=GREY, va="top")
-        ax.text(x, .815, think, transform=ax.transAxes, fontsize=7,
+        ax.text(x, .835, think, transform=ax.transAxes, fontsize=7,
                 family="monospace", color=c, va="top", linespacing=1.45)
-        ax.text(x, .625, "</thinking>", transform=ax.transAxes, fontsize=7,
+        ax.text(x, .650, "</thinking>", transform=ax.transAxes, fontsize=7,
                 family="monospace", color=GREY, va="top")
-        ax.text(x, .565, body, transform=ax.transAxes, fontsize=7,
+        ax.text(xl, .765, "thinking", transform=ax.transAxes, fontsize=8,
+                color="#3C414B", va="center", style="italic")
+
+        ax.text(x, .590, body, transform=ax.transAxes, fontsize=7,
                 family="monospace", color=c, va="top", linespacing=1.45)
-    # the shared tail, drawn once across the full width
-    ax.add_patch(plt.Rectangle((.02, .10), .96, .17, transform=ax.transAxes,
-                               facecolor="#1F243010", edgecolor="#1F2430",
-                               linewidth=1.1, zorder=1))
-    ax.text(.5, .225, "TAIL \u2014 appended verbatim to BOTH arms",
-            transform=ax.transAxes, fontsize=8, ha="center", va="top",
-            fontweight="bold", color="#1F2430")
-    ax.text(.5, .155, '"Please let me know how you would like me to proceed."',
-            transform=ax.transAxes, fontsize=8, ha="center", va="top",
-            family="monospace", color="#1F2430")
-    ax.annotate("", xy=(.30, .29), xytext=(.30, .46), xycoords="axes fraction",
-                arrowprops=dict(arrowstyle="->", color=INDIGO, lw=1.1))
-    ax.annotate("", xy=(.70, .29), xytext=(.70, .46), xycoords="axes fraction",
-                arrowprops=dict(arrowstyle="->", color=AMBER, lw=1.1))
-    ax.set_title("The two prefilled assistant turns, verbatim. Only the tail is "
-                 "shared, so only the tail\nholds token identity, count and "
-                 "position fixed across arms.", loc="left", pad=6, fontsize=9.5)
+        ax.text(xl, .520, "body", transform=ax.transAxes, fontsize=8,
+                color="#3C414B", va="center", style="italic")
+
+        # the tail is repeated under each arm, in ink rather than the arm colour,
+        # because it is the one segment the two arms share
+        ax.text(x, .320, TAIL_TXT, transform=ax.transAxes, fontsize=7,
+                family="monospace", color="#1F2430", va="top", linespacing=1.45)
+        ax.text(xl, .275, "tail", transform=ax.transAxes, fontsize=8,
+                color="#1F2430", va="center", style="italic", fontweight="bold")
+
+    ax.set_title("The two prefilled assistant turns, verbatim. The tail is shared, "
+                 "so only there are token\nidentity, count and position fixed "
+                 "across arms.", loc="left", pad=6, fontsize=9.5)
 
     # ---- bottom: every per-conversation paired difference --------------------
     a2 = fig.add_subplot(gs[1])
@@ -197,8 +200,8 @@ def fig_prefill():
     a2.set_xlim(-.45, 2.78)
     a2.set_ylabel("B \u2212 A, per conversation  (cosine, layer 21)")
     a2.set_title("Paired difference, one dot per conversation; black marker is the "
-                 "mean with its 95% CI.\nAbove zero means the give-up arm projects "
-                 "higher \u2014 the ordering value predicts against.",
+                 "mean with its 95% CI.\nAbove zero = the arm nearer end-of-turn "
+                 "projects higher, the opposite of what value predicts.",
                  loc="left", pad=8, fontsize=9.5)
     fig.savefig(FIGS / "w2_prefill.png", bbox_inches="tight", facecolor="white")
     plt.close(fig)
