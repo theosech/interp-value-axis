@@ -1676,7 +1676,7 @@ def steering_probe(n_convs=15, max_new_tokens=300, temperature=0.7, top_p=0.9,
 
 
 @app.function(image=image, gpu=GPU, volumes={"/cache": hf_cache}, timeout=2 * 60 * 60)
-def steering_logits(n_convs=15, layer=21):
+def steering_logits(n_convs=15, layer=21, random_seeds=(0,), only_random=False):
     """Length-free confidence readout under value-axis steering.
 
     The generation experiment (`steering_probe`) shows alpha moves response
@@ -1733,16 +1733,23 @@ def steering_logits(n_convs=15, layer=21):
                          map_location="cpu", weights_only=False)
     corr = compute_value_axis(means_c)[layer]
     del means_c
-    # Random unit direction at the same layer and the same alpha grid. Large
+    # Random unit directions at the same layer and the same alpha grid. Large
     # |alpha| pushes the residual stream off-distribution whatever direction you
     # push it in, so a readout that moves under BOTH the value axis and a random
-    # direction is measuring steering damage, not the axis's content. This arm
-    # is what makes the other two interpretable.
-    rng = np.random.default_rng(0)
-    rand = rng.normal(size=corr.shape)
+    # direction is measuring steering damage, not the axis's content. These arms
+    # are what make the other two interpretable.
+    #
+    # Use SEVERAL random directions, not one. Hidden states have a large mean
+    # component, so a single fixed random vector acquires an effective sign from
+    # its chance projection onto that mean: +d and -d are not equivalent
+    # perturbations, and its LINEAR coefficient is chance-signed. One vector
+    # gives a point estimate that cannot be distinguished from noise; a handful
+    # gives a band to compare the axis against.
     dirs = {"shipped": torch.tensor(ship / np.linalg.norm(ship), dtype=torch.bfloat16),
-            "corrected": torch.tensor(corr / np.linalg.norm(corr), dtype=torch.bfloat16),
-            "random": torch.tensor(rand / np.linalg.norm(rand), dtype=torch.bfloat16)}
+            "corrected": torch.tensor(corr / np.linalg.norm(corr), dtype=torch.bfloat16)}
+    for sd in random_seeds:
+        r = np.random.default_rng(sd).normal(size=corr.shape)
+        dirs[f"random{sd}"] = torch.tensor(r / np.linalg.norm(r), dtype=torch.bfloat16)
 
     tokenizer = AutoTokenizer.from_pretrained(MODEL)
     tokenizer.padding_side = "left"
@@ -1820,9 +1827,13 @@ def steering_logits(n_convs=15, layer=21):
     chunks = [order[i:i + CHUNK] for i in range(0, len(order), CHUNK)]
 
     rows = []
-    conds = [("shipped", a) for a in ALPHAS] + \
-            [("corrected", a) for a in ALPHAS if a != 0] + \
-            [("random", a) for a in ALPHAS if a != 0]
+    conds = [] if only_random else (
+        [("shipped", a) for a in ALPHAS] +
+        [("corrected", a) for a in ALPHAS if a != 0])
+    if only_random:                    # alpha=0 is direction-independent; carry one copy
+        conds += [(f"random{random_seeds[0]}", 0)]
+    for sd in random_seeds:
+        conds += [(f"random{sd}", a) for a in ALPHAS if a != 0]
     for ci_, (dname, alpha) in enumerate(conds):
         handle = None
         if alpha != 0:
@@ -1871,6 +1882,115 @@ def steering_logits(n_convs=15, layer=21):
               flush=True)
 
     return {"rows": rows}
+
+
+@app.function(image=image, gpu=GPU, volumes={"/cache": hf_cache}, timeout=2 * 60 * 60)
+def eos_association(limit=60, layer=21, n_random=8, seed=0):
+    """Does a token's projection on the value axis predict P(end-of-turn) there?
+
+    The steering result is causal but heavy-handed: it pushes the residual stream
+    far off-distribution. This is the observational version, needing no
+    intervention at all. For every assistant token in a real conversation, record
+    two things at the same position:
+
+        proj  = cos(h_t at `layer`, unit axis)
+        eos   = log P(<|im_end|> | tokens up to t)
+
+    If the axis is a closure signal, these are associated on natural text.
+
+    The obvious confound is position: both the projection and P(end-of-turn) rise
+    toward the end of a turn, so a raw correlation would be trivial. `rel_pos`
+    (position within the assistant turn, 0-1) is stored per token so the
+    association can be recomputed WITHIN position bins -- i.e. at a fixed
+    distance from the end of the turn, does a higher projection still mean a
+    higher probability of stopping?
+
+    Controls: the shipped axis, and `n_random` random unit directions, projected
+    at the same positions so the association can be compared against the spread
+    of what random directions give.
+    """
+    import numpy as np
+    import torch
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+
+    _setup_paths()
+    from common.paths import value_axis
+    from shared import load_conversations
+    from compute_vector import compute_value_axis
+    from turns import parse_turns
+
+    ship = np.load(value_axis())[layer]
+    means_c = torch.load("/root/activation_means_corrected.pt",
+                         map_location="cpu", weights_only=False)
+    corr = compute_value_axis(means_c)[layer]
+    del means_c
+    rng = np.random.default_rng(seed)
+    rand = rng.normal(size=(n_random, corr.shape[0]))
+    rand /= np.linalg.norm(rand, axis=1, keepdims=True)
+
+    D = np.concatenate([[corr / np.linalg.norm(corr)],
+                        [ship / np.linalg.norm(ship)], rand], axis=0)
+    D = torch.tensor(D, dtype=torch.float32).cuda()          # (2+n_random, d)
+
+    tokenizer = AutoTokenizer.from_pretrained(MODEL)
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL, torch_dtype=torch.bfloat16, device_map="cuda")
+    model.eval()
+    im_end = tokenizer.convert_tokens_to_ids("<|im_end|>")
+
+    convs = load_conversations()[:limit]
+    proj_all, eos_all, rel_all, cid_all = [], [], [], []
+    for ci, conv in enumerate(convs):
+        formatted = tokenizer.apply_chat_template(
+            conv["full_messages"], tokenize=False, add_generation_prompt=False,
+            enable_thinking=False)
+        enc = tokenizer(formatted, return_tensors="pt", add_special_tokens=False,
+                        return_offsets_mapping=True, truncation=True,
+                        max_length=8192)
+        ids = enc["input_ids"].cuda()
+        off = enc["offset_mapping"][0].numpy()
+
+        spans = [(t["body_start"], t["body_end"]) for t in parse_turns(formatted)
+                 if t["role"] == "assistant"]
+        if not spans:
+            continue
+
+        with torch.no_grad():
+            # Run the trunk only. Materializing (T x 151936) logits for a whole
+            # conversation is several GB and OOMs an A10G, so the unembedding is
+            # applied in position chunks and reduced to one number per position.
+            out = model.model(input_ids=ids, output_hidden_states=True)
+            h = out.hidden_states[layer][0].float()                   # (T, d)
+            hn = h / h.norm(dim=-1, keepdim=True)
+            pr = (hn @ D.T).cpu().numpy()                             # (T, n_dir)
+            lhs = out.last_hidden_state[0]                            # already normed
+            eos_parts = []
+            for i in range(0, lhs.shape[0], 256):
+                lg = model.lm_head(lhs[i:i + 256]).float()
+                eos_parts.append((lg[:, im_end] - torch.logsumexp(lg, dim=-1)).cpu())
+                del lg
+            eos_lp = torch.cat(eos_parts).numpy()
+        del out, h, hn, lhs, eos_parts
+        torch.cuda.empty_cache()
+
+        for s_, e_ in spans:
+            idx = [i for i in range(len(off) - 1)
+                   if off[i][0] >= s_ and off[i][1] <= e_ and off[i][1] > off[i][0]]
+            if len(idx) < 8:
+                continue
+            for k, i in enumerate(idx):
+                proj_all.append(pr[i]); eos_all.append(eos_lp[i])
+                rel_all.append(k / (len(idx) - 1)); cid_all.append(conv["conversation_id"])
+        if (ci + 1) % 10 == 0:
+            print(f"  {ci+1}/{len(convs)} conversations, {len(eos_all)} tokens",
+                  flush=True)
+
+    return {"proj": np.asarray(proj_all, dtype=np.float32),
+            "eos": np.asarray(eos_all, dtype=np.float32),
+            "rel_pos": np.asarray(rel_all, dtype=np.float32),
+            "conv_id": np.asarray(cid_all),
+            "dir_names": np.asarray(["corrected", "shipped"]
+                                    + [f"random{i}" for i in range(n_random)])}
 
 
 @app.function(image=image, volumes={"/cache": hf_cache}, timeout=30 * 60, memory=32768)
@@ -2102,18 +2222,38 @@ def steering_probe_main(n_convs: int = 15):
 
 
 @app.local_entrypoint()
-def steering_logits_main(n_convs: int = 15):
-    """Length-free confidence readout under steering (answers the Fig-5a objection)."""
-    import json
+def eos_association_main(limit: int = 60):
+    """Observational association between axis projection and P(end-of-turn)."""
+    import numpy as np
     from pathlib import Path
 
     out_dir = Path(__file__).parent / "results"
     out_dir.mkdir(exist_ok=True)
-    res = steering_logits.remote(n_convs=n_convs)
-    with open(out_dir / "steering_logits.jsonl", "w") as f:
+    r = eos_association.remote(limit=limit)
+    np.savez_compressed(out_dir / "eos_association.npz", **r)
+    print(f"wrote {out_dir/'eos_association.npz'}: {len(r['eos'])} tokens")
+
+
+@app.local_entrypoint()
+def steering_logits_main(n_convs: int = 15, random_seeds: str = "0",
+                        only_random: bool = False, out: str = "steering_logits.jsonl"):
+    """Length-free confidence readout under steering (answers the Fig-5a objection).
+
+    --random-seeds "1,2,3" --only-random --out steering_logits_randband.jsonl
+    adds more random control directions without recomputing the axis arms.
+    """
+    import json
+    from pathlib import Path
+
+    seeds = tuple(int(x) for x in random_seeds.split(",") if x.strip())
+    out_dir = Path(__file__).parent / "results"
+    out_dir.mkdir(exist_ok=True)
+    res = steering_logits.remote(n_convs=n_convs, random_seeds=seeds,
+                                 only_random=only_random)
+    with open(out_dir / out, "w") as f:
         for r in res["rows"]:
             f.write(json.dumps(r) + "\n")
-    print(f"wrote {out_dir/'steering_logits.jsonl'}: {len(res['rows'])} rows")
+    print(f"wrote {out_dir/out}: {len(res['rows'])} rows")
 
 
 @app.local_entrypoint()

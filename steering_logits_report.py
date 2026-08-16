@@ -22,18 +22,26 @@ Four channels, per (prefix, direction, alpha):
   closure       log P(<|im_end|>), same position. The channel a closure
                 controller should move.
 
-A RANDOM unit direction is steered at the same alphas as a control. Pushing the
+RANDOM unit directions are steered at the same alphas as a control. Pushing the
 residual stream by |alpha|=75 in ANY direction takes it off-distribution, and an
 off-distribution state degrades every readout. A channel that moves under the
-value axis AND under the random direction is measuring steering damage; only a
+value axis AND under the random directions is measuring steering damage; only a
 channel that separates the two is measuring the axis's content. Read the random
 column first.
 
-Predictions:
-  confidence-encoding  yes_minus_no / p_yes / exp_rating rise with alpha, and
-                       do NOT do so under the random control
-  closure controller   closure rises with alpha beyond the random control; the
-                       confidence channels do not separate from it
+SEVERAL random directions, not one. Hidden states have a large mean component, so
+a single fixed random vector acquires an effective sign from its chance projection
+onto that mean -- +d and -d are not equivalent perturbations, and its LINEAR
+coefficient is chance-signed. The random arm is therefore reported as a BAND
+(mean +/- sd over seeds, and the extreme), and the axis has to sit outside it.
+Extra seeds live in results/steering_logits_randband.jsonl and are merged if
+present.
+
+Predictions, all on the LINEAR term b (not Spearman -- see below):
+  confidence-encoding  yes_minus_no / p_yes / exp_rating have a b outside the
+                       random band
+  closure controller   closure has a b outside the random band; the confidence
+                       channels do not
 
 Dose-response is a per-prefix Spearman across alphas, then a t-test of those
 per-prefix rhos against zero, matching steering_probe_report.py.
@@ -55,7 +63,7 @@ CHANNELS = [
     ("exp_rating", "digit", "E[rating] over 0-9"),
     ("closure", "binary", "log P(im_end)"),
 ]
-DIRECTIONS = ("shipped", "corrected", "random")
+AXES = ("shipped", "corrected")
 
 
 def slopes(rows, dname, key, probe):
@@ -104,9 +112,20 @@ def _t(a):
     return a.mean() / se if se > 0 else float("nan")
 
 
+def rand_dirs(rows):
+    return sorted({r["direction"] for r in rows if r["direction"].startswith("random")})
+
+
 def main():
-    path = ROOT / "results" / "steering_logits.jsonl"
-    rows = [json.loads(l) for l in open(path)]
+    rows = [json.loads(l) for l in open(ROOT / "results" / "steering_logits.jsonl")]
+    band = ROOT / "results" / "steering_logits_randband.jsonl"
+    if band.exists():
+        extra = [json.loads(l) for l in open(band)]
+        seen = {(r["conv_id"], r["state"], r["probe"], r["direction"], r["alpha"])
+                for r in rows}
+        rows += [r for r in extra
+                 if (r["conv_id"], r["state"], r["probe"], r["direction"],
+                     r["alpha"]) not in seen]
     alphas = sorted({r["alpha"] for r in rows})
     prefixes = {(r["conv_id"], r["state"]) for r in rows}
     print(f"{len(rows)} forward passes, {len(prefixes)} prefixes "
@@ -126,7 +145,7 @@ def main():
     print("  early = rule unknown, post = rule known and confirmed.")
     print("  If these separate, the readout is a working confidence measure.")
 
-    for dname in DIRECTIONS:
+    for dname in AXES + tuple(rand_dirs(rows)[:1]):
         print("\n" + "=" * 78)
         print(f"DIRECTION: {dname}   (alpha=0 shared between directions)")
         print("=" * 78)
@@ -163,28 +182,41 @@ def main():
     print("  including random. A real effect of the axis is a b that the random")
     print("  control does not have.")
     print("=" * 78)
-    print(f"  {'channel':<24} {'direction':<10} {'b':>9} {'t(b)':>8} "
-          f"{'c':>9} {'t(c)':>8} {'n':>4}")
+    rds = rand_dirs(rows)
+    print(f"  {'channel':<24} {'direction':<14} {'b':>9} {'t(b)':>8} "
+          f"{'c':>9} {'t(c)':>8}")
     for key, probe, label in CHANNELS:
-        for dname in DIRECTIONS:
+        for dname in AXES:
             b, c = quad(rows, dname, key, probe)
             if len(b) < 3:
                 continue
-            print(f"  {label:<24} {dname:<10} {b.mean():>+9.3f} {_t(b):>+8.1f} "
-                  f"{c.mean():>+9.3f} {_t(c):>+8.1f} {len(b):>4}")
+            print(f"  {label:<24} {dname:<14} {b.mean():>+9.3f} {_t(b):>+8.1f} "
+                  f"{c.mean():>+9.3f} {_t(c):>+8.1f}")
+        # random arm as a band over seeds, not a point estimate
+        bs = [quad(rows, d, key, probe)[0].mean() for d in rds]
+        cs = [quad(rows, d, key, probe)[1].mean() for d in rds]
+        bs, cs = np.array(bs), np.array(cs)
+        sd = bs.std(ddof=1) if len(bs) > 1 else float("nan")
+        print(f"  {'':<24} {'random x' + str(len(rds)):<14} {bs.mean():>+9.3f} "
+              f"{'sd ' + (f'{sd:.3f}' if len(bs) > 1 else 'n/a'):>8} "
+              f"{cs.mean():>+9.3f}")
+        if len(bs) > 1:
+            k = (quad(rows, "corrected", key, probe)[0].mean() - bs.mean()) / sd
+            print(f"  {'':<24} {'':<14} random range [{bs.min():+.3f}, {bs.max():+.3f}]"
+                  f"   corrected is {k:+.1f} sd outside the random mean")
         print()
 
     print("=" * 78)
     print("READING IT")
     print("=" * 78)
     print("  Length cannot explain anything here: nothing was generated.")
-    print("  Compare each channel's rho against the SAME channel's rho under the")
-    print("  random direction. A channel whose rho is matched by the random")
-    print("  control is reporting off-distribution damage from a large-norm")
-    print("  intervention, not the content of the value axis. Also check whether")
-    print("  each column is MONOTONE in alpha -- a U-shape symmetric about the")
-    print("  unsteered value is the damage signature, and Spearman will report it")
-    print("  as a slope if one arm rises more than the other.")
+    print("  Compare each channel's LINEAR term b against the random band for the")
+    print("  same channel. A b inside the band is off-distribution damage from a")
+    print("  large-norm intervention, not the content of the value axis.")
+    print("  The quadratic term c is the damage itself and is large under every")
+    print("  direction -- which is why Spearman on these profiles misleads: a")
+    print("  U-shape symmetric about the unsteered value reports as a slope")
+    print("  whenever one arm rises further than the other.")
 
 
 if __name__ == "__main__":
