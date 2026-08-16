@@ -99,7 +99,8 @@ uv run modal run modal_app.py::assistant_headers_main   # header spans (1.28 GB 
 uv run modal run modal_app.py::attempts_main --corrected
 uv run modal run modal_app.py::steering_probe_main      # generation steering
 uv run modal run modal_app.py::steering_logits_main     # length-free steering
-uv run modal run modal_app.py::logit_lens_main
+uv run modal run modal_app.py::logit_lens_main --corrected   # the one to cite
+uv run modal run modal_app.py::logit_lens_main               # shipped axis, for comparison
 ```
 
 Two need a local build step first:
@@ -133,7 +134,7 @@ replication target here.
 
 **3. Some artifacts predate the bug fix.** Anything in `results/` marked
 superseded in the manifest — `projections.npz`, `attempts.npz`,
-`discovery_tokens.npz`, `delta_projection.csv`, `logit_lens.json` — carries
+`discovery_tokens.npz`, `delta_projection.csv` — carries
 cosines against the **shipped** axis. Re-project against
 `results/value_axis_corrected.npy` before using any number from them. The one
 thing `projections.npz` is still exactly right for is the alignment audit in

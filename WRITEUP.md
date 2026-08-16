@@ -35,10 +35,15 @@ at issue is the label.
    opposite ordering. This holds in 18 of 18 phrasing × tail cells, 100% of
    conversations.
 
-5. **Causally, steering the axis moves when the model stops, not what it
-   believes.** Response length tracks steering strength at Spearman −0.96
-   (t = −107); the verbalized confidence rating does not move (t ≈ 0), while the
-   same rating does track true state when unsteered (5.7 early vs 8.7 post).
+5. **Causally, steering the axis mostly moves when the model stops.** Response
+   length tracks steering strength at Spearman −0.96 (t = −107). In a length-free
+   readout — one forward pass, no generation, with a random-direction control —
+   the axis drives log P(end-of-turn) with a linear coefficient of **+12.9**
+   against **−4.3** for a random direction of the same norm. It also moves a
+   confidence probe by a real but smaller direction-specific amount (+4.0 vs
+   +0.5), so the axis is **not purely** a closure signal and the paper's Fig 5a
+   substantially survives. See §5, which is the section that most complicates the
+   headline.
 
 6. **This does not overturn the paper's behavioral results.** Backtracking,
    self-correction and the AIME correlations are real effects of this direction.
@@ -328,6 +333,29 @@ whole thing was rerun with 3 phrasings per arm × 2 different tails — 18 cells
 - Pooled per-phrasing diagonals: −0.0286 (t = −16.0), −0.0403 (t = −26.3),
   −0.0381 (t = −40.8), n = 130 each.
 
+### The logit lens says the same thing
+
+Unembedding the **corrected** axis at L21 and reading the top-30 promoted tokens
+gives, in order:
+
+> ` afterwards`, `后续` (follow-up), `这才是` (*this* is what really…),
+> ` thereafter`, `IfNeeded`, `其它问题` (other problems), `等等` (etc.),
+> `另行` (separately, later), `不会再` (won't again), `后再` (after, then), …
+> ` afterward`, `进一步` (go further), `结尾` (ending), `下次` (next time),
+> `最后` (finally), `结局` (outcome)
+
+This is aftermath-and-sequencing vocabulary: *afterwards, thereafter, follow-up,
+next time, ending, finally, won't happen again*. The paper's cited encouragement
+tokens survive the correction — `想办法` (figure out a way) is at rank 14 and
+`进一步` is in the top 30 — but they are not what the cleaned direction is mostly
+made of. Only 10 of 30 tokens overlap with the shipped axis's top-30, so this is
+largely a view of the direction that the bug was obscuring.
+
+I would not rest anything on a logit lens alone, and the magnitudes here are raw
+unembedding logits of a unit vector, so only the ranking is meaningful. But it is
+the most directly legible piece of evidence in the whole stack, and it points the
+same way as everything else.
+
 ### One negative result, stated plainly
 
 The same experiment included direct Yes/No probes ("are you done?", "is it
@@ -340,7 +368,7 @@ readout in this setting.
 
 ---
 
-## 5. Causally, the axis controls stopping
+## 5. Causally, the axis controls stopping — and, it turns out, something else too
 
 The correlational case above needs a causal counterpart. Using the paper's own
 steering paradigm — unit direction at L21, added as `α·d` by a forward hook on
@@ -357,14 +385,80 @@ At α = −75 every generation runs into the 300-token cap. At α = +75 on the
 corrected axis the model produces well-formed four-token answers — `"8"` and
 stop — with zero parse failures. That is not degeneration; it is wrapping up.
 
-Meanwhile the confidence rating is **flat under steering**, and this is not
-because the probe is insensitive: unsteered, the same probe reads 5.7 in the
-early state (rule unknown) and 8.7 in the post-discovery state (rule known and
-confirmed). The instrument works. Steering just doesn't move it.
+Meanwhile the confidence rating is flat under steering, and this is not because
+the probe is insensitive: unsteered, the same probe reads 5.7 in the early state
+(rule unknown) and 8.7 in the post-discovery state (rule known and confirmed).
 
-So the direction that supposedly encodes how well the model is doing causally
-controls *when it stops talking*, and does not move *what it says about how well
-it is doing*.
+### The obvious objection, and the experiment that answers it
+
+The rating above was read out of *generated text*, so a wrap-up push could
+truncate the response before the rating settles. That is essentially the
+objection the paper's own Figure 5a invites, and it deserved a real test rather
+than an argument.
+
+So: **one forward pass, no generation at all.** Same steering hook, same α grid,
+same prefixes. Read the logits at the single position where the answer token
+would go. Three channels — a forced Yes/No confidence probe, the expected value
+of a 0–9 digit distribution, and log P(`<|im_end|>`) as the closure channel.
+
+Crucially, this run includes a **random unit direction** steered at the same α.
+Pushing the residual stream by ‖α‖ = 75 in *any* direction takes it
+off-distribution, and an off-distribution state degrades every readout. Without
+that control the experiment cannot distinguish content from damage.
+
+It matters, because the damage is real and large. Fitting each prefix's profile
+as `a + bα + cα²`: the **quadratic** term is big and positive on every channel
+under every direction, random included (log P(end): c = +32.7 shipped, +28.5
+corrected, +26.1 random). Any hard push in any direction raises the probability
+of just stopping. A Spearman correlation on that U-shaped profile reports
+whichever arm rises further, which is why the linear term is the statistic that
+matters:
+
+| Channel | Shipped | Corrected | **Random control** |
+|---|---|---|---|
+| log P(`<|im_end|>`) — closure | +2.81 (t = +4.6) | **+12.86 (t = +39.3)** | **−4.25 (t = −21.6)** |
+| logit(Yes) − logit(No) — confidence | +1.62 (t = +3.3) | **+4.03 (t = +24.9)** | +0.48 (t = +2.8) |
+| P(Yes \| Yes or No) — bounded | +0.140 | +0.171 | −0.019 |
+| E[rating] over 0–9 | +0.788 | +0.970 | **+0.981 (t = +11.6)** |
+
+Reading this honestly, three things:
+
+1. **The closure channel is enormous and specific.** The corrected axis drives
+   log P(end-of-turn) with a linear coefficient of +12.9, four and a half times
+   the shipped axis, while the random control of identical norm moves it in the
+   *opposite* direction. With no generation involved, length cannot explain any
+   of it. This is the strongest single piece of evidence in the whole document.
+2. **But confidence is not flat.** The Yes/No margin has a real, direction-specific
+   linear component: +4.03 on the corrected axis against +0.48 for the random
+   control. In the post-discovery state, P(Yes) goes from ≈0 at α = 0 to 0.51 at
+   α = +50 and 0.72 at α = +75. **The paper's Figure 5a substantially survives
+   this test**, and the flat rating in the generation experiment appears to have
+   been an artifact of reading confidence out of text the model had already
+   committed to.
+3. **The graded rating shows nothing.** E[rating] moves *identically* under the
+   random direction (+0.981) as under the corrected axis (+0.970). Whatever that
+   channel is picking up, it is not the axis.
+
+One more thing worth noting, because it speaks to whether this is a targeted
+intervention at all: under the random direction the model's first-token
+probability mass on the digit set **collapses** — 1.000 → 0.51 → 0.015 → 0.001 as
+α goes +25 → +50 → +75. It stops answering the question. Under the corrected axis
+that mass stays at 1.000 until α = ±75. The axis makes the model wrap up; a
+random push of the same size just breaks it.
+
+### What I now think this means
+
+The axis is **not purely a closure controller**. It carries a genuine confidence
+component, and I would have been wrong to claim otherwise — this experiment was
+run to try to falsify the closure reading and it partly did.
+
+What survives is the weaker but still substantial claim: the closure component is
+much the larger of the two, it is what dominates behavior (generation length at
+Spearman −0.96), and it is what the construction procedure preferentially samples,
+because contrasting late-in-response against early-in-response text is a
+completion contrast. The label "how well the model is doing" attributes to the
+whole direction what appears to belong mostly to one component of it.
+
 
 ---
 
@@ -435,10 +529,11 @@ might suggest.
   reasonable objection is that closure and value are simply confounded
   in-distribution and only dissociate here. Testing that requires running the
   matched-tail design in the paper's own settings, which I have not done.
-- **The paper's Figure 5a is not directly contradicted.** Its readout was a short
-  forced Yes/No, where closure pressure and answer choice interact. My steering
-  result dissociates them, but a length-free confidence readout is the clean
-  version of that test.
+- **The paper's Figure 5a substantially survives.** I ran the length-free version
+  of that test specifically because it could falsify the closure reading, and it
+  partly did: steering does move a confidence probe, by a real and
+  direction-specific amount (§5). The claim that survives is about which
+  component dominates, not that the confidence component is absent.
 
 Other caveats worth having on the table: the steering experiment is 15
 conversations, one seed per condition, one probe phrasing; the layer picture is
@@ -457,10 +552,10 @@ the paper's own figures.
 1. **EOS-masked and prompt-only steering.** Separates "the axis encodes a closure
    state that then promotes end-of-turn" from "the axis promotes the EOS logit
    directly." Cheap, and it is the main unresolved mechanistic question.
-2. **A length-free confidence readout under steering.** One forward pass, prefill
-   `Yes`/`No`, compare logits. Removes length from the readout entirely and
-   either reconciles or overturns Figure 5a. *(Running; results will be added
-   here.)*
+2. ~~A length-free confidence readout under steering.~~ **Done — see §5.** It
+   partly falsified the strong version of my own claim, which is the main reason
+   §5 now reads the way it does. The natural follow-up is to repeat it on the
+   paper's own Fig 3a phrasings, so the sign-flip control carries over directly.
 3. **The matched-tail prefill design on AIME/Arena.** Takes the experiment that
    actually discriminates into the paper's own distribution. This is the single
    most decisive test of whether the reinterpretation generalizes.
@@ -507,6 +602,7 @@ regenerates each artifact.
 | Paper's mean-level metric on corrected means | `corrected_mean_validation.py` |
 | Ramp / cut-invariance / placebo (§3) | `ramp_cut_invariance.py` |
 | Within-attempt cells, non-habituation, level-by-phase (§3) | `attempt_split_report.py` |
+| Logit lens, corrected axis (§4) | `results/logit_lens_corrected.json` |
 | Matched-token prefills (§4) | `prefill_probes_report.py` |
 | Phrasing robustness (§4) | `prefill_rephrase_report.py` |
 | Steering dissociation (§5) | `steering_probe_report.py` |

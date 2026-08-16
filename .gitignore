@@ -22,3 +22,7 @@ results/*
 results/prefill_probes.json
 results/prefill_rephrase.json
 results/extended_retries.json
+
+# Published write-up page (hosted as an Artifact), and the private email draft
+artifact/
+EMAIL_DRAFT.md

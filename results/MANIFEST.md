@@ -40,7 +40,14 @@ All GPU steps run on Modal against `Qwen/Qwen3-8B`, A10G, and need
 | File | Size | Produced by | Notes |
 |---|---|---|---|
 | `steering_probe.jsonl` | 270 KB | `modal run modal_app.py::steering_probe_main` | **in git.** 390 generations. Confidence-rating vs response-length dissociation. Report: `steering_probe_report.py`. |
-| `steering_logits.jsonl` | small | `modal run modal_app.py::steering_logits_main` | **in git.** Length-free readout: one forward pass, logits at the answer position. Report: `steering_logits_report.py`. |
+| `steering_logits.jsonl` | small | `modal run modal_app.py::steering_logits_main` | **in git.** Length-free readout: one forward pass, logits at the answer position, including a random-direction control arm. Report: `steering_logits_report.py`. |
+
+## Logit lens
+
+| File | Size | Produced by | Notes |
+|---|---|---|---|
+| `logit_lens_corrected.json` | 3 KB | `modal run modal_app.py::logit_lens_main --corrected` | **in git.** Corrected axis. Carries an `"axis"` field. This is the one to cite. |
+| `logit_lens.json` | 3.4 KB | `modal run modal_app.py::logit_lens_main` | **in git.** Shipped axis, no `"axis"` field. Kept for the shipped-vs-corrected comparison (10/30 top tokens overlap). |
 
 ## LLM-judged labels (committed — regenerating these costs API calls)
 
@@ -64,7 +71,6 @@ number lifted from them is a pre-correction number. Re-project against
 | `divider.npz`, `divider_believed.npz` | 5.3 / 9.3 MB | Superseded by `attempt_split.npz`, which covers both channels and adds held-out directions. |
 | `delta_projection.csv` | 83 KB | Shipped-means delta analysis; superseded by `corrected_mean_validation.py`. |
 | `attempt_table.csv`, `attempt_sequences.csv` | 1.8 MB / 33 KB | **in git.** Exploratory attempt-level tables behind `lucky_vs_earned.ipynb`. Shipped-axis projections. |
-| `logit_lens.json` | 3.4 KB | **in git.** Shipped axis. The corrected-axis logit lens has never been run — a known gap. |
 
 ## Dead — outputs of a superseded 8-conversation smoke run
 

@@ -74,6 +74,36 @@ def slopes(rows, dname, key, probe):
     return np.array(out)
 
 
+def quad(rows, dname, key, probe):
+    """Per-prefix least-squares fit of value ~ a + b*alpha + c*alpha^2.
+
+    A Spearman on a U-shaped profile reports whichever arm rises further, so it
+    cannot tell a genuine dose-response from symmetric off-distribution damage.
+    Splitting the profile does: damage is a negative quadratic with b ~ 0, a
+    real directional effect is a nonzero b. Alpha is scaled to [-1, 1] so b and
+    c are in readout units across the steering range, not per unit alpha.
+    """
+    b_, c_ = [], []
+    for k in {(r["conv_id"], r["state"]) for r in rows}:
+        pts = [(r["alpha"] / 75.0, r[key]) for r in rows
+               if (r["conv_id"], r["state"]) == k and r["probe"] == probe
+               and (r["direction"] == dname or r["alpha"] == 0)
+               and key in r and np.isfinite(r[key])]
+        if len(pts) < 5:
+            continue
+        x, v = np.array([p[0] for p in pts]), np.array([p[1] for p in pts])
+        coef = np.polyfit(x, v, 2)          # [c, b, a]
+        c_.append(coef[0]); b_.append(coef[1])
+    return np.array(b_), np.array(c_)
+
+
+def _t(a):
+    if len(a) < 3:
+        return float("nan")
+    se = a.std(ddof=1) / np.sqrt(len(a))
+    return a.mean() / se if se > 0 else float("nan")
+
+
 def main():
     path = ROOT / "results" / "steering_logits.jsonl"
     rows = [json.loads(l) for l in open(path)]
@@ -127,6 +157,24 @@ def main():
                   f"t={t:>+7.1f}  n={len(s)}")
 
     print("\n" + "=" * 78)
+    print("LINEAR vs QUADRATIC (per-prefix fit, alpha scaled to [-1,1])")
+    print("  b = directional dose-response;  c = symmetric curvature.")
+    print("  Off-distribution damage looks like b~0 with c<0 on EVERY direction,")
+    print("  including random. A real effect of the axis is a b that the random")
+    print("  control does not have.")
+    print("=" * 78)
+    print(f"  {'channel':<24} {'direction':<10} {'b':>9} {'t(b)':>8} "
+          f"{'c':>9} {'t(c)':>8} {'n':>4}")
+    for key, probe, label in CHANNELS:
+        for dname in DIRECTIONS:
+            b, c = quad(rows, dname, key, probe)
+            if len(b) < 3:
+                continue
+            print(f"  {label:<24} {dname:<10} {b.mean():>+9.3f} {_t(b):>+8.1f} "
+                  f"{c.mean():>+9.3f} {_t(c):>+8.1f} {len(b):>4}")
+        print()
+
+    print("=" * 78)
     print("READING IT")
     print("=" * 78)
     print("  Length cannot explain anything here: nothing was generated.")
