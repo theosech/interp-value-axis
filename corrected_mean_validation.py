@@ -10,6 +10,12 @@ margin table is the informative part: the held-out projection of the mean delta,
 its size relative to ||delta||, and the fraction positive - per layer, corrected
 vs shipped means side by side.
 
+NB this metric is NOT the paper's Figure 2a and should not be read as replicating
+it. It saturates at >= 0.98 on 34 of 37 layers and its argmax is layer 2, not 21.
+Figure 2a's stated task is classifying paragraph TOKENS, which needs forward
+passes; that is what modal_app.py is for, and the token-level AUROC in
+corrected_axis_report.py is the actual replication target.
+
 CPU-only. Usage: python corrected_mean_validation.py [--layer 21]
 """
 

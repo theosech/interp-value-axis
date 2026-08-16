@@ -9,23 +9,6 @@ the end of the assistant turn** rather than how well the model is doing.
 **Start with [WRITEUP.md](WRITEUP.md).** That is the argument, with every number
 and its provenance. This file is how to run it.
 
-Three results in one line each:
-
-- **Where value and end-of-turn proximity conflict, the axis follows end-of-turn.**
-  On byte-identical text a low-value prefill that is about to end the turn projects
-  *above* a high-value one with much left to write, in 65 of 65 conversations and
-  18 of 18 phrasing × tail cells.
-- **Steering the axis changes when the model stops, not what it concludes.**
-  Response length tracks steering strength at Spearman −0.96 while the stated
-  confidence stays flat, and the extra text at negative α is repetition rather
-  than backtracking.
-- **A span-localization bug** in the released construction code puts 62% of the
-  axis's training tokens in the wrong conversational turn. Fixing it makes the
-  paper's own effect *stronger*: held-out AUROC 0.850 → 0.880. The reinterpretation
-  does not depend on the fix, see `shipped_vs_corrected.py`.
-
----
-
 ## Setup
 
 ```bash
@@ -136,46 +119,3 @@ uv run python extend_retries_build.py   && uv run modal run modal_app.py::extend
 
 The LLM-judged label files are committed, so `judge_*.py` / `merge_labels.py`
 only need rerunning if you want to regenerate them (they cost API calls).
-
----
-
-## Three things to know before you touch this
-
-**1. Layer indexing.** `value_axis.npy` is `(37, 4096)`, `num_hidden_layers + 1`,
-because index 0 is the embedding output. Index 21, the paper's layer, is
-therefore the output of transformer block 20. Use `hidden_states[21]` and stay
-consistent.
-
-**2. The repo's CPU-only AUROC is not Figure 2a.**
-`construction/compute_vector.py`'s `evaluate_heldout_auroc` projects *one*
-before-mean and *one* after-mean per held-out reward function and calls
-`roc_auc_score` on two points, which is 1.0 exactly when `after > before`. It
-saturates at ≥ 0.98 on 34 of 37 layers and its argmax is layer 2, not 21. The
-paper's stated task is classifying paragraph *tokens*, which needs forward
-passes. That is why `modal_app.py` exists, and why the token-level AUROC is the
-replication target here.
-
-**3. Some artifacts predate the bug fix.** Anything in `results/` marked
-superseded in the manifest, `projections.npz`, `attempts.npz`,
-`discovery_tokens.npz`, `delta_projection.csv`, carries
-cosines against the **shipped** axis. Re-project against
-`results/value_axis_corrected.npy` before using any number from them. The one
-thing `projections.npz` is still exactly right for is the alignment audit in
-`replication.ipynb` cell D3, because it carries per-token strings.
-
----
-
-## Units
-
-Every projection is a cosine against the unit axis at a given layer, the paper's
-Eq. 2 metric. Anchors for judging any of them:
-
-| Quantity | Value |
-|---|---|
-| Full before/after dynamic range at L21 | 0.165 |
-| Random-direction null (cell differences) | ≤ 0.001 |
-| Within-cell sd at headers | ≈ 0.015 |
-| The paper's own headline behavioral effects | 0.02 – 0.04 |
-
-"Held-out" always means **function-held-out**, using the paper's exact split
-seeding (`Random(si*42)`, 35/13, ten splits), not held out over conversations.
