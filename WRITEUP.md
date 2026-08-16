@@ -1,180 +1,67 @@
-# What is the value axis a value function *of*?
-
+# Is it really a value axis? End of Assistant turn likelihood seems better
 A replication of **The Value Axis** (Jiang, Kauvar & Lindsey, [arXiv 2606.17056](https://arxiv.org/abs/2606.17056))
 on Qwen3-8B, and causal evidence that much of what the direction carries is
-**proximity to episode closure**, i.e. how near the model is to being finished,
-rather than how well it is doing.
-
----
-
-## The claim
+**proximity to episode closure**, i.e. how near the Assistant is to being finished,
+rather than how well it is doing (although they are highly correlated since the Assistant usually finishes when they complete the task)
 
 **The construction contrast does not measure a value update.** It is unchanged by
-where you cut the paragraph and it appears 34% *larger* in failed attempts split.
+where you cut the paragraph and it appears 34% *larger* in failed attempts split
+at a word that earned nothing
+([§3](#3-the-construction-contrast-is-invariant-to-where-you-cut)).
 
-**It seems to measure how close the model is to completing its response:**
+### Evidence supporting end-of-turn specifically
 
-1. **Positive steering makes responses shorter, negative steering makes responses longer** Response length tracks steering strength at Spearman −0.96 (§2) and text that unrelated to high vs low confidence/value.
-2. **Projection onto the axis, where value and end-of-turn proximity conflict.**
+1. **Positive steering makes responses shorter, negative steering makes responses longer.** Response length tracks steering strength at Spearman −0.96 ([§2](#2-steering-shortens-responses)) and text that is unrelated to high vs low confidence/value.
+2. **Projection onto the axis, where value and end-of-turn proximity dissociate.**
    On byte-identical text, a prefill that is low-value but about to end the turn
    projects *above* one that is high-value with much left to write, the ordering
    value predicts against, in 65 of 65 conversations and 18 of 18 phrasing × tail
-   cells (§3).
-3. **Unembedding.** The corrected axis promotes *afterwards, thereafter,
-   follow-up, ending* (§3).
+   cells ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)).
+3. **Unembedding shows typically appearing at end of assistant response.** The corrected axis promotes *afterwards, thereafter,
+   follow-up, ending* ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)).
 
-**More speculatively***
-"Verbalized confidence in AIME questions": 
+### Reinterpretation of paper findings through end-of-turn lens
+**"Verbalized confidence in AIME questions"**: When answering "no" to whether its answer is correct
+it is consistent with the model estimating that it will continue responding than when it answers yes.
 
-This does not overturn the behavioral results. Backtracking, self-correction and
-the AIME correlations are real effects of this direction. The harder the task,
+**"Backtracking presence on AIME questions"**: Modulating the model's estimate of how
+much longer its response should be is consistent with more backtracking.
+
+**"Coding verbosity"**: Modulating the model's estimate of how
+much longer its response should be is very consistent with less lines of code, number of
+comments, and use of type hints.
+
+**"Training the models to prefer words increases the value of those words. The value increase on preferred words generalizes to natural sentences"**: In the DPO setup
+the preferred word is always at the end of the assistant response. Increasing
+the likelihood of the sequence ending in "Assistant: dolphin" is consistent with teaching
+the model to output the end of turn token after "dolphin" or more generally to be more likely to 
+end its response after outputing "dolphin". As a result, the projection of the end soon axis
+onto the DPOed word increases and "preferred" DPOed words lead to shorter responses whereas
+"avoided" DPOed words lead to longer responses ("more verbosity"). This seems a significantly
+more natural interpretation of the discovered axis than associating verbosity with value/preference.
+
+
+
+**Backtracking, self-correction and the AIME correlations** are real effects of this direction. The harder the task,
 the more tokens are needed to reach a solution and the higher the probability of
 backtracking and self-correction. Completion probability and expected
 reward/value are strongly correlated in the settings tested and during
 post-training: models are trained to pursue goals, and when they finish the
-assigned task, shortly after they output the EOS token. A direction that tracks
+assigned task, shortly after they output the end of turn token. A direction that tracks
 proximity-to-done will therefore behave like a value function almost everywhere.
 This corpus is unusual in letting the two come apart.
 
-**Separately, a span-localization bug** in the released construction code puts
-62% of the axis's training tokens in the wrong conversational turn. Fixing it
-makes the paper's own effect *stronger*: held-out AUROC 0.850 → 0.880 (§5).
+**Base model discrepancies**. These are consistent with the base model, which hasn't been trained to
+follow User, Assistant motif and return end of turn tokens at the end of the Assistant response, not having been
+optimized to track how close assistant is to finishing response and outputting end_of_turn token.
 
----
 
-## 1. The construction contrast is invariant to where you cut
+## 1. When value and end-of-turn proximity conflict, the axis follows end-of-turn
 
-The axis is built from a within-paragraph contrast: the mean projection of tokens
-*after* the criterion-satisfying token, minus tokens *before* it, inside one
-rewarded rewrite. That difference is read as a value update at the moment the
-criterion is met.
-
-The same difference is produced by *any* quantity rising monotonically through
-the response, with no reference to the criterion. The two are told apart by where
-you cut. A criterion-locked jump is large only when the cut sits at the criterion
-token. A linear ramp gives `mean(after) − mean(before) = slope · T / 2` for a cut
-at *any* fraction of the paragraph: the same size wherever you cut, and present
-wherever you cut.
-
-![Contrast by cut position, criterion versus placebo](figures/w1_ramp.png)
-
-Projections are cosines between a token's residual-stream state and the unit axis
-at layer 21, which is the paper's own metric at the paper's own layer. The right-hand
-scale restates them as a share of the axis's full before/after swing (0.165), so
-the size is legible without holding that constant in mind; a random direction
-gives cell differences of ≤ 0.001 on the same scale.
-
-The criterion contrast moves by about 7% of itself while the cut travels through
-70% of the paragraph. Spearman ρ between contrast size and cut fraction =
-**−0.077** (p = 4.5 × 10⁻³, n = 1358 attempts; −0.165 without the trim). That is
-the ramp signature.
-
-**The placebo is the sharper test.** Split *failing* attempts at the word the
-model itself said it was targeting. These earn −1, no criterion is met anywhere
-in them, and the cut word earned nothing, yet the contrast is not smaller. It is
-**34% larger** (+0.219 against +0.163 cosine, n = 1140) and equally flat in cut
-position (ρ = −0.112). A contrast that survives at full size where no reward was
-delivered is not a measurement of the reward event.
-
-Two corollaries from the same data:
-
-- **The jump does not habituate.** Across the first through fourth post-discovery
-  paragraphs, where the reward is by then entirely predictable, the contrast is
-  +0.168 / +0.166 / +0.167 / +0.160 cosine, and the paired later-minus-first
-  difference is −0.0005 (t = −0.2 over 260 conversations), indistinguishable from
-  zero against a within-cell noise level of about 0.015. The *n*th fully expected
-  reward produces the same "update" as the first.
-- **The level is flat where a value function should climb.** Measured at the start
-  of each attempt, pre-discovery failures sit at −0.2251 cosine and post-discovery
-  earned successes at −0.1877, a gap of 0.037: about a fifth of the movement that
-  happens *within* a single response.
-
----
-
-## 2. Steering shortens responses; the length-free decomposition is ambiguous
-
-Using the paper's own paradigm (the unit direction at layer 21 added as `α·d` by
-a forward hook on decoder block 20, at every position throughout generation,
-α ∈ [−75, +75], temperature 0.7, top_p 0.9) across 15 conversations × 2
-truncation states, probing for a 0–10 confidence rating and an explanation.
-
-![Response length, stated confidence, and a worked example](figures/w3_steering.png)
-
-Length collapses 75-fold across the steering range, from the 300-token cap at
-α = −75 to a mean of 4 tokens at α = +75, while the confidence the model *states*
-stays between 7.5 and 8.9 out of 10 throughout.
-
-**This is not the paper's backtracking effect.** The obvious alternative reading
-is that steering low makes the model explore and second-guess, and that the extra
-tokens are backtracking. Panel (c) shows that is not what the generated text
-does. In the same conversation, at the same prompt, the α = −75 response states
-the same conclusion as the unsteered one, at the same confidence, and then
-restates it: *"This seems to be the hidden criterion, and I'm fairly confident
-it's the correct criterion... I'm confident it's the correct criterion..."*. At
-α = −50 the model re-opens a `<thinking>` block and repeats the paragraph
-verbatim. There is no exploration, no revision, no reconsidered hypothesis. The
-model says the same thing for longer, and at α = +75 it says the rating and
-stops. The length effect is a failure to **terminate**, not a change in how the
-model reasons.
-
-### Removing length from the readout, and what that costs
-
-The rating above was parsed out of *generated text*, so a wrap-up push could
-truncate the response before the rating settles. That is essentially the
-objection the paper's Fig 5a invites. The length-free test is **one forward pass,
-no generation**: same hook, same α grid, same prefixes, logits read at the single
-position where the answer token would go.
-
-It also steers **seven random unit directions** at the same α, and that control
-turns out to be doing most of the work. Pushing the residual stream by a vector
-of norm 75 in *any* direction takes it off-distribution. Fitting each prefix's
-profile as `a + bα + cα²`, the **quadratic** term is large and positive on every
-channel under every direction, random included (for end-of-turn: c = +32.2
-released, +27.0 corrected, +23.4 random). Any hard push in any direction raises
-the chance the model just stops, so a Spearman correlation on that U-shaped
-profile only reports whichever arm rises further; the **linear** term `b` is the
-statistic that matters. Each channel keeps its own units, because a
-log-probability, a logit difference and a rating point are not comparable.
-
-![Linear dose-response per channel against the random band](figures/w3b_lengthfree.png)
-
-Read honestly, this is a weaker result than the point estimates suggest:
-
-- **Random directions are wildly variable on the end-of-turn logit**: sd 8.93,
-  with one of seven seeds reaching +10.52. The axis's +12.86 does clear that
-  range, and beats the random mean by roughly five standard errors, but only by
-  **1.9 sd** of the random spread. A large point estimate on this channel is not
-  by itself surprising.
-- **The confidence channel separates more cleanly.** +4.03 logits clears the
-  random range at **+2.8 sd**, against the closure channel's +1.9. **The paper's
-  Fig 5a substantially survives this test**, and on this readout survives it
-  better than the closure reading does.
-- **The graded rating shows nothing:** +0.97 against a random band of ±2.8.
-
-Two further caveats on the instrument. The unsteered binary probe is pinned
-pessimistic: post-discovery the model verbalizes 8.6/10 confidence yet answers
-the forced binary probe "No" with P(Yes) ≈ 0.000; the *margin* tracks state
-correctly (−23.8 logits early against −17.9 post) but its level sits far to the
-"No" side, which is why the linear steering component and not the level is used.
-And hidden states have a large mean component, so a fixed random vector picks up
-an effective sign from its chance projection onto that mean: `+d` and `−d` are
-not equivalent perturbations. Seven seeds shows the spread is large; it is not
-enough to pin the band tightly.
-
-**What this section does and does not support.** The generation result is
-unambiguous: steering changes how much the model writes, by a lot. The
-length-free decomposition is where the closure reading is weakest, because
-off-distribution steering is a blunt instrument and random directions move the
-end-of-turn logit almost as much. The generation experiment does not yet have a
-random-direction arm of its own, which is the most valuable thing left to add.
-
----
-
-## 3. When value and end-of-turn proximity conflict, the axis follows end-of-turn
-
-§1 shows the construction contrast is not a value update. This is the test that
-names the quantity, by putting value and distance-to-end-of-turn in direct
-opposition on *identical* tokens.
+This is the test that names the quantity, by putting value and
+distance-to-end-of-turn in direct opposition on *identical* tokens.
+([§3](#3-the-construction-contrast-is-invariant-to-where-you-cut) separately shows that the contrast the axis was *built* from does
+not measure a value update at all.)
 
 Truncate a real conversation after three failed attempts and prefill the
 assistant turn one of two ways, then append a **byte-identical tail** to both.
@@ -220,6 +107,66 @@ direction is mostly made of. Only 10 of the 30 overlap with the released axis's
 top-30, so this is largely a view the bug was obscuring. Nothing rests on a logit
 lens alone.
 
+## 2. Steering shortens responses
+
+Using the paper's own paradigm (the unit direction at layer 21 added as `α·d` by
+a forward hook on decoder block 20, at every position throughout generation,
+α ∈ [−75, +75], temperature 0.7, top_p 0.9) across 15 conversations × 2
+truncation states, probing for a 0–10 confidence rating and an explanation.
+
+![Response length, stated confidence, and a worked example](figures/w3_steering.png)
+
+Length collapses 75-fold across the steering range, from the 300-token cap at
+α = −75 to a mean of 4 tokens at α = +75, while the confidence the model *states*
+stays between 7.5 and 8.9 out of 10 throughout.
+
+**This is not the paper's backtracking effect.** The obvious alternative reading
+is that steering low makes the model explore and second-guess, and that the extra
+tokens are backtracking. Panel (c) shows that is not what the generated text
+does. In the same conversation, at the same prompt, the α = −75 response states
+the same conclusion as the unsteered one, at the same confidence, and then
+restates it: *"This seems to be the hidden criterion, and I'm fairly confident
+it's the correct criterion... I'm confident it's the correct criterion..."*. At
+α = −50 the model re-opens a `<thinking>` block and repeats the paragraph
+verbatim. There is no exploration, no revision, no reconsidered hypothesis. The
+model says the same thing for longer, and at α = +75 it says the rating and
+stops. The length effect is a failure to **terminate**, not a change in how the
+model reasons.
+
+## 3. The construction contrast is invariant to where you cut
+
+The axis is built from a within-paragraph contrast: the mean projection of tokens
+*after* the criterion-satisfying token, minus tokens *before* it, inside one
+rewarded rewrite. That difference is read as a value update at the moment the
+criterion is met.
+
+The same difference is produced by *any* quantity rising monotonically through
+the response, with no reference to the criterion. The two are told apart by where
+you cut. A criterion-locked jump is large only when the cut sits at the criterion
+token. A linear ramp gives `mean(after) − mean(before) = slope · T / 2` for a cut
+at *any* fraction of the paragraph: the same size wherever you cut, and present
+wherever you cut.
+
+![Contrast by cut position, criterion versus placebo](figures/w1_ramp.png)
+
+Projections are cosines between a token's residual-stream state and the unit axis
+at layer 21, which is the paper's own metric at the paper's own layer. The right-hand
+scale restates them as a share of the axis's full before/after swing (0.165), so
+the size is legible without holding that constant in mind; a random direction
+gives cell differences of ≤ 0.001 on the same scale.
+
+The criterion contrast moves by about 7% of itself while the cut travels through
+70% of the paragraph. Spearman ρ between contrast size and cut fraction =
+**−0.077** (p = 4.5 × 10⁻³, n = 1358 attempts; −0.165 without the trim). That is
+the ramp signature.
+
+**The placebo is the sharper test.** Split *failing* attempts at the word the
+model itself said it was targeting. These earn −1, no criterion is met anywhere
+in them, and the cut word earned nothing, yet the contrast is not smaller. It is
+**34% larger** (+0.219 against +0.163 cosine, n = 1140) and equally flat in cut
+position (ρ = −0.112). A contrast that survives at full size where no reward was
+delivered is not a measurement of the reward event.
+
 ## 4. Scope and limits
 
 - **The direction is real.** Linear, decodable at 0.880 held-out AUROC, survives
@@ -229,13 +176,10 @@ lens alone.
   self-correction and task behavior; I reproduce a large causal effect of the
   same direction. This is a claim about *what the direction is*, not about
   whether steering it does something.
-- **This is all on the construction corpus**, not AIME or Arena. The most
-  reasonable objection is that closure and value are confounded in-distribution
-  and dissociate only here. Testing that means running the matched-tail design in
-  the paper's own settings.
+- **The evidence is all on the construction corpus**, not AIME or Arena.
 
 Smaller caveats: the steering experiments are 15 conversations, one seed per
-condition, one probe phrasing, and seven random control directions; the layer
+condition and one probe phrasing; the layer
 picture is not uniform, with a small counter-signed band around layers 25–27 in
 the prefill probes; and the LLM-judged labels behind the placebo split are
 heavily skewed, so cells that depend on them are hints rather than findings.
@@ -243,11 +187,9 @@ heavily skewed, so cells that depend on them are hints rather than findings.
 Throughout, "held-out" means **function-held-out**: the direction was built
 without that criterion's data, using the paper's exact split seeding
 (`Random(si*42)`, 35/13, ten splits). It does not mean held out over
-conversations. Every measurement above uses the corrected axis (§5).
+conversations. Every measurement above uses the corrected axis ([see the bug section](#unrelatedly-a-span-localization-bug-misplaces-62-of-the-training-tokens)).
 
----
-
-## 5. A span-localization bug misplaces 62% of the training tokens
+## Unrelatedly, a span-localization bug misplaces 62% of the training tokens
 
 Independent of the argument above, and reported separately because it is a
 data-pipeline defect rather than a problem with the thesis.
@@ -288,7 +230,7 @@ This is inherited by the released artifacts: re-running upstream's
 bit-identically. Fig 2a uses the same labels on both sides of its evaluation, so
 it cannot catch this.
 
-### How to fix ###
+### How to fix it
 
 `corrected_spans.py` keeps the paper's
 design exactly (successful attempt of paragraph `discovery_paragraph + 1`, split
@@ -312,7 +254,6 @@ contrast riding on top of the intended one, and on the 146 conversations where
 the localizer happened to land correctly the effect is present and slightly
 stronger.
 
-
 ## Reproducing
 
 See [README.md](README.md) for setup; [results/MANIFEST.md](results/MANIFEST.md)
@@ -322,13 +263,12 @@ gives the command that regenerates each artifact. Every figure comes from
 
 | Claim | Script |
 |---|---|
-| Ramp, cut-invariance, placebo (§1) | `ramp_cut_invariance.py` |
-| Within-attempt cells, non-habituation, level by phase (§1) | `attempt_split_report.py` |
-| Steering, generation readout (§2) | `steering_probe_report.py` |
-| Steering, length-free readout and random band (§2) | `steering_logits_report.py` |
-| Matched-token prefills (§3) | `prefill_probes_report.py` |
-| Phrasing robustness (§3) | `prefill_rephrase_report.py` |
-| Logit lens, corrected axis (§3) | `results/logit_lens_corrected.json` |
-| The bug fix (§5) | `corrected_spans.py`, `check_corrected_labels.py` |
-| Replication gates, corrected versus released axis (§5) | `corrected_axis_report.py` |
-| The paper's mean-level metric on corrected means (§5) | `corrected_mean_validation.py` |
+| Ramp, cut-invariance, placebo ([§3](#3-the-construction-contrast-is-invariant-to-where-you-cut)) | `ramp_cut_invariance.py` |
+| Within-attempt cells, non-habituation, level by phase ([§3](#3-the-construction-contrast-is-invariant-to-where-you-cut)) | `attempt_split_report.py` |
+| Steering, generation readout ([§2](#2-steering-shortens-responses)) | `steering_probe_report.py` |
+| Matched-token prefills ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)) | `prefill_probes_report.py` |
+| Phrasing robustness ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)) | `prefill_rephrase_report.py` |
+| Logit lens, corrected axis ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)) | `results/logit_lens_corrected.json` |
+| The bug fix ([bug](#unrelatedly-a-span-localization-bug-misplaces-62-of-the-training-tokens)) | `corrected_spans.py`, `check_corrected_labels.py` |
+| Replication gates, corrected versus released axis ([bug](#unrelatedly-a-span-localization-bug-misplaces-62-of-the-training-tokens)) | `corrected_axis_report.py` |
+| The paper's mean-level metric on corrected means ([bug](#unrelatedly-a-span-localization-bug-misplaces-62-of-the-training-tokens)) | `corrected_mean_validation.py` |
