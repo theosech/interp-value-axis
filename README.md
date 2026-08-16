@@ -25,7 +25,8 @@ Two results in one line each:
 ## Setup
 
 ```bash
-cd ~/Development/value-axis-adapt
+git clone https://github.com/theosech/interp-value-axis.git
+cd interp-value-axis
 uv sync
 ```
 

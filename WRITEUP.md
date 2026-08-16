@@ -22,6 +22,7 @@ at a word that earned nothing
 3. **Unembedding promotes words that typically appear at the end of an assistant response.**
    The corrected axis promotes *afterwards, thereafter, follow-up, ending*
    ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)).
+4. 
 <br>
 
 ## 1. When value and end-of-turn proximity conflict, the axis follows end-of-turn
@@ -167,7 +168,7 @@ post-training: models are trained to pursue goals, and when they finish the
 assigned task, shortly after they output the end of turn token. A direction that tracks
 proximity-to-done will therefore behave like a value function almost everywhere.
 
-## 4. Scope and limits
+## 5. Scope and limits
 
 - **The direction is real.** Linear, decodable at 0.880 held-out AUROC, survives
   random-direction (0.511 ± 0.048) and shuffled-label (0.500 ± 0.003) controls,
