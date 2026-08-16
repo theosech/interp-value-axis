@@ -22,7 +22,9 @@ at a word that earned nothing
 3. **Unembedding promotes words that typically appear at the end of an assistant response.**
    The corrected axis promotes *afterwards, thereafter, follow-up, ending*
    ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)).
-4. 
+4. **Almost all the paper's findings have a plausible end-of-turn reinterpretation**
+   ([§4](#4-reinterpretation-of-paper-findings-through-an-end-of-turn-lens)).
+
 <br>
 
 ## 1. When value and end-of-turn proximity conflict, the axis follows end-of-turn
@@ -70,6 +72,7 @@ survive the correction (`想办法` at rank 14) but they are not what the cleane
 direction is mostly made of. Only 10 of the 30 overlap with the released axis's
 top-30, so this is largely a view the bug was obscuring. Nothing rests on a logit
 lens alone.
+
 <br>
 
 ## 2. Steering shortens responses
@@ -97,6 +100,8 @@ verbatim. There is no exploration, no revision, no reconsidered hypothesis. The
 model says the same thing for longer, and at α = +75 it says the rating and
 stops. The length effect is a failure to terminate, not a change in how the
 model reasons.
+
+<br>
 
 ## 3. The construction contrast is invariant to where you cut
 
@@ -131,6 +136,7 @@ in them, and the cut word earned nothing, yet the contrast is not smaller. It is
 **34% larger** (+0.219 against +0.163 cosine, n = 1140) and equally flat in cut
 position (ρ = −0.112). A contrast that survives at full size where no reward was
 delivered is not a measurement of the reward event.
+
 <br>
 
 ## 4. Reinterpretation of paper findings through an end-of-turn lens
@@ -168,6 +174,8 @@ post-training: models are trained to pursue goals, and when they finish the
 assigned task, shortly after they output the end of turn token. A direction that tracks
 proximity-to-done will therefore behave like a value function almost everywhere.
 
+<br>
+
 ## 5. Scope and limits
 
 - **The direction is real.** Linear, decodable at 0.880 held-out AUROC, survives
@@ -189,6 +197,7 @@ Throughout, "held-out" means **function-held-out**: the direction was built
 without that criterion's data, using the paper's exact split seeding
 (`Random(si*42)`, 35/13, ten splits). It does not mean held out over
 conversations. Every measurement above uses the corrected axis ([see the bug section](#unrelatedly-a-span-localization-bug-misplaces-62-of-the-training-tokens)).
+
 <br>
 
 ## Unrelatedly, a span-localization bug misplaces 62% of the training tokens
@@ -255,6 +264,7 @@ one**: roughly 62% of the training signal was a user-text-versus-assistant-text
 contrast riding on top of the intended one, and on the 146 conversations where
 the localizer happened to land correctly the effect is present and slightly
 stronger.
+
 <br>
 
 ## Reproducing
