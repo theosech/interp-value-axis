@@ -1,24 +1,28 @@
-# What is the value axis a value function *of*?
+# Is it really a value axis? Or is it proximity to end of turn?
 
 A replication of **The Value Axis**, Jiang, Kauvar & Lindsey,
 [arXiv 2606.17056](https://arxiv.org/abs/2606.17056),
 code [nickjiang2378/value-axis](https://github.com/nickjiang2378/value-axis), on
-Qwen3-8B, plus evidence that on the paper's own construction corpus the direction
-dominantly tracks **proximity to episode closure** rather than how well the model
-is doing.
+Qwen3-8B, plus evidence that much of what the direction carries is **proximity to
+the end of the assistant turn** rather than how well the model is doing.
 
 **Start with [WRITEUP.md](WRITEUP.md).** That is the argument, with every number
 and its provenance. This file is how to run it.
 
-Two results in one line each:
+Three results in one line each:
 
+- **Where value and end-of-turn proximity conflict, the axis follows end-of-turn.**
+  On byte-identical text a low-value prefill that is about to end the turn projects
+  *above* a high-value one with much left to write, in 65 of 65 conversations and
+  18 of 18 phrasing × tail cells.
+- **Steering the axis changes when the model stops, not what it concludes.**
+  Response length tracks steering strength at Spearman −0.96 while the stated
+  confidence stays flat, and the extra text at negative α is repetition rather
+  than backtracking.
 - **A span-localization bug** in the released construction code puts 62% of the
   axis's training tokens in the wrong conversational turn. Fixing it makes the
-  paper's own effect *stronger*: held-out AUROC 0.850 → 0.880.
-- **The construction contrast is confounded with position in the response**, and
-  on byte-identical text a "give up" prefill projects *above* a "found it, more
-  to go" prefill, the sign a completion signal predicts and a value signal does
-  not.
+  paper's own effect *stronger*: held-out AUROC 0.850 → 0.880. The reinterpretation
+  does not depend on the fix, see `shipped_vs_corrected.py`.
 
 ---
 
@@ -44,7 +48,7 @@ GPU steps run on [Modal](https://modal.com) against `Qwen/Qwen3-8B` on an A10G:
 uv run modal setup
 ```
 
-A Jupyter kernel `value-axis-adapt (.venv)` is registered for the notebooks.
+Register a Jupyter kernel from `.venv` for the notebooks.
 
 ---
 
@@ -55,6 +59,9 @@ WRITEUP.md              The argument. Read this first.
 modal_app.py            Every GPU step: projections, axis rebuild, steering.
 corrected_spans.py      The bug fix, structural span location.
 turns.py                Structural conversation parser everything relies on.
+make_figures.py         Regenerates every figure in the write-up from results/.
+shipped_vs_corrected.py Re-runs each headline result on the released axis too.
+figures/                Write-up figures (w*.png) and earlier exploratory ones.
 results/MANIFEST.md     What every artifact is and how to regenerate it.
 replication.ipynb       Phase 1 replication, and the alignment audit (cell D3).
 lucky_vs_earned.ipynb   Attempt-level exploratory tables and EDA.
@@ -73,18 +80,29 @@ labels, the steering outputs) are committed.
 ### CPU only, seconds
 
 ```bash
-uv run python corrected_axis_report.py        # replication gates, corrected vs shipped
-uv run python corrected_mean_validation.py    # the paper's mean-level metric
-uv run python ramp_cut_invariance.py          # the ramp / placebo result
+# the write-up, section by section
+uv run python prefill_probes_report.py        # sec 1, matched-tail prefills
+uv run python prefill_rephrase_report.py      # sec 1, phrasing robustness
+uv run python steering_probe_report.py        # sec 2, length vs stated confidence
+uv run python steering_logits_report.py       # sec 2, length-free readout + random band
+uv run python ramp_cut_invariance.py          # sec 3, cut-invariance and the placebo
+uv run python corrected_axis_report.py        # bug, gates and corrected vs released
+uv run python corrected_mean_validation.py    # bug, the paper's mean-level metric
+uv run python check_corrected_labels.py       # bug, label validation (minutes)
+
+# does the argument depend on the bug fix?  (no; see the script's summary)
+uv run python shipped_vs_corrected.py
+
+# regenerate every figure in the write-up
+uv run python make_figures.py
+
+# in the repo, deliberately NOT used in the write-up
 uv run python attempt_split_report.py         # within-attempt cells, non-habituation
 uv run python assistant_headers_report.py     # retry-depth climb
-uv run python extend_retries_report.py        # extended-retry falsifications
-uv run python prefill_probes_report.py        # matched-token prefills
-uv run python prefill_rephrase_report.py      # phrasing robustness
-uv run python steering_probe_report.py        # causal dissociation
-uv run python steering_logits_report.py       # length-free readout
-uv run python confidence_correlation.py       # position confounds
-uv run python check_corrected_labels.py       # label validation (minutes)
+uv run python depth_check.py                  # retry climb vs positional drift
+uv run python extend_retries_report.py         # extended-retry falsifications
+uv run python eos_association_report.py       # projection vs P(end-of-turn): null
+uv run python confidence_correlation.py       # position confounds that killed findings
 ```
 
 These read `results/`. If you do not have the artifacts, regenerate them first.
@@ -100,6 +118,10 @@ uv run modal run modal_app.py::assistant_headers_main   # header spans (1.28 GB 
 uv run modal run modal_app.py::attempts_main --corrected
 uv run modal run modal_app.py::steering_probe_main      # generation steering
 uv run modal run modal_app.py::steering_logits_main     # length-free steering
+uv run modal run modal_app.py::steering_logits_main \
+    --random-seeds "1,2,3,4,5,6" --only-random \
+    --out steering_logits_randband.jsonl               # the random-direction band
+uv run modal run modal_app.py::eos_association_main     # projection vs P(end-of-turn)
 uv run modal run modal_app.py::logit_lens_main --corrected   # the one to cite
 uv run modal run modal_app.py::logit_lens_main               # shipped axis, for comparison
 ```
