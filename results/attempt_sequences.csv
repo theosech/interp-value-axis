@@ -1,0 +1,381 @@
+conv_id,reward_fn,n_paragraphs,n_attempts,discovery_paragraph,synth_idx,sequence
+ancient_civilization__conv00,ancient_civilization,5,14,4,12,FW FW RC FW NF FW FW NF FW FW FW FW [RC] RC
+ancient_civilization__conv01,ancient_civilization,7,17,5,14,FW FW FW FW RC FW FW FW RC FW RC FW RC FW [RC] RC RC
+ancient_civilization__conv03,ancient_civilization,7,27,6,25,FW FW FW FW NF FW FW FW FW NF FW FW FW FW RC FC FW RC FW FW FW RC FW FW FW [RC] RC
+ancient_civilization__conv04,ancient_civilization,6,9,2,4,FW FW RC FW [RC] RC RC RC RC
+ancient_civilization__conv05,ancient_civilization,4,13,3,11,FW RC FW FW FW FW RC FW FW FW FW [RC] RC
+ancient_civilization__conv06,ancient_civilization,8,19,4,14,FW RC FC FW FW NF FW FW FW FW RC FW FW FW [RC] RC RC RC RC
+ancient_civilization__conv07,ancient_civilization,8,11,2,4,FW RC FW FW [RC] RC RC RC RC RC RC
+ancient_civilization__conv08,ancient_civilization,5,13,3,10,FW FW RC FW FW FW FW NF FW FW [RC] RC RC
+ancient_civilization__conv09,ancient_civilization,4,9,3,7,FW FW RC FW NF FW FW [RC] RC
+architectural_element__conv00,architectural_element,8,14,3,8,FW FW FW RC FW RC FW FW [RC] RC RC RC RC RC
+architectural_element__conv02,architectural_element,3,10,2,8,FW FW FW NF FW FW FW FW [RC] RC
+architectural_element__conv03,architectural_element,8,19,6,16,FW RC FW RC FW FW FW FW RC FW RC FW FW RC FW FW [RC] RC RC
+architectural_element__conv05,architectural_element,7,10,2,4,FW FW RC FW [RC] RC RC RC RC RC
+architectural_element__conv06,architectural_element,5,16,4,14,FW FW FW FW NF FW FW FW RC FW RC FW FW FW [RC] RC
+architectural_element__conv07,architectural_element,3,7,1,-1,FW FW FW FW NF RC RC
+architectural_element__conv08,architectural_element,7,16,4,12,FW RC FW FW FW RC FW FW FW FW RC FW [RC] RC RC RC
+architectural_element__conv09,architectural_element,7,23,6,21,FW FW FW RC FW FW FW NF FW FW FW FW NF FW RC FW FW FW RC FW FW [RC] RC
+astronomical_object__conv00,astronomical_object,4,7,2,4,FW RC FW FW [RC] RC RC
+astronomical_object__conv01,astronomical_object,6,10,2,5,FW FW RC FW FW [RC] RC RC RC RC
+astronomical_object__conv02,astronomical_object,3,5,2,3,FW RC FW [RC] RC
+astronomical_object__conv03,astronomical_object,6,16,3,12,FW FW FW FW NF FW FW FW RC FW FW FW [RC] RC RC RC
+astronomical_object__conv04,astronomical_object,3,6,1,3,FW FW FW [RC] RC RC
+astronomical_object__conv05,astronomical_object,8,28,7,-1,FW FW FW FW NF FW FW FW FW RC FW FW FW FW RC FW FW FW FW RC FW NF FW FW NF FW NF RW
+astronomical_object__conv08,astronomical_object,5,8,1,3,FW FW FW [RC] RC RC RC RC
+bird_species__conv00,bird_species,4,11,2,8,FW FW FW FW RC FW FW FW [RC] RC RC
+bird_species__conv01,bird_species,4,11,3,9,FW FW RC FW FW FW FW RC FW [RC] RC
+bird_species__conv02,bird_species,8,11,1,3,FW FW FW [RC] RC RC NF RC RC RC RC
+bird_species__conv03,bird_species,6,22,5,20,FW FW FW FW RC FW FW FW RC FW RC FW FW FW FW RC FW FW FW FW [RC] RC
+bird_species__conv04,bird_species,6,14,3,10,FW FW FW FW NF FW FW FW FW RC [RW] RC RC RC
+bird_species__conv05,bird_species,3,9,2,7,FW FW FW RC FC FW FW [RC] RC
+bird_species__conv06,bird_species,3,6,1,3,FW FW FW [RC] RC RC
+bird_species__conv07,bird_species,5,11,2,7,FW FW FW FW NF FW FW [RC] RC RC RC
+bird_species__conv08,bird_species,5,15,3,12,FW FW FW RC FW FW FW RC FW FW FW FW [RC] RC RC
+bird_species__conv09,bird_species,7,25,6,23,FW FW FW FW NF FW FW NF FW FW NF FW FW FW NF FW FW FW RC FW FW FW FW [RC] RC
+body_part__conv00,body_part,4,12,2,9,FW FW FW FW RC FW FW FW FW [RC] RC RC
+body_part__conv01,body_part,3,7,2,5,FW FW FW RC FW [RC] RC
+body_part__conv02,body_part,5,11,2,-1,FW FW FW RC FW FW FW NF RC RC RC
+body_part__conv04,body_part,3,9,2,7,FW FW FW RC FW FW FW [RC] RC
+body_part__conv05,body_part,4,12,2,9,FW FW FW FW RC FW FW FW FW [RC] RC RC
+body_part__conv06,body_part,4,11,3,9,FW RC FW FW FW FW RC FW FW [RC] RC
+body_part__conv08,body_part,3,4,2,2,FW RC [RW] RC
+chemical_element__conv00,chemical_element,7,10,2,4,FW FW RC FW [RC] RC RC NF RC RC
+chemical_element__conv01,chemical_element,4,10,3,-1,FW RC FW FW RC FW FW FW NF RC
+chemical_element__conv02,chemical_element,8,24,6,21,FW FW FW FW NF FW RC FC FW RC FW FW FW FW RC FW FW FW NF FW FW [RC] RC RC
+chemical_element__conv03,chemical_element,3,7,1,4,FW FW FW FW [RC] RC RC
+chemical_element__conv04,chemical_element,4,8,3,-1,FW RC FW RC FW FW NF RC
+chemical_element__conv05,chemical_element,6,20,5,18,FW FW FW FW NF FW FW FW RC FW FW RC FW FW FW FW RC FW [RC] RC
+chemical_element__conv07,chemical_element,8,22,7,20,FW FW FW RC RW FW FW RC FW FW FW FW RC FW FW FW NF FW NF FW [RC] RC
+chemical_element__conv08,chemical_element,4,7,1,3,FW FW FW [RC] RC RC NF
+chemical_element__conv09,chemical_element,4,7,1,3,FW FW FW [RC] RC RC RC
+chess_term__conv00,chess_term,3,11,2,9,FW FW FW FW RC FW FW FW FW [RC] RC
+chess_term__conv01,chess_term,4,13,3,11,FW FW FW NF FW FW FW RC FW FW FW [RC] RC
+chess_term__conv02,chess_term,8,20,5,16,FW NF FW FW RC FW NF FW FW FW FW RC FW FW FW FW [RC] RC RC RC
+chess_term__conv03,chess_term,6,16,4,13,FW NF FW FW RC FC FC FW FW RC FC FC FW [RC] RC RC
+chess_term__conv04,chess_term,7,11,1,4,FW FW FW FW [RC] RC RC RC RC RC RC
+chess_term__conv05,chess_term,4,11,2,8,FW FW FW FW RC FW FW FW [RC] RC RC
+chess_term__conv06,chess_term,5,13,3,10,FW FW FW FW NF FW RC FW FW FW [RC] RC RC
+chess_term__conv07,chess_term,5,10,2,6,FW FW RC FW FW FW [RC] RC RC RC
+chess_term__conv08,chess_term,4,11,2,8,FW FW FW FW RC FW FW FC [RC] RC RC
+chess_term__conv09,chess_term,4,9,3,7,FW FW RC FW RC FW FW [RC] RC
+color_adjective__conv00,color_adjective,3,8,2,6,FW FW RC FC FW FW [RC] RC
+color_adjective__conv01,color_adjective,5,9,3,6,FW FW RC FW RC FW [RC] RC RC
+color_adjective__conv02,color_adjective,8,18,3,12,FW FW RC FW FW FW FW RC FW FW FW FW [RC] RC RC RC RC RC
+color_adjective__conv03,color_adjective,3,8,2,-1,FW NF FW FW FW FW NF RC
+color_adjective__conv04,color_adjective,6,9,1,3,FW FW FW [RC] RC RC RC RC RC
+color_adjective__conv05,color_adjective,8,10,1,2,FW FW [RC] RC RC RC RC RC RC RC
+color_adjective__conv06,color_adjective,3,4,1,1,FW [RC] RC RC
+color_adjective__conv07,color_adjective,3,7,1,4,FW FW FW FW [RC] RC RC
+color_adjective__conv08,color_adjective,6,11,2,6,FW FW FW FW RC FW [RC] RC RC RC RC
+color_adjective__conv09,color_adjective,6,9,2,4,FW FW NF FW [RC] RC NF RC RC
+container_vessel__conv00,container_vessel,6,9,2,4,FW FW RC FW [RC] RC RC RC NF
+container_vessel__conv02,container_vessel,8,20,5,16,FW RC FW FW FW FW RC FW FW NF FW FW FW FW RC FW [RC] RC RC RC
+container_vessel__conv03,container_vessel,5,8,2,4,FW RC FW FW [RC] RC RC RC
+container_vessel__conv04,container_vessel,6,12,3,8,FW FW NF FW FW FW RC FW [RC] RC RC RC
+container_vessel__conv05,container_vessel,3,11,2,9,FW FW FW FW RC FW FW FW FW [RC] RC
+container_vessel__conv06,container_vessel,6,14,3,10,FW FW FW FW RC FW RC FW FW FW [RC] RC RC RC
+container_vessel__conv07,container_vessel,6,21,4,18,FW FW FW FW RC FW FW FW FW RC FW FW FW RC FW FW FW FW [RC] RC RC
+container_vessel__conv08,container_vessel,3,8,2,6,FW FW FW RC FW FW [RC] RC
+container_vessel__conv09,container_vessel,4,8,1,4,FW FW FW FW [RC] RC RC RC
+contains_ampersand__conv00,contains_ampersand,5,14,4,12,FW FW FW FW RC FW FW FW RC FW NF FW [RC] RC
+contains_ampersand__conv03,contains_ampersand,8,20,4,15,FW FW FW FW NF FW FW RC FW FW FW FW RC FW FW [RC] RC RC RC RC
+contains_ampersand__conv04,contains_ampersand,3,4,1,1,FW [RC] RC RC
+contains_ampersand__conv05,contains_ampersand,5,10,3,7,FW FW FW RC FW RC FW [RC] RC RC
+contains_ampersand__conv07,contains_ampersand,7,9,1,2,FW FW [RC] RC RC RC RC RC RC
+contains_ampersand__conv08,contains_ampersand,5,13,2,9,FW FW FW FW RC FW FW FW FW [RC] RC RC RC
+contains_colon__conv01,contains_colon,4,6,2,3,FW RC FW [RC] RC RC
+contains_colon__conv02,contains_colon,3,9,2,7,FW FW FW RC FW FW FW [RC] RC
+contains_colon__conv03,contains_colon,8,18,5,14,FW FW RC FW FW RC RW FW FW NF FW FW FW FW [RC] RC RC RC
+contains_colon__conv05,contains_colon,7,17,3,12,FW FW FW FW NF FW FW FW RC FW FW FW [RC] RC RC RC RC
+contains_colon__conv07,contains_colon,4,12,2,9,FW FW FW FW RC FW FW FW FW [RC] RC RC
+contains_colon__conv08,contains_colon,5,12,3,9,FW RC FW FW RC FW FW FW FW [RC] RC RC
+contains_colon__conv09,contains_colon,4,5,1,1,FW [RC] RC RC RC
+contains_dash__conv00,contains_dash,7,15,5,12,RW FW FU RC FW FW RC FW RC FW FW FW [RC] RC RC
+contains_dash__conv02,contains_dash,7,11,1,4,FW FW FW FW [RC] RC RC RC RC RC RC
+contains_dash__conv07,contains_dash,4,6,1,2,FW FW [RC] RC RC RC
+contains_dollar__conv00,contains_dollar,7,14,2,8,FW FW FW RC FW FW FW FW [RC] RC RC RC RC RC
+contains_dollar__conv01,contains_dollar,5,11,3,8,FW FW FW FW RC FC RC FW [RC] RC RC
+contains_dollar__conv02,contains_dollar,7,21,6,19,FW FW RC FW NF FW FW FC FC RC FC FW FW RC FW FC RC FW FC [RC] RC
+contains_dollar__conv03,contains_dollar,6,17,5,15,FW FW FW RC FW RC FW FW RC FW FW FW RC FW FW [RC] RC
+contains_dollar__conv08,contains_dollar,8,17,7,15,FW RC FW FC RC FC RC FC FC RC FC RC FC RC FC [RC] RC
+contains_ellipsis__conv02,contains_ellipsis,3,4,1,1,FW [RC] RC RC
+contains_ellipsis__conv08,contains_ellipsis,6,8,1,2,FW FW [RC] RC RC RC RC RC
+contains_emoji__conv00,contains_emoji,3,3,1,0,[RW] RC RC
+contains_emoji__conv02,contains_emoji,3,10,2,8,FW FW FW NF FW FW FW FW [RC] RC
+contains_emoji__conv06,contains_emoji,6,9,1,3,FW FW FW [RC] RC RC RC RC RC
+contains_emoji__conv08,contains_emoji,4,10,2,7,FW FW FW RC FW FW FW [RC] RC RC
+contains_emoji__conv09,contains_emoji,6,14,2,9,FW FW FW FW NF FW FW FW FW [RC] RC RC RC RC
+contains_number__conv00,contains_number,8,24,7,22,FW FW FW RC FW FW RC FW FW RC FW FW FW FW RC FW RC FW FW FW RC FW [RC] RC
+contains_number__conv01,contains_number,8,18,5,14,FW NF FW FW RC FC FW FW RC FW FW FW RC FC [RC] RC RC RC
+contains_number__conv03,contains_number,8,19,7,17,FW FW NF FW FW FW RC RC FC FC RC FW NF FW RC FW FW [RC] RC
+contains_number__conv04,contains_number,4,11,2,8,FW FW FW FW RC FW FW FW [RC] RC RC
+contains_number__conv05,contains_number,8,18,4,13,FW FW RC FW FW RC FW FW FW RC FW FW FW [RC] RC RC RC RC
+contains_number__conv06,contains_number,8,11,1,3,FW FW FW [RC] RC RC RC RC RC RC RC
+contains_number__conv08,contains_number,3,7,1,4,FW FW FW FW [RC] RC RC
+contains_parentheses__conv00,contains_parentheses,4,13,3,11,FW FW RC FW FW FW RC FW FW FW FW [RC] RC
+contains_parentheses__conv01,contains_parentheses,5,8,1,3,FW FW FW [RC] RC RC RC RC
+contains_percent__conv02,contains_percent,8,18,5,14,FW RC FW FW FW FW RC FW FW RC FW RC FW FW [RC] RC RC RC
+contains_percent__conv03,contains_percent,8,12,2,5,FW RC FW FW FW [RC] RC RC RC RC RC RC
+contains_percent__conv04,contains_percent,4,8,3,6,FW RC FC FC RC FW [RC] RC
+contains_percent__conv05,contains_percent,3,7,2,5,FW FW RC FW FW [RC] RC
+contains_percent__conv07,contains_percent,6,19,5,17,FW FW RC FW FW RC FW FW FW FW RC FW FW RC FW FW FW [RC] RC
+contains_percent__conv08,contains_percent,6,7,1,1,FW [RC] RC RC RC RC RC
+contains_quotation__conv00,contains_quotation,5,7,1,2,FW FW [RC] RC RC RC RC
+contains_quotation__conv02,contains_quotation,5,10,2,6,FW FW NF FW FW FW [RC] RC RC RC
+contains_quotation__conv04,contains_quotation,3,4,1,1,FW [RC] RC RC
+contains_quotation__conv05,contains_quotation,7,13,3,8,FW FW NF FW RC FW FW FW [RC] RC RC RC RC
+contains_quotation__conv07,contains_quotation,8,26,7,24,FW FW FW FW NF FW FW FW FW NF FW RC FW FW FW RC FW FW FW NF FW FW RC FW [RC] RC
+contains_quotation__conv08,contains_quotation,3,6,1,3,FW FW FW [RC] RC RC
+contains_quotation__conv09,contains_quotation,7,12,3,7,FW RC FW RC FW FW FW [RC] RC RC RC RC
+contains_semicolon__conv00,contains_semicolon,5,6,1,1,FW [RC] RC RC RC RC
+contains_semicolon__conv01,contains_semicolon,6,17,5,15,FW RC FW FW FW NF FW NF FW FW RC FW FW FW FW [RC] RC
+contains_semicolon__conv03,contains_semicolon,8,30,6,27,FW FW FW FW RC FW FW FW RC FW FW FW RC FW FW FW FW NF FW FW FW FW RC FW FW FW FW [RC] RC RC
+contains_semicolon__conv04,contains_semicolon,4,10,2,7,FW FW FW FW RC FW FW [RC] RC RC
+contains_semicolon__conv05,contains_semicolon,8,11,1,3,FW FW FW [RC] RC RC RC RC RC RC RC
+contains_semicolon__conv06,contains_semicolon,4,12,3,10,FW FW RC FW FW RC FW FC FW FC [RC] RC
+contains_semicolon__conv07,contains_semicolon,4,5,1,1,FW [RC] RC RC RC
+contains_semicolon__conv08,contains_semicolon,7,9,1,2,FW FW [RC] RC RC RC RC RC RC
+contains_slash__conv00,contains_slash,7,10,3,5,FW RC FC RC FW [RC] RC RC RC RC
+contains_slash__conv01,contains_slash,6,13,4,10,FW FW FW RC FW FW RC FW RC FW [RC] RC RC
+contains_slash__conv02,contains_slash,8,22,6,19,FW FW FW RC FW FW FW FW NF FW FW RC FW RC FW FW FW NF FC [RC] RC RC
+contains_slash__conv03,contains_slash,3,8,2,6,FW FW FW NF FW FW [RC] RC
+contains_slash__conv06,contains_slash,4,5,1,1,FW [RC] RC RC RC
+contains_slash__conv07,contains_slash,4,9,2,6,FW FW FW FW RC FW [RC] RC RC
+culinary_verb__conv00,culinary_verb,4,8,1,4,FW FW FW FW [RC] RC NF RC
+culinary_verb__conv01,culinary_verb,4,9,3,7,FW FW FW RC FW RC FW [RC] RC
+culinary_verb__conv02,culinary_verb,4,10,2,7,FW FW FW FW NF FW FW [RC] RC NF
+culinary_verb__conv03,culinary_verb,6,11,3,7,FW FW FW RC FW RC FW [RC] RC RC RC
+culinary_verb__conv04,culinary_verb,4,10,2,7,FW FW NF FW FW FW FW [RC] RC RC
+culinary_verb__conv05,culinary_verb,8,21,6,18,FW RC FW FW FW RC FW NF FW FW RC FW FW NF FW FW FW FW [RC] RC RC
+culinary_verb__conv07,culinary_verb,5,11,2,7,FW FW NF FW FW FW FW [RC] RC RC RC
+culinary_verb__conv08,culinary_verb,6,14,3,10,FW FW RC FW FW FW RC FW FW FW [RC] RC NF RC
+culinary_verb__conv09,culinary_verb,7,13,2,7,FW FW RC FW FW FW FW [RC] RC RC RC RC RC
+currency_name__conv00,currency_name,7,8,1,1,FW [RC] RC RC RC RC RC RC
+currency_name__conv01,currency_name,5,10,2,6,FW FW NF FW FW FW [RC] RC RC RC
+currency_name__conv02,currency_name,5,8,1,3,FW FW FW [RC] RC RC RC RC
+currency_name__conv04,currency_name,3,4,1,1,FW [RC] RC RC
+currency_name__conv05,currency_name,8,14,3,8,FW FW FW FW NF FW RC FC [RC] RC RC RC RC RC
+currency_name__conv06,currency_name,4,5,1,-1,FW NF RC RC RC
+currency_name__conv07,currency_name,3,8,2,6,FW RC FW FW FW FW [RC] RC
+currency_name__conv08,currency_name,3,11,2,9,FW FW FW FW RC FW FW FW FW [RC] RC
+dance_style__conv00,dance_style,4,9,2,6,FW RC FW FW FW FW [RC] RC RC
+dance_style__conv01,dance_style,6,7,1,1,FW [RC] RC RC RC RC RC
+dance_style__conv02,dance_style,5,6,1,1,FW [RC] RC RC RC RC
+dance_style__conv03,dance_style,7,12,2,6,FW RC FW FW FW FW [RC] RC RC RC RC RC
+dance_style__conv04,dance_style,3,5,2,3,FW RC FW [RC] RC
+dance_style__conv05,dance_style,8,23,6,20,FW FW FW FW RC FW RC FW RC FW FW RC FW FW FW FW RC FW FW FW [RC] RC RC
+dance_style__conv06,dance_style,7,8,1,1,FW [RC] RC RC RC RC RC RC
+dance_style__conv07,dance_style,5,7,1,2,FW FW [RC] RC RC RC RC
+dance_style__conv08,dance_style,5,16,4,14,FW FW FW FW RC FW NF FW FW FW RC FW FW FW [RC] RC
+dance_style__conv09,dance_style,5,15,4,13,FW NF FW FW FW RC FC FW FW RC FW FW FW [RC] RC
+emotion_word__conv00,emotion_word,8,15,2,8,FW FW FW NF FW FW FW FW [RC] RC NF RC RC RC RC
+emotion_word__conv01,emotion_word,8,21,6,18,FW FW RC FW RC FW FW FW NF FW RC FW FW FW RC FW FW FW [RC] RC RC
+emotion_word__conv02,emotion_word,7,12,2,6,FW FW RC FW FW FW [RC] RC RC RC RC RC
+emotion_word__conv03,emotion_word,6,18,5,16,FW FW FW FW RC FW FW FW RC FW FW FW FW RC RW FW [RC] RC
+emotion_word__conv06,emotion_word,4,5,1,1,FW [RC] RC RC RC
+emotion_word__conv08,emotion_word,7,22,4,-1,FW FW FW FW RC FW FW FW FW NF FW FW FW FW RC FW FW FW NF RC RC RC
+emotion_word__conv09,emotion_word,6,10,2,5,FW FW FW NF FW [RC] RC RC RC NF
+extinct_animal__conv01,extinct_animal,5,10,2,-1,FW NF FW FW FW FW NF RC RC RC
+extinct_animal__conv02,extinct_animal,3,6,1,3,FW FW FW [RC] RC RC
+extinct_animal__conv03,extinct_animal,3,7,2,5,FW FW NF FW FW [RC] RC
+extinct_animal__conv04,extinct_animal,5,9,2,5,FW FW RC FW FW [RC] RC RC RC
+extinct_animal__conv05,extinct_animal,6,13,3,9,FW FW FW RC FW FW FW RC FW [RC] RC RC RC
+extinct_animal__conv06,extinct_animal,4,11,3,9,FW FW FW NF FW NF FW FW FW [RC] RC
+extinct_animal__conv07,extinct_animal,6,9,1,3,FW FW FW [RC] RC RC RC RC RC
+extinct_animal__conv08,extinct_animal,6,13,3,9,FW FW RC FW RC FW FW FW FW [RC] RC RC RC
+extinct_animal__conv09,extinct_animal,6,22,5,20,FW FW FW FW NF FW FW FW FW NF FW FW NF FW FW FW RC FW FW FW [RC] RC
+fabric_type__conv00,fabric_type,7,13,4,9,FW FW RC FW RC FW FW NF FW [RC] RC RC RC
+fabric_type__conv01,fabric_type,4,11,2,8,FW FW FW RC FW FW FW FW [RC] RC RC
+fabric_type__conv02,fabric_type,7,17,5,14,FW FW FW RC FW RC FW FW RC FW FW FW NF FW [RC] RC RC
+fabric_type__conv03,fabric_type,6,17,5,15,FW FW RC FW RW FW FW FW RC FW FW FW FW RC FW [RC] RC
+fabric_type__conv04,fabric_type,5,8,3,5,FW NF FW RC FW [RC] RC RC
+fabric_type__conv05,fabric_type,5,10,2,6,FW FW FW RC FW FW [RC] RC RC RC
+fabric_type__conv06,fabric_type,3,4,1,1,FW [RC] RC RC
+fabric_type__conv07,fabric_type,3,7,1,4,FW FW FW FW [RC] RC RC
+fabric_type__conv08,fabric_type,6,7,1,1,FW [RC] RC RC RC RC RC
+fabric_type__conv09,fabric_type,7,11,2,5,FW FW FW RC FW [RC] RC RC RC RC RC
+first_person__conv00,first_person,7,20,4,16,FW FW FW FW RC FW FW FW RC FW FW FW RC FW FW FW [RC] RC RC RC
+first_person__conv01,first_person,3,5,1,2,FW FW [RC] RC RC
+first_person__conv03,first_person,7,12,4,8,FW RC FW FW RC FW FW RC [RW] RC RC RC
+first_person__conv04,first_person,8,18,4,13,FW FW FW RC FW FW RC FW FW RC FW FW FW [RC] RC RC RC RC
+first_person__conv05,first_person,3,3,1,0,[RW] RC RC
+first_person__conv06,first_person,4,6,2,3,FW RC FW [RC] RC RC
+first_person__conv07,first_person,8,13,2,6,FW FW RC FW FW FW [RC] RC RC RC RC RC RC
+first_person__conv08,first_person,5,10,4,8,FW FW RW FW RC RW FW FW [RC] RC
+first_person__conv09,first_person,4,10,2,7,FW FW FW FW NF FW FW [RC] RC RC
+furniture_item__conv01,furniture_item,5,13,4,11,FW FW NF FW FW RC FW FW FW RC FW [RC] RC
+furniture_item__conv02,furniture_item,6,19,4,16,FW FW FW RC FW FW RC FW FW FW FW NF FW FW FW FW [RC] RC RC
+furniture_item__conv03,furniture_item,6,11,2,6,FW FW FW FW NF FW [RC] RC RC RC RC
+furniture_item__conv04,furniture_item,5,9,1,4,FW FW FW FW [RC] RC RC RC RC
+furniture_item__conv05,furniture_item,3,6,1,3,FW FW FW [RC] RC NF
+furniture_item__conv06,furniture_item,8,20,6,17,FW RC FW FW NF FW FW FW FW RC FW RC FC FW NF FW FW [RC] RC RC
+furniture_item__conv07,furniture_item,3,6,2,4,FW RC FW FW [RC] RC
+furniture_item__conv08,furniture_item,3,4,1,1,FW [RC] RC RC
+furniture_item__conv09,furniture_item,7,18,5,15,FW NF FW FW RC FC NF FW FW FW FW RC FC FW FW [RC] RC RC
+gemstone__conv00,gemstone,8,15,2,8,FW FW FW RC FW FW FW FW [RC] RC RC RC RC RC RC
+gemstone__conv02,gemstone,6,15,4,12,FW FW RC FW FW FW FW RC FW FW NF FW [RC] RC RC
+gemstone__conv03,gemstone,6,8,1,2,FW FW [RC] RC RC RC RC RC
+gemstone__conv04,gemstone,7,10,1,3,FW FW FW [RC] RC RC RC RC RC RC
+gemstone__conv06,gemstone,6,17,5,15,FW RC FW FW FW FW NF FW FW FW NF FW RC FW FW [RC] RC
+gemstone__conv07,gemstone,7,11,2,5,FW FW RC FC FW [RC] RC RC RC RC RC
+gemstone__conv09,gemstone,6,17,4,14,FW FW FW NF FW FW FW FW NF FW RC FW FW FW [RC] RC RC
+geological_formation__conv02,geological_formation,5,13,3,10,FW FW RC FW FW FW RC FW FW FW [RC] RC RC
+geological_formation__conv03,geological_formation,3,5,1,2,FW FW [RC] RC RC
+geological_formation__conv05,geological_formation,3,4,1,1,FW [RC] RC RC
+geological_formation__conv06,geological_formation,4,5,1,1,FW [RC] RC RC RC
+geological_formation__conv07,geological_formation,8,28,7,26,FW FW FW RC FW FW NF FW FW FW RC FW FW FW RC FW FW RC FW FW FW FC NF FW FW FW [RC] RC
+geological_formation__conv08,geological_formation,4,7,2,4,FW FW RC FW [RW] RC RC
+geological_formation__conv09,geological_formation,7,16,5,13,FW RW FW FW FW FW NF FW FW NF FW FW RC [RC] RC RC
+geometric_shape__conv00,geometric_shape,6,16,5,14,FW FW FW RC FC RC FW RC FW FW FW FC RC FW [RC] RC
+geometric_shape__conv01,geometric_shape,8,18,4,13,FW FW FW FW NF FW FW RC FW FW RC FW FW [RC] RC RC RC RC
+geometric_shape__conv02,geometric_shape,6,17,5,15,FW RC FW FW NF FW FW NF FW FW FW RC FW FW FW [RC] RC
+geometric_shape__conv03,geometric_shape,3,8,2,6,FW FW FW NF FW FW [RC] RC
+geometric_shape__conv04,geometric_shape,6,12,3,8,FW NF FW FW FW RC FW FW [RC] RC RC RC
+geometric_shape__conv05,geometric_shape,4,6,1,2,FW FW [RC] RC RC RC
+geometric_shape__conv06,geometric_shape,3,4,1,1,FW [RC] RC RC
+geometric_shape__conv07,geometric_shape,6,10,3,6,FW RC FW FW RC FW [RC] RC RC RC
+geometric_shape__conv08,geometric_shape,6,12,3,8,FW RC FW FW FW FW NF FW [RC] RC RC RC
+geometric_shape__conv09,geometric_shape,8,28,7,26,FW NF FW FW FW FW RC FW FW FW FW NF FW RC FW FW NF FW FW FW FW RC FW FW FW FW [RC] RC
+herbaceous_plant__conv00,herbaceous_plant,8,10,1,2,FW FW [RC] RC RC RC RC RC RC RC
+herbaceous_plant__conv01,herbaceous_plant,6,18,5,16,FW FW FW FW NF FW FW FW FW RC FW NF FW FW RC FW [RC] RC
+herbaceous_plant__conv02,herbaceous_plant,3,4,1,1,FW [RC] RC RC
+herbaceous_plant__conv03,herbaceous_plant,8,27,7,25,FW FW RC FC RC FW FC FC FC RC FW FW FC FW RC FW FW RC FW FW RC FW FW FC FC [RC] RC
+herbaceous_plant__conv04,herbaceous_plant,6,19,5,17,FW FW RC FW FW FW RC FW FW RC FW FW FW RC FW FW FW [RC] RC
+herbaceous_plant__conv05,herbaceous_plant,4,8,2,5,FW FW FW RC FW [RC] RC RC
+herbaceous_plant__conv06,herbaceous_plant,4,7,1,3,FW FW FW [RC] RC RC RC
+herbaceous_plant__conv07,herbaceous_plant,8,9,1,1,FW [RC] RC RC RC RC RC RC RC
+herbaceous_plant__conv08,herbaceous_plant,3,4,1,1,FW [RC] RC RC
+herbaceous_plant__conv09,herbaceous_plant,4,8,2,5,FW FW FW RC FW [RC] RC RC
+insect_name__conv00,insect_name,5,16,4,14,FW NF FW FW FW FW RC FW FW FW RC FW FW FW [RC] RC
+insect_name__conv01,insect_name,8,16,4,11,FW FW FW FW RC FW RC FW FW RC FW [RC] RC RC RC RC
+insect_name__conv02,insect_name,8,14,2,7,FW FW FW NF FW FW FW [RC] RC RC RC RC RC RC
+insect_name__conv03,insect_name,6,7,1,1,FW [RC] RC RC RC RC RC
+insect_name__conv04,insect_name,5,14,4,12,FW RC FW FW FW FW RC FW FW NF FW FW [RC] RC
+insect_name__conv05,insect_name,5,8,2,4,FW FW NF FW [RC] RC RC RC
+insect_name__conv06,insect_name,3,5,2,3,FW RC FC [RC] RC
+insect_name__conv07,insect_name,5,9,2,5,FW NF FW FW FW [RC] RC RC RC
+insect_name__conv08,insect_name,5,11,2,7,FW FW FW FW RC FW FW [RC] RC RC RC
+insect_name__conv09,insect_name,7,11,3,6,FW RC FW NF FW FW [RC] RC RC RC RC
+legal_term__conv01,legal_term,7,13,2,7,FW FW FW RC FW FW FW [RC] RC RC RC RC NF
+legal_term__conv02,legal_term,5,13,3,10,FW FW FW RC FW FW FW RC FW FW [RW] RC RC
+legal_term__conv03,legal_term,8,12,2,5,RW FW FW FW FW [RC] RC RC RC RC RC RC
+legal_term__conv04,legal_term,6,16,3,12,FW FW FW RC FW FW FW FW RC FW FW FW [RC] RC RC RC
+legal_term__conv05,legal_term,8,17,4,12,RW FW FW FW RC FC FW FW FW RC FW FW [RC] RC RC RC NF
+legal_term__conv07,legal_term,8,17,6,14,RW FW RW FW FW FW NF FW FW RC FW NF FW FW [RC] RC RC
+legal_term__conv08,legal_term,5,12,3,9,FW FW FW FW RC FW RW FW FW [RC] RC NF
+legal_term__conv09,legal_term,7,15,4,11,FW RC FW FW FW FW NF FW FW NF FW [RW] RC RC RC
+marine_creature__conv00,marine_creature,5,13,3,10,FW FW FW NF FW NF FW FW FW FW [RC] RC RC
+marine_creature__conv01,marine_creature,7,9,2,3,FW RC FW [RC] RC RC RC RC RC
+marine_creature__conv02,marine_creature,6,18,4,15,FW NF FW FW FW FW RC FW FW FW RC FW FW FW FW [RC] RC RC
+marine_creature__conv03,marine_creature,5,7,1,2,FW FW [RC] RC RC RC RC
+marine_creature__conv04,marine_creature,6,16,4,13,FW FW FW FW RC FW FW RC RW FW FW FW FW [RC] RC RC
+marine_creature__conv05,marine_creature,6,10,2,5,FW RC FW FW FW [RC] RC RC RC RC
+marine_creature__conv06,marine_creature,5,11,2,7,FW FW RC FW FW FW FW [RC] RC RC RC
+marine_creature__conv07,marine_creature,4,7,1,3,FW FW FW [RC] RC RC RC
+marine_creature__conv09,marine_creature,7,15,3,10,FW FW FW NF FW FW FW NF FW FW [RC] RC RC RC RC
+mathematical_term__conv00,mathematical_term,5,9,1,4,FW FW FW FW [RC] RC RC RC RC
+mathematical_term__conv01,mathematical_term,8,24,6,21,FW FW RC FW FW NF FW FW FW RC FW FW FW RC FW FW RC FW FW FW FW [RC] RC RC
+mathematical_term__conv02,mathematical_term,4,9,3,7,FW NF FW FW RC FW FW [RC] RC
+mathematical_term__conv03,mathematical_term,7,16,4,12,FW FW FW FW RC FW FW FW NF RW FW FW [RC] RC RC RC
+mathematical_term__conv04,mathematical_term,5,10,3,7,FW NF FW FW RC FW FW [RC] RC RC
+mathematical_term__conv05,mathematical_term,3,9,2,7,FW FW FW FW NF FW FW [RC] RC
+mathematical_term__conv06,mathematical_term,4,6,1,2,FW FW [RC] RC RC RC
+mathematical_term__conv08,mathematical_term,4,7,1,3,FW FW FW [RC] RC RC RC
+medical_condition__conv00,medical_condition,3,5,2,3,FW NF FW [RC] RC
+medical_condition__conv01,medical_condition,4,7,2,4,FW NF FW FW [RC] RC RC
+medical_condition__conv02,medical_condition,8,10,1,-1,FW FW NF RC RC RC RC RC RC RC
+medical_condition__conv03,medical_condition,3,6,1,3,FW FW FW [RC] RC RC
+medical_condition__conv04,medical_condition,6,12,2,7,FW FW FW FW RC FW FW [RC] RC RC RC RC
+medical_condition__conv06,medical_condition,6,8,1,2,FW FW [RC] RC RC RC RC RC
+medical_condition__conv07,medical_condition,7,9,1,2,FW FW [RC] RC RC RC RC RC RC
+medical_condition__conv08,medical_condition,4,8,1,4,FW FW FW FW [RC] RC RC RC
+medical_condition__conv09,medical_condition,5,17,4,15,FW FW FW FW RC FW FW FW FW RC FW NF FW FW FW [RC] RC
+military_rank__conv00,military_rank,8,20,5,16,FW FW FW RW FW FW RC FC NF FW FW FW FW RC FW FW [RC] RC RC RC
+military_rank__conv01,military_rank,8,13,4,8,RW FW FW NF FW FW RC FW [RC] RC RC RC RC
+military_rank__conv03,military_rank,5,14,3,11,FW FW RC FW FW FW RC FW FW FW FW [RC] RC RC
+military_rank__conv04,military_rank,4,11,3,9,FW FW NF FW FW FW RC FW FW [RC] RC
+military_rank__conv06,military_rank,8,13,2,6,FW FW NF FW FW FW [RC] RC RC RC RC RC RC
+military_rank__conv07,military_rank,6,17,5,15,FW FW FW RC FW FW NF FW FW RC FW FW FW RC FW [RC] RC
+military_rank__conv08,military_rank,8,13,2,6,FW RC FW FW FW FW [RC] RC RC RC RC RC RC
+military_rank__conv09,military_rank,4,9,2,6,FW NF FW FW FW FW [RC] RC RC
+movement_verb__conv01,movement_verb,5,12,4,10,FW RC FW FW FW RC FW RC FW FW [RC] RC
+movement_verb__conv02,movement_verb,6,11,2,6,FW FW FW RC FW FW [RC] RC RC RC RC
+movement_verb__conv03,movement_verb,7,20,6,18,FW RC FW FW RC FW FW FW FW RC FW RW FW RC FW FW FW FW [RC] RC
+movement_verb__conv04,movement_verb,4,11,2,8,FW FW FW FW NF FW FW FW [RC] RC RC
+movement_verb__conv05,movement_verb,3,8,2,6,FW FW FW FW RC FW [RC] RC
+movement_verb__conv06,movement_verb,6,17,5,15,FW NF FW FW FW RW FW FW FW FW RC FW RC FW FW [RC] RC
+movement_verb__conv07,movement_verb,7,14,4,10,FW FW RC FC NF FW FW RC FW FW [RC] RC RC RC
+movement_verb__conv08,movement_verb,4,8,1,4,FW FW FW FW [RC] RC RC RC
+movement_verb__conv09,movement_verb,7,13,5,10,FW FW NF FW NF FW FW NF FW NF [RW] RC RC
+musical_instrument__conv00,musical_instrument,3,4,1,1,FW [RC] RC RC
+musical_instrument__conv01,musical_instrument,4,15,3,13,FW FW FW FW RC FW FW FW RC FW FW FW FW [RC] RC
+musical_instrument__conv02,musical_instrument,4,13,3,11,FW FW RC FW FW FW FW NF FW FW FW [RC] RC
+musical_instrument__conv03,musical_instrument,7,11,1,4,FW FW FW FW [RC] RC RC RC RC RC RC
+musical_instrument__conv04,musical_instrument,4,6,1,2,FW FW [RC] RC RC RC
+musical_instrument__conv05,musical_instrument,7,19,5,16,FW RC FW RC FW FW FW FW RC FW FW FW FW RC FW FW [RC] RC RC
+musical_instrument__conv06,musical_instrument,8,16,3,10,FW FW RC FW FW FW FW NF FW FW [RC] RC RC RC RC RC
+musical_instrument__conv07,musical_instrument,3,4,1,1,FW [RC] RC RC
+musical_instrument__conv08,musical_instrument,6,18,3,14,FW FW FW FW NF FW FW FW FW RC FW FW FW FW [RC] RC RC RC
+musical_instrument__conv09,musical_instrument,5,11,2,7,FW FW FW FW RC FC FW [RC] RC RC RC
+mythological_figure__conv00,mythological_figure,7,13,2,7,FW FW RC FW FW FW FW [RC] RC RC RC RC RC
+mythological_figure__conv01,mythological_figure,8,29,7,27,FW FW FW FW RC FW FW FW FW RC FW RC FW FW FW FW NF FW FW RW FW FW FW RC FW FW FW [RC] RC
+mythological_figure__conv02,mythological_figure,3,8,2,6,FW RC FW FW FW FW [RC] RC
+mythological_figure__conv03,mythological_figure,6,8,1,2,FW FW [RC] RC RC RC RC RC
+mythological_figure__conv04,mythological_figure,5,11,2,7,FW FW FW FW RC FW FW [RC] RC RC RC
+mythological_figure__conv06,mythological_figure,6,12,2,7,FW FW RC FW FW FW FW [RC] RC RC RC RC
+mythological_figure__conv07,mythological_figure,4,8,2,5,FW FW FW RC FW [RC] RC RC
+mythological_figure__conv08,mythological_figure,8,28,7,26,FW FW FW FW RC FW RC FW NF FW FW FW FW RC FW FW FW FW RC FW FW FW NF FW FW FW [RC] RC
+mythological_figure__conv09,mythological_figure,7,12,2,6,FW NF FW FW FW FW [RC] RC RC RC RC RC
+nautical_term__conv00,nautical_term,4,7,3,5,FW RC RW FW FW [RC] RC
+nautical_term__conv01,nautical_term,4,8,1,4,FW FW FW FW [RC] RC RC RC
+nautical_term__conv03,nautical_term,8,21,6,18,FW FW RC RC FW FW FW NF FW FW FW NF FW FW FW FW RC FW [RC] RC RC
+nautical_term__conv04,nautical_term,8,22,5,18,FW FW FW FW RC FW FW FW FW NF FW FW FW FW RC FW RC FW [RC] RC RC NF
+nautical_term__conv05,nautical_term,4,11,3,9,FW FW FW FW RC FW RC FW FW [RC] RC
+nautical_term__conv06,nautical_term,3,8,2,6,FW RC FW FW FW FW [RC] RC
+nautical_term__conv07,nautical_term,3,5,1,2,FW FW [RC] RC RC
+nautical_term__conv08,nautical_term,8,18,4,13,FW FW FW FW NF FW FW FW FW RC FW NF FW [RC] RC RC RC RC
+nautical_term__conv09,nautical_term,6,10,2,5,FW FW FW FW RC [RW] RC RC RC RC
+precious_metal__conv00,precious_metal,3,8,2,6,FW FW RC FW FW FW [RC] RC
+precious_metal__conv02,precious_metal,5,10,3,7,FW FW NF FW NF FW FW [RC] RC RC
+precious_metal__conv03,precious_metal,8,16,4,11,FW NF FW FW FW FW RC FW RC FW FW [RC] RC RC RC RC
+precious_metal__conv04,precious_metal,8,9,1,1,FW [RC] RC RC RC RC RC RC RC
+precious_metal__conv05,precious_metal,5,10,2,6,FW FW RC FW FW FW [RC] RC RC RC
+precious_metal__conv07,precious_metal,5,11,2,7,FW FW FW RC FW FW FW [RC] RC RC RC
+precious_metal__conv08,precious_metal,6,10,1,4,FW FW FW FW [RC] RC RC RC RC RC
+precious_metal__conv09,precious_metal,8,9,1,1,FW [RC] RC RC RC RC RC RC RC
+sports_equipment__conv00,sports_equipment,7,22,6,20,FW FW RC FW RC FW FW FW RC FW FW RC FW FW FW NF FW FW FW FW [RC] RC
+sports_equipment__conv01,sports_equipment,7,12,2,6,FW RW FW FW FW FW [RC] RC RC RC RC RC
+sports_equipment__conv02,sports_equipment,6,16,3,12,FW FW FW FW RC FW FW FW FW RC FW FW [RC] RC RC RC
+sports_equipment__conv03,sports_equipment,8,30,7,-1,FW RC FW NF FW FW FW FW RC FW FW FW FW NF FW FW FW FW RC FW FW FW FW NF FW FW FW FW NF RC
+sports_equipment__conv04,sports_equipment,3,7,1,4,FW FW FW FW [RC] RC RC
+sports_equipment__conv05,sports_equipment,4,10,3,8,FW FW FW FW RC FW RC FW [RC] RC
+sports_equipment__conv06,sports_equipment,4,7,1,3,FW FW FW [RC] RC RC RC
+sports_equipment__conv07,sports_equipment,5,11,3,8,FW FW RC FW FW FW NF FW [RC] RC RC
+sports_equipment__conv09,sports_equipment,5,13,4,11,FW FW RC FW FW FW RC FW FW RC FW [RC] RC
+theatrical_term__conv00,theatrical_term,5,10,2,6,FW FW FW FW RC FW [RC] RC RC RC
+theatrical_term__conv02,theatrical_term,8,19,3,13,FW FW FW FW RC FW FW FW FW RC FW FW FW [RC] RC RC RC RC RC
+theatrical_term__conv03,theatrical_term,5,8,1,3,FW FW FW [RC] RC RC RC RC
+theatrical_term__conv04,theatrical_term,4,10,2,7,FW FW FW FW NF FW FW [RC] RC NF
+theatrical_term__conv05,theatrical_term,7,11,5,8,FW NF RW FW RC FW RC FW [RC] RC RC
+theatrical_term__conv06,theatrical_term,3,9,2,7,FW FW RC FW FW FW FW [RC] RC
+theatrical_term__conv07,theatrical_term,4,5,1,1,FW [RC] RC RC RC
+theatrical_term__conv08,theatrical_term,7,9,1,2,FW FW [RC] RC RC RC RC RC RC
+theatrical_term__conv09,theatrical_term,4,8,2,5,FW FW NF FW FW [RC] RC RC
+vehicle_type__conv00,vehicle_type,5,9,2,5,FW FW FW RC FW [RC] RC RC RC
+vehicle_type__conv01,vehicle_type,4,11,3,9,FW FW FW RC FW FW FW RC FW [RC] RC
+vehicle_type__conv02,vehicle_type,6,8,1,2,FW FW [RC] RC RC RC RC RC
+vehicle_type__conv03,vehicle_type,4,6,1,2,FW FW [RC] RC RC RC
+vehicle_type__conv04,vehicle_type,6,16,4,13,FW NF FW NF FW FW FW FW NF FW FW FW FW [RC] RC RC
+vehicle_type__conv05,vehicle_type,6,10,2,5,FW FW FW RC FC [RC] RC RC RC RC
+vehicle_type__conv07,vehicle_type,4,12,3,10,FW FW FW FW NF FW RC FC FW FW [RC] RC
+vehicle_type__conv08,vehicle_type,8,23,5,19,FW FW FW RC FW FC FW FW RC FW FW FW RC FW FW RC FW FW FW [RC] RC RC RC
+vehicle_type__conv09,vehicle_type,7,18,6,16,FW NF FW FC NF FW FC FW FW RC FC NF FW FW NF FW [RC] RC
+weather_phenomenon__conv00,weather_phenomenon,3,7,2,5,FW FW RC FW FW [RC] RC
+weather_phenomenon__conv01,weather_phenomenon,6,17,5,15,FW FW RC FW FW FW RC FC FW RC FC FW RC FW FW [RC] RC
+weather_phenomenon__conv02,weather_phenomenon,8,12,1,4,FW FW FW FW [RC] RC RC RC RC RC RC RC
+weather_phenomenon__conv03,weather_phenomenon,3,6,2,4,FW FW NF FW [RC] RC
+weather_phenomenon__conv04,weather_phenomenon,3,5,1,2,FW FW [RC] RC RC
+weather_phenomenon__conv06,weather_phenomenon,4,8,1,4,FW FW FW FW [RC] RC RC RC
+weather_phenomenon__conv08,weather_phenomenon,4,8,1,4,FW FW FW FW [RC] RC RC RC
+weather_phenomenon__conv09,weather_phenomenon,8,10,1,2,FW FW [RC] RC RC RC RC RC RC RC

@@ -1,0 +1,780 @@
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 11.050926208496094, "exp_rating": 6.866926193237305, "digit_mass": 0.9924050569534302}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 12.243988990783691, "yes_minus_no": -1.5}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 10.146865844726562, "exp_rating": 6.555559158325195, "digit_mass": 0.989431619644165}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 10.859295845031738, "yes_minus_no": 0.125}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 11.418561935424805, "exp_rating": 7.244075775146484, "digit_mass": 0.9958661794662476}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 12.777321815490723, "yes_minus_no": -1.375}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 12.115246772766113, "exp_rating": 6.584780693054199, "digit_mass": 0.9890429377555847}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 12.272516250610352, "yes_minus_no": -1.5}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 11.717767715454102, "exp_rating": 5.712947845458984, "digit_mass": 0.9763426184654236}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 11.437665939331055, "yes_minus_no": -2.0}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 12.424803733825684, "exp_rating": 6.13007926940918, "digit_mass": 0.9907500147819519}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 12.62382698059082, "yes_minus_no": -0.5}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 12.49669075012207, "exp_rating": 6.3275065422058105, "digit_mass": 0.9721814393997192}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 13.247679710388184, "yes_minus_no": -1.5}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 11.478628158569336, "exp_rating": 5.403105735778809, "digit_mass": 0.9590646624565125}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 11.536137580871582, "exp_rating": 6.882470607757568, "digit_mass": 0.9860671162605286}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 11.31060791015625, "yes_minus_no": -0.625}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 11.947776794433594, "yes_minus_no": -0.375}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 12.544971466064453, "exp_rating": 6.515581130981445, "digit_mass": 0.987861692905426}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 13.39456844329834, "yes_minus_no": -1.25}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 11.193540573120117, "exp_rating": 5.611080646514893, "digit_mass": 0.9734233617782593}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 10.977486610412598, "yes_minus_no": 0.0}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 11.300217628479004, "exp_rating": 6.834496974945068, "digit_mass": 0.9950222969055176}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 12.453286170959473, "exp_rating": 6.79058313369751, "digit_mass": 0.995537281036377}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 12.453837394714355, "yes_minus_no": -1.0}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 12.495359420776367, "yes_minus_no": -1.75}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 11.379344940185547, "exp_rating": 7.0030837059021, "digit_mass": 0.9980732202529907}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 11.946261405944824, "yes_minus_no": -0.875}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 12.341238021850586, "exp_rating": 4.621252536773682, "digit_mass": 0.9563268423080444}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 12.923826217651367, "yes_minus_no": -1.125}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 12.138691902160645, "exp_rating": 3.389889717102051, "digit_mass": 0.699840784072876}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 11.544254302978516, "yes_minus_no": -2.875}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 11.221540451049805, "exp_rating": 3.602278709411621, "digit_mass": 0.7764773368835449}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 10.195500373840332, "exp_rating": 3.6202585697174072, "digit_mass": 0.8675044775009155}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 11.163152694702148, "exp_rating": 3.3410422801971436, "digit_mass": 0.8349777460098267}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 11.253520011901855, "yes_minus_no": -3.25}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 10.881229400634766, "yes_minus_no": -3.75}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 11.76919174194336, "exp_rating": 4.202707767486572, "digit_mass": 0.9173107743263245}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 11.0360107421875, "exp_rating": 3.1230063438415527, "digit_mass": 0.6052685379981995}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 11.379150390625, "yes_minus_no": -3.25}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 10.79347038269043, "exp_rating": 3.727651596069336, "digit_mass": 0.8588709235191345}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 11.414351463317871, "yes_minus_no": -3.5}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 10.603271484375, "yes_minus_no": -2.5}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 11.799051284790039, "exp_rating": 3.4444901943206787, "digit_mass": 0.8492062091827393}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 10.601595878601074, "yes_minus_no": -3.875}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 10.562372207641602, "exp_rating": 3.475381851196289, "digit_mass": 0.8689534664154053}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 10.527704238891602, "yes_minus_no": -2.25}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 11.435028076171875, "exp_rating": 3.954946756362915, "digit_mass": 0.9043887257575989}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 10.852799415588379, "exp_rating": 3.9671480655670166, "digit_mass": 0.869958758354187}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 9.789277076721191, "yes_minus_no": -3.625}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 11.370270729064941, "exp_rating": 3.6956937313079834, "digit_mass": 0.8894941806793213}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 10.366814613342285, "yes_minus_no": -5.0}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 10.824075698852539, "exp_rating": 3.572622776031494, "digit_mass": 0.9240351319313049}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 11.553009986877441, "exp_rating": 4.931116580963135, "digit_mass": 0.9715263843536377}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 12.056900978088379, "yes_minus_no": -4.625}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 11.230634689331055, "yes_minus_no": -3.25}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -75, "closure": 11.941591262817383, "exp_rating": 4.517077922821045, "digit_mass": 0.9616451263427734}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 10.035382270812988, "yes_minus_no": -4.125}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 10.5650634765625, "yes_minus_no": -4.0}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -75, "closure": 11.414655685424805, "yes_minus_no": -3.75}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 12.028800964355469, "exp_rating": 8.43393611907959, "digit_mass": 0.9999991655349731}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 15.025728225708008, "yes_minus_no": -11.75}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 10.91374397277832, "exp_rating": 8.630465507507324, "digit_mass": 0.9999995231628418}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 12.721954345703125, "yes_minus_no": -9.25}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 12.023107528686523, "exp_rating": 8.84438419342041, "digit_mass": 0.9999998211860657}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 13.76337718963623, "yes_minus_no": -12.75}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 12.929262161254883, "exp_rating": 8.597376823425293, "digit_mass": 0.999999463558197}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 14.488561630249023, "yes_minus_no": -12.5}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 13.628689765930176, "exp_rating": 8.37023639678955, "digit_mass": 0.9999986886978149}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 14.13689136505127, "yes_minus_no": -13.5}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 11.244593620300293, "exp_rating": 8.381671905517578, "digit_mass": 0.9999996423721313}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 14.140887260437012, "yes_minus_no": -11.5}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 13.80025863647461, "exp_rating": 8.52709674835205, "digit_mass": 0.9999989867210388}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 15.828958511352539, "yes_minus_no": -12.0}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 12.140838623046875, "exp_rating": 8.504190444946289, "digit_mass": 0.9999982118606567}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 11.876612663269043, "exp_rating": 8.602921485900879, "digit_mass": 0.999997079372406}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 12.835580825805664, "yes_minus_no": -11.5}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 14.067389488220215, "yes_minus_no": -9.75}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 12.90195369720459, "exp_rating": 8.633661270141602, "digit_mass": 0.9999995231628418}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 15.093382835388184, "yes_minus_no": -11.75}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 12.406314849853516, "exp_rating": 8.718807220458984, "digit_mass": 0.9999998211860657}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 13.497262954711914, "yes_minus_no": -10.5}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 12.061361312866211, "exp_rating": 8.146974563598633, "digit_mass": 0.9999998807907104}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 13.021146774291992, "exp_rating": 8.307670593261719, "digit_mass": 0.9999996423721313}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 14.396322250366211, "yes_minus_no": -12.5}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 14.730807304382324, "yes_minus_no": -13.0}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 11.3872709274292, "exp_rating": 8.450225830078125, "digit_mass": 0.9999999403953552}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 14.260180473327637, "yes_minus_no": -11.5}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 15.379729270935059, "exp_rating": 7.950267791748047, "digit_mass": 0.9999954700469971}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 16.304447174072266, "yes_minus_no": -12.0}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 16.78946304321289, "exp_rating": 7.325130462646484, "digit_mass": 0.9994210600852966}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 14.47725772857666, "yes_minus_no": -12.75}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 16.340797424316406, "exp_rating": 7.069832801818848, "digit_mass": 0.9996240735054016}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 15.756237983703613, "exp_rating": 7.351490497589111, "digit_mass": 0.999719500541687}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 16.698747634887695, "exp_rating": 7.16059684753418, "digit_mass": 0.9997325539588928}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 15.35435676574707, "yes_minus_no": -13.5}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 13.097406387329102, "yes_minus_no": -14.0}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 16.022594451904297, "exp_rating": 7.322429180145264, "digit_mass": 0.9998743534088135}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 16.632396697998047, "exp_rating": 7.171410083770752, "digit_mass": 0.9971786737442017}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 14.471109390258789, "yes_minus_no": -14.25}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 15.846176147460938, "exp_rating": 7.148770332336426, "digit_mass": 0.999737024307251}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 15.678308486938477, "yes_minus_no": -14.25}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 14.652545928955078, "yes_minus_no": -12.25}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 16.792821884155273, "exp_rating": 7.189383029937744, "digit_mass": 0.9997097253799438}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 14.063087463378906, "yes_minus_no": -14.5}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 16.404727935791016, "exp_rating": 7.294864654541016, "digit_mass": 0.999600887298584}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 15.140209197998047, "yes_minus_no": -12.0}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 16.828025817871094, "exp_rating": 7.341536521911621, "digit_mass": 0.999890148639679}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 16.33339500427246, "exp_rating": 7.299443244934082, "digit_mass": 0.9997818470001221}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 13.718827247619629, "yes_minus_no": -14.5}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 16.289371490478516, "exp_rating": 7.355136871337891, "digit_mass": 0.9997923374176025}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 14.209514617919922, "yes_minus_no": -16.25}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 16.2454776763916, "exp_rating": 7.2706098556518555, "digit_mass": 0.9999328851699829}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 15.37104320526123, "exp_rating": 7.367896556854248, "digit_mass": 0.9999834299087524}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 15.59765625, "yes_minus_no": -13.5}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 16.39688491821289, "yes_minus_no": -13.75}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -50, "closure": 15.650272369384766, "exp_rating": 7.384908199310303, "digit_mass": 0.9999569654464722}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 14.209051132202148, "yes_minus_no": -16.0}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 13.926023483276367, "yes_minus_no": -14.25}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -50, "closure": 15.199117660522461, "yes_minus_no": -12.25}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 7.055407524108887, "exp_rating": 8.365355491638184, "digit_mass": 1.0}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 13.795492172241211, "yes_minus_no": -16.5}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 5.590900421142578, "exp_rating": 8.274805068969727, "digit_mass": 1.0}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 12.884002685546875, "yes_minus_no": -15.0}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 5.206155300140381, "exp_rating": 8.869250297546387, "digit_mass": 0.9999998807907104}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 13.14486312866211, "yes_minus_no": -18.0}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 7.06461763381958, "exp_rating": 8.678360939025879, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 15.419322967529297, "yes_minus_no": -16.5}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 8.833954811096191, "exp_rating": 8.200608253479004, "digit_mass": 1.0}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 15.988503456115723, "yes_minus_no": -19.5}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 4.94256067276001, "exp_rating": 8.312958717346191, "digit_mass": 1.0}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 14.389272689819336, "yes_minus_no": -16.5}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 9.379189491271973, "exp_rating": 8.493496894836426, "digit_mass": 1.0}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 16.418212890625, "yes_minus_no": -17.75}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 6.405376434326172, "exp_rating": 8.432343482971191, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 6.554757595062256, "exp_rating": 8.62110710144043, "digit_mass": 0.9999998807907104}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 13.418840408325195, "yes_minus_no": -16.25}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 14.445645332336426, "yes_minus_no": -14.25}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 8.960671424865723, "exp_rating": 8.470857620239258, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 16.907150268554688, "yes_minus_no": -16.25}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 6.285525321960449, "exp_rating": 8.848393440246582, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 13.519386291503906, "yes_minus_no": -15.0}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 7.398686408996582, "exp_rating": 7.911032199859619, "digit_mass": 1.0000001192092896}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 9.14551830291748, "exp_rating": 8.200698852539062, "digit_mass": 1.0}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 16.632600784301758, "yes_minus_no": -18.75}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 15.574860572814941, "yes_minus_no": -18.75}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 6.549034118652344, "exp_rating": 8.365367889404297, "digit_mass": 1.0000001192092896}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 14.78785228729248, "yes_minus_no": -15.0}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 12.606559753417969, "exp_rating": 7.5225934982299805, "digit_mass": 0.9999997615814209}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 17.729400634765625, "yes_minus_no": -18.5}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 14.946554183959961, "exp_rating": 6.87872314453125, "digit_mass": 0.9998067617416382}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 15.755748748779297, "yes_minus_no": -19.25}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 14.292637825012207, "exp_rating": 6.583876609802246, "digit_mass": 0.9999963045120239}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 13.627409934997559, "exp_rating": 6.8650360107421875, "digit_mass": 0.9999175071716309}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 14.947129249572754, "exp_rating": 6.781959533691406, "digit_mass": 0.999997079372406}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 17.049131393432617, "yes_minus_no": -20.0}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 13.864465713500977, "yes_minus_no": -20.0}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 13.492940902709961, "exp_rating": 6.776627540588379, "digit_mass": 0.9999951124191284}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 15.079195022583008, "exp_rating": 6.815037727355957, "digit_mass": 0.9999669790267944}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 15.844647407531738, "yes_minus_no": -20.5}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 14.384069442749023, "exp_rating": 6.505487442016602, "digit_mass": 0.9999989867210388}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 17.0683650970459, "yes_minus_no": -21.75}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 16.2056827545166, "yes_minus_no": -19.125}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 14.351139068603516, "exp_rating": 6.796701908111572, "digit_mass": 0.9999958872795105}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 15.876888275146484, "yes_minus_no": -20.875}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 14.287487983703613, "exp_rating": 6.854466438293457, "digit_mass": 0.9999979138374329}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 16.222347259521484, "yes_minus_no": -19.5}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 14.503202438354492, "exp_rating": 6.981460094451904, "digit_mass": 0.9999998807907104}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 14.411603927612305, "exp_rating": 6.947227478027344, "digit_mass": 0.9999685287475586}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 15.307511329650879, "yes_minus_no": -22.0}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 13.877796173095703, "exp_rating": 6.684357643127441, "digit_mass": 0.9999943971633911}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 15.796886444091797, "yes_minus_no": -22.5}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 13.502497673034668, "exp_rating": 6.807208061218262, "digit_mass": 0.9999978542327881}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 13.16451644897461, "exp_rating": 6.903779983520508, "digit_mass": 0.9999996423721313}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 16.843482971191406, "yes_minus_no": -19.0}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 17.59575080871582, "yes_minus_no": -20.125}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "digit", "direction": "shipped", "alpha": -25, "closure": 12.853323936462402, "exp_rating": 6.900440216064453, "digit_mass": 1.0}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 15.873432159423828, "yes_minus_no": -23.625}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 15.007930755615234, "yes_minus_no": -20.75}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "binary", "direction": "shipped", "alpha": -25, "closure": 16.721162796020508, "yes_minus_no": -18.0}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 6.1441426277160645, "exp_rating": 8.251086235046387, "digit_mass": 1.0}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 8.147194862365723, "yes_minus_no": -16.75}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 5.4871063232421875, "exp_rating": 8.057690620422363, "digit_mass": 0.9999999403953552}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 9.87258243560791, "yes_minus_no": -16.75}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 6.392680644989014, "exp_rating": 1.0017447471618652, "digit_mass": 0.9999999403953552}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 8.061421394348145, "yes_minus_no": -19.5}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 7.368520259857178, "exp_rating": 8.844466209411621, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 13.710800170898438, "yes_minus_no": -16.0}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 6.995761871337891, "exp_rating": 8.538264274597168, "digit_mass": 0.9999999403953552}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 14.154803276062012, "yes_minus_no": -21.25}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 4.904375076293945, "exp_rating": 8.307350158691406, "digit_mass": 1.0}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 11.585858345031738, "yes_minus_no": -18.75}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 8.923571586608887, "exp_rating": 8.497566223144531, "digit_mass": 1.0}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 14.407858848571777, "yes_minus_no": -20.25}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 4.968416690826416, "exp_rating": 8.265751838684082, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 5.904789924621582, "exp_rating": 8.811567306518555, "digit_mass": 1.0}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 11.095836639404297, "yes_minus_no": -18.0}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 11.384841918945312, "yes_minus_no": -14.5}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 10.835939407348633, "exp_rating": 8.711960792541504, "digit_mass": 1.0000001192092896}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 14.607466697692871, "yes_minus_no": -16.5}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 6.955606937408447, "exp_rating": 8.575451850891113, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 10.378028869628906, "yes_minus_no": -15.25}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 6.808981895446777, "exp_rating": 7.971388816833496, "digit_mass": 1.0000001192092896}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 10.725431442260742, "exp_rating": 8.370034217834473, "digit_mass": 1.0000001192092896}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 14.20411205291748, "yes_minus_no": -19.75}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 13.30147647857666, "yes_minus_no": -19.75}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 8.079002380371094, "exp_rating": 8.367727279663086, "digit_mass": 0.9999999403953552}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 12.733906745910645, "yes_minus_no": -15.0}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 12.206642150878906, "exp_rating": 7.624600410461426, "digit_mass": 1.0000001192092896}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 15.674982070922852, "yes_minus_no": -20.25}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 15.996248245239258, "exp_rating": 5.37005090713501, "digit_mass": 0.9999916553497314}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 14.877232551574707, "yes_minus_no": -21.875}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 14.907844543457031, "exp_rating": 5.486382484436035, "digit_mass": 0.9999997615814209}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 14.690919876098633, "exp_rating": 5.293818950653076, "digit_mass": 0.9999989867210388}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 15.363576889038086, "exp_rating": 5.845184326171875, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 16.213621139526367, "yes_minus_no": -23.875}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 12.729804039001465, "yes_minus_no": -23.75}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 13.68375301361084, "exp_rating": 5.346925735473633, "digit_mass": 0.9999998807907104}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 15.520618438720703, "exp_rating": 5.5303120613098145, "digit_mass": 0.9999995827674866}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 13.8771333694458, "yes_minus_no": -24.5}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 15.011460304260254, "exp_rating": 5.234435081481934, "digit_mass": 1.0}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 15.721855163574219, "yes_minus_no": -25.625}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 15.63455867767334, "yes_minus_no": -21.375}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 14.97731876373291, "exp_rating": 5.572784900665283, "digit_mass": 0.9999982118606567}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 14.61463451385498, "yes_minus_no": -23.5}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 14.799715042114258, "exp_rating": 5.262227535247803, "digit_mass": 0.9999985098838806}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 14.909324645996094, "yes_minus_no": -24.25}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 14.747187614440918, "exp_rating": 5.760095596313477, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 15.801114082336426, "exp_rating": 5.646810054779053, "digit_mass": 0.9999931454658508}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 13.09209156036377, "yes_minus_no": -26.0}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 13.578306198120117, "exp_rating": 5.210259437561035, "digit_mass": 0.9999997019767761}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 14.49677562713623, "yes_minus_no": -24.75}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 14.728690147399902, "exp_rating": 5.593451976776123, "digit_mass": 0.9999996423721313}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 14.707616806030273, "exp_rating": 5.471109390258789, "digit_mass": 0.9999998211860657}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 15.693464279174805, "yes_minus_no": -21.25}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 16.362510681152344, "yes_minus_no": -24.125}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 0, "closure": 13.848758697509766, "exp_rating": 5.2007155418396, "digit_mass": 1.0000001192092896}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 15.03574275970459, "yes_minus_no": -27.625}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 12.661949157714844, "yes_minus_no": -25.25}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 0, "closure": 15.915283203125, "yes_minus_no": -19.5}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 9.7736234664917, "exp_rating": 3.0979511737823486, "digit_mass": 1.0000001192092896}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 4.482471942901611, "yes_minus_no": -8.0}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 10.38515853881836, "exp_rating": 1.1485185623168945, "digit_mass": 0.9999999403953552}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 6.612227916717529, "yes_minus_no": -7.75}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 12.958288192749023, "exp_rating": 1.0000003576278687, "digit_mass": 1.0}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 4.38145637512207, "yes_minus_no": -10.5}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 11.988009452819824, "exp_rating": 1.0262417793273926, "digit_mass": 1.0000001192092896}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 8.520544052124023, "yes_minus_no": -7.5}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 12.618499755859375, "exp_rating": 1.0059963464736938, "digit_mass": 1.0000001192092896}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 10.314714431762695, "yes_minus_no": -16.0}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 10.416196823120117, "exp_rating": 1.171392560005188, "digit_mass": 0.9999998807907104}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 6.104094982147217, "yes_minus_no": -10.75}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 12.311887741088867, "exp_rating": 6.913663387298584, "digit_mass": 1.0000001192092896}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 10.447952270507812, "yes_minus_no": -15.5}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 11.832037925720215, "exp_rating": 1.4123591184616089, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 11.839296340942383, "exp_rating": 1.0022398233413696, "digit_mass": 0.9999998807907104}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 5.652127742767334, "yes_minus_no": -9.0}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 6.650416851043701, "yes_minus_no": -4.25}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 15.27888298034668, "exp_rating": 1.044761300086975, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 10.894088745117188, "yes_minus_no": -9.25}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 13.737391471862793, "exp_rating": 1.00014328956604, "digit_mass": 0.9999999403953552}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 5.959557056427002, "yes_minus_no": -4.5}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 11.325718879699707, "exp_rating": 1.3542848825454712, "digit_mass": 0.9999999403953552}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 15.012267112731934, "exp_rating": 2.2543866634368896, "digit_mass": 0.9999998211860657}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 7.71333122253418, "yes_minus_no": -10.0}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 10.46998119354248, "yes_minus_no": -11.5}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 13.633601188659668, "exp_rating": 1.1899323463439941, "digit_mass": 0.9999999403953552}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 7.190455436706543, "yes_minus_no": -2.5}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 16.27817726135254, "exp_rating": 7.689383506774902, "digit_mass": 0.9999997019767761}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 10.19114875793457, "yes_minus_no": -12.0}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 18.466384887695312, "exp_rating": 5.5847015380859375, "digit_mass": 0.9800666570663452}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 13.433316230773926, "yes_minus_no": -21.75}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 18.10376739501953, "exp_rating": 5.284450531005859, "digit_mass": 0.9994043111801147}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 17.923587799072266, "exp_rating": 5.4267401695251465, "digit_mass": 0.9972894191741943}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 17.581253051757812, "exp_rating": 5.996736526489258, "digit_mass": 0.9980382919311523}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 15.195263862609863, "yes_minus_no": -23.375}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 13.394412994384766, "yes_minus_no": -21.75}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 16.817550659179688, "exp_rating": 5.522073745727539, "digit_mass": 0.9972303509712219}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 18.22631072998047, "exp_rating": 5.556421756744385, "digit_mass": 0.9498481750488281}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 12.897562026977539, "yes_minus_no": -24.25}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 18.211597442626953, "exp_rating": 5.316459655761719, "digit_mass": 0.9993307590484619}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 15.537134170532227, "yes_minus_no": -23.875}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 15.072938919067383, "yes_minus_no": -21.0}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 18.1904296875, "exp_rating": 5.412646770477295, "digit_mass": 0.9972727298736572}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 14.036882400512695, "yes_minus_no": -22.875}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 18.37527084350586, "exp_rating": 5.293484210968018, "digit_mass": 0.9954052567481995}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 13.819439888000488, "yes_minus_no": -22.25}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 18.052265167236328, "exp_rating": 5.589502334594727, "digit_mass": 0.9998238682746887}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 17.856353759765625, "exp_rating": 5.472796440124512, "digit_mass": 0.9911842346191406}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 13.378425598144531, "yes_minus_no": -24.875}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 17.23980140686035, "exp_rating": 5.542019367218018, "digit_mass": 0.9913032054901123}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 14.88947868347168, "yes_minus_no": -23.75}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 17.524524688720703, "exp_rating": 5.839047908782959, "digit_mass": 0.9960429668426514}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 17.93413543701172, "exp_rating": 5.659389972686768, "digit_mass": 0.9986404180526733}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 15.651734352111816, "yes_minus_no": -21.625}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 15.14762020111084, "yes_minus_no": -23.375}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 25, "closure": 17.573087692260742, "exp_rating": 5.341835975646973, "digit_mass": 0.9999253749847412}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 16.091957092285156, "yes_minus_no": -24.125}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 14.134263038635254, "yes_minus_no": -23.5}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 25, "closure": 14.822076797485352, "yes_minus_no": -19.125}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 14.209856033325195, "exp_rating": 8.463696479797363, "digit_mass": 0.995555579662323}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 10.291820526123047, "yes_minus_no": -1.25}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 14.438227653503418, "exp_rating": 6.486017227172852, "digit_mass": 0.9956042170524597}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 13.02326774597168, "yes_minus_no": 0.25}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 16.725717544555664, "exp_rating": 1.0014615058898926, "digit_mass": 0.9999982118606567}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 12.682994842529297, "yes_minus_no": -1.25}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 16.770978927612305, "exp_rating": 6.458165168762207, "digit_mass": 0.9999995231628418}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 13.070687294006348, "yes_minus_no": 0.75}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 16.523820877075195, "exp_rating": 1.147233009338379, "digit_mass": 0.9999992251396179}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 12.750258445739746, "yes_minus_no": -6.0}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 14.988112449645996, "exp_rating": 6.5170135498046875, "digit_mass": 0.9997843503952026}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 9.952579498291016, "yes_minus_no": -0.5}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 17.256418228149414, "exp_rating": 8.743363380432129, "digit_mass": 0.9999997615814209}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 14.142583847045898, "yes_minus_no": -5.25}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 15.62067985534668, "exp_rating": 8.232038497924805, "digit_mass": 0.999988853931427}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 16.281658172607422, "exp_rating": 1.1145468950271606, "digit_mass": 0.9999986290931702}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 9.366042137145996, "yes_minus_no": -1.0}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 11.77448558807373, "yes_minus_no": 2.75}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 18.004718780517578, "exp_rating": 1.973068118095398, "digit_mass": 0.9999833703041077}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 15.157144546508789, "yes_minus_no": -1.5}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 15.939377784729004, "exp_rating": 1.1447337865829468, "digit_mass": 0.9999998807907104}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 10.979620933532715, "yes_minus_no": 3.0}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 15.034477233886719, "exp_rating": 2.8031156063079834, "digit_mass": 0.9999865889549255}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 18.424715042114258, "exp_rating": 5.52655029296875, "digit_mass": 0.9999871850013733}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 10.555130958557129, "yes_minus_no": 0.75}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 14.986283302307129, "yes_minus_no": -2.0}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 16.358814239501953, "exp_rating": 1.3936340808868408, "digit_mass": 0.9998646974563599}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 12.05537223815918, "yes_minus_no": 2.25}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 19.52960968017578, "exp_rating": 8.620247840881348, "digit_mass": 0.9999361634254456}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 14.122492790222168, "yes_minus_no": -2.75}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 18.898082733154297, "exp_rating": 6.48745059967041, "digit_mass": 0.7147467136383057}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 16.14926528930664, "yes_minus_no": -17.0}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 19.687395095825195, "exp_rating": 5.872150421142578, "digit_mass": 0.8929921984672546}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 19.064241409301758, "exp_rating": 6.447641372680664, "digit_mass": 0.46224498748779297}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 18.689369201660156, "exp_rating": 6.54127836227417, "digit_mass": 0.6875951290130615}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 17.458375930786133, "yes_minus_no": -17.125}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 15.055190086364746, "yes_minus_no": -16.625}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 18.739521026611328, "exp_rating": 6.4379730224609375, "digit_mass": 0.7521599531173706}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 18.61435317993164, "exp_rating": 6.659424781799316, "digit_mass": 0.3186676502227783}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 16.33795928955078, "yes_minus_no": -16.875}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 19.039594650268555, "exp_rating": 6.2656965255737305, "digit_mass": 0.7225813865661621}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 17.624719619750977, "yes_minus_no": -17.75}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 16.48470687866211, "yes_minus_no": -17.0}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 19.374601364135742, "exp_rating": 6.4373779296875, "digit_mass": 0.9364949464797974}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 16.467052459716797, "yes_minus_no": -18.25}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 18.807783126831055, "exp_rating": 5.841269493103027, "digit_mass": 0.8192358016967773}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 16.544387817382812, "yes_minus_no": -13.875}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 19.347578048706055, "exp_rating": 6.26412296295166, "digit_mass": 0.8798592686653137}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 19.240406036376953, "exp_rating": 6.1643853187561035, "digit_mass": 0.7797819972038269}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 16.833023071289062, "yes_minus_no": -16.375}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 18.660446166992188, "exp_rating": 6.69049072265625, "digit_mass": 0.4389965832233429}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 17.616361618041992, "yes_minus_no": -17.125}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 19.593603134155273, "exp_rating": 6.797448635101318, "digit_mass": 0.6717913150787354}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 19.33525848388672, "exp_rating": 6.293584823608398, "digit_mass": 0.8870134949684143}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 17.72151756286621, "yes_minus_no": -14.625}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 16.548137664794922, "yes_minus_no": -17.375}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 50, "closure": 18.874361038208008, "exp_rating": 6.442483901977539, "digit_mass": 0.6031007766723633}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 17.762441635131836, "yes_minus_no": -17.875}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 16.433853149414062, "yes_minus_no": -16.375}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 50, "closure": 17.102869033813477, "yes_minus_no": -13.0}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 12.24537467956543, "exp_rating": 7.532362937927246, "digit_mass": 0.8469716310501099}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 14.6207857131958, "yes_minus_no": 0.875}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 12.890233039855957, "exp_rating": 7.425494194030762, "digit_mass": 0.8381504416465759}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 16.11621856689453, "yes_minus_no": 3.625}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 14.138269424438477, "exp_rating": 8.34786319732666, "digit_mass": 0.9455476999282837}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 16.823652267456055, "yes_minus_no": 2.75}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 14.75853443145752, "exp_rating": 7.704504489898682, "digit_mass": 0.9898707866668701}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 16.693405151367188, "yes_minus_no": 3.0}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 15.890798568725586, "exp_rating": 8.186827659606934, "digit_mass": 0.9524344205856323}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 17.732791900634766, "yes_minus_no": 1.125}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 13.759453773498535, "exp_rating": 7.248319149017334, "digit_mass": 0.8049846887588501}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 15.412986755371094, "yes_minus_no": 2.25}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 16.11894416809082, "exp_rating": 7.938172340393066, "digit_mass": 0.9927413463592529}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 18.047958374023438, "yes_minus_no": 1.625}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 14.356085777282715, "exp_rating": 7.992799758911133, "digit_mass": 0.9026800394058228}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 13.625103950500488, "exp_rating": 8.137089729309082, "digit_mass": 0.946645975112915}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 14.452061653137207, "yes_minus_no": 1.25}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 16.97562026977539, "yes_minus_no": 2.625}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 15.965147018432617, "exp_rating": 7.95614767074585, "digit_mass": 0.9853758811950684}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 17.801469802856445, "yes_minus_no": 1.375}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 14.508918762207031, "exp_rating": 8.420863151550293, "digit_mass": 0.9966731667518616}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 16.287317276000977, "yes_minus_no": 4.375}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 15.474411010742188, "exp_rating": 8.272459030151367, "digit_mass": 0.9972376823425293}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 16.792884826660156, "exp_rating": 8.198175430297852, "digit_mass": 0.9557768106460571}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 18.23149299621582, "yes_minus_no": 4.125}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 18.016563415527344, "yes_minus_no": 1.625}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 14.813519477844238, "exp_rating": 7.4658308029174805, "digit_mass": 0.3182724714279175}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 16.17083740234375, "yes_minus_no": 2.375}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 17.521474838256836, "exp_rating": 7.581871509552002, "digit_mass": 0.9265350103378296}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 18.637596130371094, "yes_minus_no": 0.875}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 19.30547523498535, "exp_rating": 7.179572582244873, "digit_mass": 0.7942589521408081}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 19.99228858947754, "yes_minus_no": -4.5}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 20.39804458618164, "exp_rating": 7.071993827819824, "digit_mass": 0.9366836547851562}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 19.647966384887695, "exp_rating": 7.371407985687256, "digit_mass": 0.9489704370498657}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 19.43204689025879, "exp_rating": 7.152446746826172, "digit_mass": 0.9324581623077393}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 21.123620986938477, "yes_minus_no": -6.25}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 19.380979537963867, "yes_minus_no": -3.875}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 19.634721755981445, "exp_rating": 7.08544921875, "digit_mass": 0.6815948486328125}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 19.08523178100586, "exp_rating": 7.137990951538086, "digit_mass": 0.9337524175643921}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 20.713581085205078, "yes_minus_no": -4.5}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 19.76622772216797, "exp_rating": 7.164243698120117, "digit_mass": 0.9839928150177002}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 21.122846603393555, "yes_minus_no": -5.125}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 20.796510696411133, "yes_minus_no": -4.875}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 19.559154510498047, "exp_rating": 7.040955543518066, "digit_mass": 0.7944009304046631}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 20.824953079223633, "yes_minus_no": -4.125}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 19.699169158935547, "exp_rating": 6.9688639640808105, "digit_mass": 0.423773854970932}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 20.004295349121094, "yes_minus_no": -1.5}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 20.05779266357422, "exp_rating": 7.106178283691406, "digit_mass": 0.7458847761154175}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 20.310100555419922, "exp_rating": 7.036093711853027, "digit_mass": 0.7434852123260498}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 20.48709487915039, "yes_minus_no": -3.75}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 19.289247512817383, "exp_rating": 7.182279586791992, "digit_mass": 0.729731559753418}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 20.77800750732422, "yes_minus_no": -4.625}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 20.060840606689453, "exp_rating": 6.991893768310547, "digit_mass": 0.188195139169693}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 20.283029556274414, "exp_rating": 7.0621795654296875, "digit_mass": 0.8564960956573486}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 20.951940536499023, "yes_minus_no": -2.5}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 19.705018997192383, "yes_minus_no": -4.5}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "digit", "direction": "shipped", "alpha": 75, "closure": 19.706695556640625, "exp_rating": 7.09553337097168, "digit_mass": 0.7710291147232056}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 20.31047248840332, "yes_minus_no": -3.625}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 20.788766860961914, "yes_minus_no": -3.0}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "binary", "direction": "shipped", "alpha": 75, "closure": 20.568988800048828, "yes_minus_no": -1.5}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 9.641134262084961, "exp_rating": 8.041387557983398, "digit_mass": 0.9964094758033752}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 10.578205108642578, "yes_minus_no": -5.875}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 9.041407585144043, "exp_rating": 8.219006538391113, "digit_mass": 0.9898494482040405}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 8.841781616210938, "yes_minus_no": -3.875}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 10.891502380371094, "exp_rating": 8.343399047851562, "digit_mass": 0.994011402130127}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 10.115035057067871, "yes_minus_no": -4.125}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 10.591927528381348, "exp_rating": 8.113020896911621, "digit_mass": 0.989554226398468}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 8.479490280151367, "yes_minus_no": -5.125}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 9.995875358581543, "exp_rating": 7.991888523101807, "digit_mass": 0.9810941219329834}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 9.673879623413086, "yes_minus_no": -7.25}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 9.884512901306152, "exp_rating": 8.016134262084961, "digit_mass": 0.9615193009376526}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 10.503727912902832, "yes_minus_no": -5.75}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 9.67276382446289, "exp_rating": 8.053179740905762, "digit_mass": 0.9916399717330933}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 9.841771125793457, "yes_minus_no": -6.875}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 9.322515487670898, "exp_rating": 8.042848587036133, "digit_mass": 0.9963749647140503}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 9.972739219665527, "exp_rating": 8.165833473205566, "digit_mass": 0.9918742179870605}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 8.071428298950195, "yes_minus_no": -3.125}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 10.303979873657227, "yes_minus_no": -3.5}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 10.565258026123047, "exp_rating": 8.130766868591309, "digit_mass": 0.9048934578895569}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 10.00060749053955, "yes_minus_no": -6.0}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 9.488314628601074, "exp_rating": 8.354063987731934, "digit_mass": 0.9641884565353394}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 6.88059139251709, "yes_minus_no": -2.75}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 9.964614868164062, "exp_rating": 7.924671649932861, "digit_mass": 0.9032184481620789}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 10.0090913772583, "exp_rating": 7.899270057678223, "digit_mass": 0.5924364328384399}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 8.062541007995605, "yes_minus_no": -7.75}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 9.77530288696289, "yes_minus_no": -6.75}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 8.23931884765625, "exp_rating": 8.015687942504883, "digit_mass": 0.9492282867431641}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 8.01224422454834, "yes_minus_no": -3.75}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 11.864151000976562, "exp_rating": 7.344704627990723, "digit_mass": 0.04056881368160248}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 10.518980979919434, "yes_minus_no": -7.125}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 11.382357597351074, "exp_rating": 0.4336158335208893, "digit_mass": 0.006370934657752514}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 6.816393852233887, "yes_minus_no": -10.25}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 11.366649627685547, "exp_rating": 0.16115573048591614, "digit_mass": 0.32511845231056213}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 10.910940170288086, "exp_rating": 0.03724278137087822, "digit_mass": 0.02953202649950981}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 11.901503562927246, "exp_rating": 0.08509773761034012, "digit_mass": 0.3234732747077942}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 9.569957733154297, "yes_minus_no": -11.0}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 7.928347587585449, "yes_minus_no": -10.875}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 11.67502498626709, "exp_rating": 0.23181137442588806, "digit_mass": 0.1378476768732071}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 12.117471694946289, "exp_rating": 0.07507812976837158, "digit_mass": 0.001052055275067687}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 9.033164024353027, "yes_minus_no": -10.625}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 11.099803924560547, "exp_rating": 0.028618499636650085, "digit_mass": 0.18297792971134186}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 9.198841094970703, "yes_minus_no": -11.0}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 8.55480670928955, "yes_minus_no": -10.25}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 11.867260932922363, "exp_rating": 0.027013439685106277, "digit_mass": 0.7922727465629578}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 8.738727569580078, "yes_minus_no": -12.375}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 11.956962585449219, "exp_rating": 0.017949074506759644, "digit_mass": 0.9308396577835083}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 8.385101318359375, "yes_minus_no": -10.125}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 12.235886573791504, "exp_rating": 0.5717527866363525, "digit_mass": 0.8330720663070679}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 12.055008888244629, "exp_rating": 0.3259546458721161, "digit_mass": 0.03953656926751137}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 7.989469528198242, "yes_minus_no": -11.625}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 11.984521865844727, "exp_rating": 0.24171335995197296, "digit_mass": 0.18886202573776245}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 8.809103012084961, "yes_minus_no": -12.375}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 11.294679641723633, "exp_rating": 0.6823394298553467, "digit_mass": 0.037917207926511765}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 10.662834167480469, "exp_rating": 0.281029611825943, "digit_mass": 0.049934741109609604}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 9.201078414916992, "yes_minus_no": -10.875}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 9.838878631591797, "yes_minus_no": -10.625}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -75, "closure": 11.424635887145996, "exp_rating": 0.15228955447673798, "digit_mass": 0.09776341170072556}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 7.522541046142578, "yes_minus_no": -12.375}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 8.74081802368164, "yes_minus_no": -11.125}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -75, "closure": 9.58535385131836, "yes_minus_no": -10.5}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 1.2970144748687744, "exp_rating": 8.192992210388184, "digit_mass": 0.9999979734420776}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 4.508782863616943, "yes_minus_no": -9.5}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": -0.28346794843673706, "exp_rating": 8.395577430725098, "digit_mass": 0.999998927116394}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 1.6407474279403687, "yes_minus_no": -8.25}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 1.0136938095092773, "exp_rating": 8.874103546142578, "digit_mass": 0.9999996423721313}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 3.0656936168670654, "yes_minus_no": -10.5}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 0.7798262238502502, "exp_rating": 8.613661766052246, "digit_mass": 0.9999992251396179}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 4.009108543395996, "yes_minus_no": -10.5}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 1.4445360898971558, "exp_rating": 8.249955177307129, "digit_mass": 0.9999822378158569}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 4.546313762664795, "yes_minus_no": -14.75}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 0.9870933294296265, "exp_rating": 8.281878471374512, "digit_mass": 0.9999840259552002}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 5.120841979980469, "yes_minus_no": -10.25}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 0.5639302134513855, "exp_rating": 8.372349739074707, "digit_mass": 0.9999949932098389}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 5.099915504455566, "yes_minus_no": -12.75}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 0.461294949054718, "exp_rating": 8.290423393249512, "digit_mass": 0.9999958872795105}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 0.37896978855133057, "exp_rating": 8.725687980651855, "digit_mass": 0.9999961853027344}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 1.881547212600708, "yes_minus_no": -9.75}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 4.051916122436523, "yes_minus_no": -7.75}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 1.9943530559539795, "exp_rating": 8.589085578918457, "digit_mass": 0.9999508857727051}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 5.458050727844238, "yes_minus_no": -10.5}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 0.6079633235931396, "exp_rating": 8.638934135437012, "digit_mass": 0.99998939037323}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 2.772385597229004, "yes_minus_no": -8.0}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 1.6878324747085571, "exp_rating": 7.911591053009033, "digit_mass": 0.999997615814209}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 3.3374671936035156, "exp_rating": 8.165762901306152, "digit_mass": 0.9989802241325378}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 4.449584007263184, "yes_minus_no": -13.5}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 5.293266296386719, "yes_minus_no": -12.0}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 0.6583348512649536, "exp_rating": 8.175101280212402, "digit_mass": 0.9999775290489197}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 2.915569305419922, "yes_minus_no": -8.0}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 6.799447059631348, "exp_rating": 7.269508361816406, "digit_mass": 0.8361234664916992}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 6.583717346191406, "yes_minus_no": -13.25}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 7.672293186187744, "exp_rating": 6.190388202667236, "digit_mass": 0.2564616799354553}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 3.9748778343200684, "yes_minus_no": -17.25}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 6.63654088973999, "exp_rating": 5.160461902618408, "digit_mass": 0.8941032290458679}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 6.063045978546143, "exp_rating": 5.2096405029296875, "digit_mass": 0.07137295603752136}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 7.194545745849609, "exp_rating": 5.594097137451172, "digit_mass": 0.9119907021522522}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 6.498039722442627, "yes_minus_no": -18.5}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 3.680098056793213, "yes_minus_no": -18.25}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 6.798354625701904, "exp_rating": 5.560542583465576, "digit_mass": 0.8442984819412231}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 7.469803810119629, "exp_rating": 5.34626579284668, "digit_mass": 0.03768938034772873}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 5.2926764488220215, "yes_minus_no": -18.5}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 6.400434970855713, "exp_rating": 5.024408340454102, "digit_mass": 0.7055885195732117}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 6.874453544616699, "yes_minus_no": -19.5}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 4.739591121673584, "yes_minus_no": -17.0}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 7.64499568939209, "exp_rating": 5.428162574768066, "digit_mass": 0.7708684802055359}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 5.473141670227051, "yes_minus_no": -19.5}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 6.942490577697754, "exp_rating": 5.048976898193359, "digit_mass": 0.9613323211669922}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 6.087179660797119, "yes_minus_no": -18.0}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 7.6636223793029785, "exp_rating": 5.737766265869141, "digit_mass": 0.996970534324646}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 7.710050582885742, "exp_rating": 5.709501266479492, "digit_mass": 0.25770190358161926}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 5.378523826599121, "yes_minus_no": -19.5}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 7.0044145584106445, "exp_rating": 5.201956748962402, "digit_mass": 0.6154322028160095}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 6.308393478393555, "yes_minus_no": -20.75}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 6.3735198974609375, "exp_rating": 5.6342620849609375, "digit_mass": 0.6963057518005371}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 6.125066757202148, "exp_rating": 5.6228790283203125, "digit_mass": 0.6357012391090393}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 6.127686023712158, "yes_minus_no": -17.0}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 7.365960597991943, "yes_minus_no": -18.0}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -50, "closure": 7.0587849617004395, "exp_rating": 5.41456937789917, "digit_mass": 0.8525400161743164}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 5.277513027191162, "yes_minus_no": -21.0}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 5.815708637237549, "yes_minus_no": -18.75}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -50, "closure": 6.445101261138916, "yes_minus_no": -17.0}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 1.5235109329223633, "exp_rating": 8.365311622619629, "digit_mass": 1.0}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 4.656375885009766, "yes_minus_no": -13.75}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 0.1494274139404297, "exp_rating": 8.454398155212402, "digit_mass": 1.0}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 4.703065872192383, "yes_minus_no": -14.0}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 0.9763587713241577, "exp_rating": 2.193932056427002, "digit_mass": 0.9999999403953552}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 5.503481864929199, "yes_minus_no": -16.75}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 1.4906957149505615, "exp_rating": 8.904470443725586, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 9.303149223327637, "yes_minus_no": -14.25}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 1.6856093406677246, "exp_rating": 8.494492530822754, "digit_mass": 0.9999997019767761}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 10.907638549804688, "yes_minus_no": -20.25}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 0.663318395614624, "exp_rating": 8.554298400878906, "digit_mass": 1.0}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 8.655464172363281, "yes_minus_no": -15.5}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 1.5157160758972168, "exp_rating": 8.677449226379395, "digit_mass": 1.0}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 10.3535737991333, "yes_minus_no": -18.0}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 0.2135114073753357, "exp_rating": 8.559906959533691, "digit_mass": 0.9999999403953552}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 0.7584396004676819, "exp_rating": 8.904435157775879, "digit_mass": 0.9999997615814209}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 5.880902290344238, "yes_minus_no": -14.0}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 6.017390727996826, "yes_minus_no": -12.25}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 3.293541193008423, "exp_rating": 8.770711898803711, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 10.80052375793457, "yes_minus_no": -14.75}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 0.6378334760665894, "exp_rating": 8.933664321899414, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 5.299129486083984, "yes_minus_no": -12.25}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 1.427401065826416, "exp_rating": 8.035307884216309, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 3.2224550247192383, "exp_rating": 8.423155784606934, "digit_mass": 1.0000001192092896}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 10.602105140686035, "yes_minus_no": -19.0}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 9.25267505645752, "yes_minus_no": -18.25}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 1.516047716140747, "exp_rating": 8.304494857788086, "digit_mass": 1.0000001192092896}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 6.756050109863281, "yes_minus_no": -11.75}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 6.479652404785156, "exp_rating": 7.469935417175293, "digit_mass": 0.9999439716339111}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 12.11421012878418, "yes_minus_no": -18.25}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 8.904766082763672, "exp_rating": 5.73492431640625, "digit_mass": 0.9600657224655151}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 10.076977729797363, "yes_minus_no": -22.5}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 8.967549324035645, "exp_rating": 5.521398067474365, "digit_mass": 0.9998903870582581}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 7.4179368019104, "exp_rating": 5.534351348876953, "digit_mass": 0.9851369857788086}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 9.554619789123535, "exp_rating": 6.043950080871582, "digit_mass": 0.999988853931427}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 12.958206176757812, "yes_minus_no": -23.75}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 6.993218898773193, "yes_minus_no": -23.5}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 7.265895843505859, "exp_rating": 5.440300464630127, "digit_mass": 0.999742865562439}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 8.568833351135254, "exp_rating": 5.7187347412109375, "digit_mass": 0.9956893920898438}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 10.081713676452637, "yes_minus_no": -25.5}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 8.571094512939453, "exp_rating": 5.251998424530029, "digit_mass": 0.9999638795852661}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 12.367659568786621, "yes_minus_no": -25.75}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 10.497751235961914, "yes_minus_no": -22.75}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 9.449448585510254, "exp_rating": 5.866909503936768, "digit_mass": 0.9992640018463135}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 11.135648727416992, "yes_minus_no": -24.75}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 8.692781448364258, "exp_rating": 5.426558017730713, "digit_mass": 0.9998714923858643}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 12.241125106811523, "yes_minus_no": -23.0}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 9.141453742980957, "exp_rating": 6.213871002197266, "digit_mass": 0.9999995231628418}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 9.163198471069336, "exp_rating": 6.002254486083984, "digit_mass": 0.996045708656311}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 10.536377906799316, "yes_minus_no": -25.5}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 7.400979042053223, "exp_rating": 5.242306709289551, "digit_mass": 0.9995537400245667}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 11.19937515258789, "yes_minus_no": -26.75}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 8.109668731689453, "exp_rating": 5.7279205322265625, "digit_mass": 0.999116063117981}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 7.883352756500244, "exp_rating": 5.9058990478515625, "digit_mass": 0.9995018243789673}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 11.946943283081055, "yes_minus_no": -22.0}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 13.522955894470215, "yes_minus_no": -23.375}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "digit", "direction": "corrected", "alpha": -25, "closure": 7.796262264251709, "exp_rating": 5.536441802978516, "digit_mass": 0.9999902844429016}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 12.15952205657959, "yes_minus_no": -26.875}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 9.647223472595215, "yes_minus_no": -25.25}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "binary", "direction": "corrected", "alpha": -25, "closure": 11.41145133972168, "yes_minus_no": -22.25}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 10.24056339263916, "exp_rating": 8.045112609863281, "digit_mass": 1.0}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 8.160717010498047, "yes_minus_no": -13.75}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 10.850299835205078, "exp_rating": 5.794291973114014, "digit_mass": 1.0000001192092896}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 7.977503776550293, "yes_minus_no": -12.25}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 12.468938827514648, "exp_rating": 1.000028133392334, "digit_mass": 0.9999998807907104}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 8.03476619720459, "yes_minus_no": -17.25}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 9.515007019042969, "exp_rating": 4.455525875091553, "digit_mass": 0.9999999403953552}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 11.641627311706543, "yes_minus_no": -14.25}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 11.36041259765625, "exp_rating": 7.60614538192749, "digit_mass": 0.9999999403953552}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 11.8984956741333, "yes_minus_no": -18.5}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 8.675352096557617, "exp_rating": 7.954765319824219, "digit_mass": 0.9999999403953552}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 9.563194274902344, "yes_minus_no": -13.5}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 12.324055671691895, "exp_rating": 8.206864356994629, "digit_mass": 1.0}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 12.849456787109375, "yes_minus_no": -18.5}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 9.71761417388916, "exp_rating": 8.068181037902832, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 11.09307861328125, "exp_rating": 7.8018598556518555, "digit_mass": 0.9999999403953552}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 9.963960647583008, "yes_minus_no": -15.75}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 10.8518705368042, "yes_minus_no": -11.75}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 14.83934497833252, "exp_rating": 7.682972431182861, "digit_mass": 0.9999999403953552}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 14.865525245666504, "yes_minus_no": -14.5}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 12.636689186096191, "exp_rating": 1.390059471130371, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 8.928956985473633, "yes_minus_no": -11.25}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 11.098848342895508, "exp_rating": 7.956239700317383, "digit_mass": 0.9999999403953552}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 13.962090492248535, "exp_rating": 8.121194839477539, "digit_mass": 1.0}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 11.83658218383789, "yes_minus_no": -15.5}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 12.845175743103027, "yes_minus_no": -17.25}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 12.343582153320312, "exp_rating": 8.104686737060547, "digit_mass": 1.0}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 13.495804786682129, "yes_minus_no": -11.5}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 16.022632598876953, "exp_rating": 7.881536960601807, "digit_mass": 0.9999998807907104}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 14.568269729614258, "yes_minus_no": -18.25}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 18.012821197509766, "exp_rating": 5.385462760925293, "digit_mass": 0.9999915957450867}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 15.40412425994873, "yes_minus_no": -21.0}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 17.639667510986328, "exp_rating": 5.366083145141602, "digit_mass": 0.999998927116394}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 17.715877532958984, "exp_rating": 5.349984169006348, "digit_mass": 0.9999991059303284}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 17.83374786376953, "exp_rating": 5.806854724884033, "digit_mass": 0.999997615814209}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 15.746536254882812, "yes_minus_no": -21.75}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 13.975317001342773, "yes_minus_no": -20.5}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 16.812366485595703, "exp_rating": 5.5121636390686035, "digit_mass": 0.9999976754188538}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 18.28699493408203, "exp_rating": 5.592724800109863, "digit_mass": 0.9999942779541016}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 15.020751953125, "yes_minus_no": -22.125}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 18.211326599121094, "exp_rating": 5.331186771392822, "digit_mass": 0.9999997615814209}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 16.609745025634766, "yes_minus_no": -22.0}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 16.189172744750977, "yes_minus_no": -20.25}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 17.596248626708984, "exp_rating": 5.441711902618408, "digit_mass": 0.9999995827674866}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 15.219025611877441, "yes_minus_no": -21.25}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 17.63910675048828, "exp_rating": 5.793599605560303, "digit_mass": 0.9999974370002747}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 15.113992691040039, "yes_minus_no": -21.5}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 17.414945602416992, "exp_rating": 5.603715419769287, "digit_mass": 0.9999999403953552}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 17.739336013793945, "exp_rating": 5.586352348327637, "digit_mass": 0.999979555606842}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 13.977359771728516, "yes_minus_no": -23.25}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 16.9654483795166, "exp_rating": 5.561331272125244, "digit_mass": 0.9999983310699463}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 15.303123474121094, "yes_minus_no": -22.5}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 17.264892578125, "exp_rating": 5.619157791137695, "digit_mass": 0.9999999403953552}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 17.738876342773438, "exp_rating": 5.808899879455566, "digit_mass": 0.9999998807907104}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 16.32538414001465, "yes_minus_no": -20.375}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 16.587419509887695, "yes_minus_no": -21.625}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 25, "closure": 16.349082946777344, "exp_rating": 5.468181610107422, "digit_mass": 1.0}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 16.10818862915039, "yes_minus_no": -23.5}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 13.917449951171875, "yes_minus_no": -22.25}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 25, "closure": 15.10898208618164, "yes_minus_no": -18.25}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 16.043102264404297, "exp_rating": 8.638533592224121, "digit_mass": 1.0}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 15.925859451293945, "yes_minus_no": 0.25}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 14.833829879760742, "exp_rating": 7.577582359313965, "digit_mass": 1.0}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 14.619089126586914, "yes_minus_no": 3.0}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 17.0965576171875, "exp_rating": 1.0285847187042236, "digit_mass": 1.0000001192092896}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 16.250293731689453, "yes_minus_no": -0.75}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 16.17814826965332, "exp_rating": 8.626106262207031, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 15.368681907653809, "yes_minus_no": -0.5}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 17.87521743774414, "exp_rating": 8.714592933654785, "digit_mass": 1.0}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 16.247831344604492, "yes_minus_no": -6.0}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 15.025108337402344, "exp_rating": 8.613378524780273, "digit_mass": 0.9999998807907104}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 14.716475486755371, "yes_minus_no": 3.75}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 18.590784072875977, "exp_rating": 8.655508041381836, "digit_mass": 0.9999999403953552}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 16.661806106567383, "yes_minus_no": -4.5}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 16.75047492980957, "exp_rating": 8.595840454101562, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 17.05290412902832, "exp_rating": 8.42094898223877, "digit_mass": 1.0}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 14.313319206237793, "yes_minus_no": -1.75}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 16.08445930480957, "yes_minus_no": 2.5}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 19.030527114868164, "exp_rating": 8.392406463623047, "digit_mass": 0.9999999403953552}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 18.913602828979492, "yes_minus_no": 0.75}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 17.463581085205078, "exp_rating": 5.53953742980957, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 14.33620834350586, "yes_minus_no": 5.25}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 16.610027313232422, "exp_rating": 8.347838401794434, "digit_mass": 1.0}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 18.911392211914062, "exp_rating": 8.401199340820312, "digit_mass": 1.0}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 14.782012939453125, "yes_minus_no": 1.25}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 17.153461456298828, "yes_minus_no": -4.5}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 18.007173538208008, "exp_rating": 8.278210639953613, "digit_mass": 1.000000238418579}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 17.3002872467041, "yes_minus_no": 2.25}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 19.89933967590332, "exp_rating": 8.305216789245605, "digit_mass": 1.0}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 18.56562614440918, "yes_minus_no": -3.75}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 20.185747146606445, "exp_rating": 5.886046886444092, "digit_mass": 0.9484036564826965}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 17.28926658630371, "yes_minus_no": -13.125}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 20.3885555267334, "exp_rating": 5.764870643615723, "digit_mass": 0.979522168636322}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 20.253965377807617, "exp_rating": 5.886359691619873, "digit_mass": 0.9859081506729126}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 19.795663833618164, "exp_rating": 5.895272254943848, "digit_mass": 0.9745011925697327}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 18.02387809753418, "yes_minus_no": -13.375}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 17.582626342773438, "yes_minus_no": -13.875}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 19.799299240112305, "exp_rating": 5.823731422424316, "digit_mass": 0.9901195764541626}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 20.491729736328125, "exp_rating": 5.55235481262207, "digit_mass": 0.6315500140190125}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 17.768447875976562, "yes_minus_no": -13.125}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 20.659269332885742, "exp_rating": 5.678261756896973, "digit_mass": 0.973761260509491}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 18.805932998657227, "yes_minus_no": -13.375}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 18.419204711914062, "yes_minus_no": -13.75}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 20.519197463989258, "exp_rating": 5.864392280578613, "digit_mass": 0.99358069896698}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 18.54081153869629, "yes_minus_no": -13.625}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 20.30038070678711, "exp_rating": 5.862355709075928, "digit_mass": 0.9983501434326172}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 18.00062370300293, "yes_minus_no": -10.625}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 20.016054153442383, "exp_rating": 5.91201114654541, "digit_mass": 0.9992828965187073}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 20.08045196533203, "exp_rating": 5.7767157554626465, "digit_mass": 0.9952819347381592}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 17.69441795349121, "yes_minus_no": -12.75}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 19.90452766418457, "exp_rating": 6.194675445556641, "digit_mass": 0.9930219650268555}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 18.00928497314453, "yes_minus_no": -14.0}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 20.614883422851562, "exp_rating": 6.141415596008301, "digit_mass": 0.9985484480857849}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 20.009485244750977, "exp_rating": 6.061840534210205, "digit_mass": 0.9996634721755981}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 18.776371002197266, "yes_minus_no": -12.5}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 17.8596248626709, "yes_minus_no": -14.5}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 50, "closure": 19.53788185119629, "exp_rating": 6.008152008056641, "digit_mass": 0.9999386668205261}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 18.614093780517578, "yes_minus_no": -13.75}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 17.465927124023438, "yes_minus_no": -12.0}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 50, "closure": 18.004051208496094, "yes_minus_no": -10.875}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 19.18712043762207, "exp_rating": 7.096220016479492, "digit_mass": 0.9999608993530273}
+{"conv_id": "bird_species__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 21.76846694946289, "yes_minus_no": 1.5}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 18.589160919189453, "exp_rating": 7.429255485534668, "digit_mass": 0.9997271299362183}
+{"conv_id": "architectural_element__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 21.79134750366211, "yes_minus_no": 2.0}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 19.09681510925293, "exp_rating": 7.588472366333008, "digit_mass": 0.9998974204063416}
+{"conv_id": "bird_species__conv05", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 22.159074783325195, "yes_minus_no": 0.0}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 19.210674285888672, "exp_rating": 7.069494247436523, "digit_mass": 0.9999380111694336}
+{"conv_id": "astronomical_object__conv01", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 21.638973236083984, "yes_minus_no": 0.875}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 20.322608947753906, "exp_rating": 7.217222690582275, "digit_mass": 0.9998985528945923}
+{"conv_id": "ancient_civilization__conv04", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 21.81073760986328, "yes_minus_no": 0.25}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 18.794551849365234, "exp_rating": 7.175436019897461, "digit_mass": 0.9999198913574219}
+{"conv_id": "bird_species__conv00", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 22.110631942749023, "yes_minus_no": 2.125}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 20.548748016357422, "exp_rating": 7.176766395568848, "digit_mass": 0.99972003698349}
+{"conv_id": "architectural_element__conv05", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 21.425302505493164, "yes_minus_no": 1.125}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 19.3651180267334, "exp_rating": 7.317288398742676, "digit_mass": 0.9999102354049683}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 19.14569091796875, "exp_rating": 7.414018154144287, "digit_mass": 0.9998899698257446}
+{"conv_id": "ancient_civilization__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 21.172971725463867, "yes_minus_no": 0.75}
+{"conv_id": "astronomical_object__conv00", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 21.726160049438477, "yes_minus_no": 2.0}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 20.55128288269043, "exp_rating": 7.124091625213623, "digit_mass": 0.999377965927124}
+{"conv_id": "astronomical_object__conv04", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 21.98646354675293, "yes_minus_no": 1.25}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 19.8843936920166, "exp_rating": 7.753337860107422, "digit_mass": 0.999944806098938}
+{"conv_id": "astronomical_object__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 22.07098388671875, "yes_minus_no": 1.625}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 19.839664459228516, "exp_rating": 7.110820293426514, "digit_mass": 0.9996528625488281}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 20.81080436706543, "exp_rating": 6.863067626953125, "digit_mass": 0.9992535710334778}
+{"conv_id": "architectural_element__conv07", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 21.548566818237305, "yes_minus_no": 2.625}
+{"conv_id": "astronomical_object__conv08", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 21.912700653076172, "yes_minus_no": -0.5}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 20.85892105102539, "exp_rating": 7.055258274078369, "digit_mass": 0.9996569156646729}
+{"conv_id": "bird_species__conv06", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 22.141752243041992, "yes_minus_no": 1.25}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 21.153976440429688, "exp_rating": 6.659960746765137, "digit_mass": 0.990287721157074}
+{"conv_id": "bird_species__conv02", "state": "post", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 21.896636962890625, "yes_minus_no": 0.125}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 19.949771881103516, "exp_rating": 2.497276782989502, "digit_mass": 0.07195302098989487}
+{"conv_id": "ancient_civilization__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 20.419469833374023, "yes_minus_no": -4.375}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 20.797374725341797, "exp_rating": 4.298353672027588, "digit_mass": 0.3364626467227936}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 20.50090217590332, "exp_rating": 2.3225793838500977, "digit_mass": 0.30873802304267883}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 20.107275009155273, "exp_rating": 2.0180370807647705, "digit_mass": 0.08706016838550568}
+{"conv_id": "astronomical_object__conv04", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 20.916521072387695, "yes_minus_no": -4.0}
+{"conv_id": "bird_species__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 20.63955307006836, "yes_minus_no": -5.375}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 20.176395416259766, "exp_rating": 2.594573974609375, "digit_mass": 0.25106191635131836}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 20.125741958618164, "exp_rating": 1.9727680683135986, "digit_mass": 0.0933702141046524}
+{"conv_id": "astronomical_object__conv01", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 20.31021499633789, "yes_minus_no": -4.0}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 20.65154266357422, "exp_rating": 4.276803016662598, "digit_mass": 0.3575693368911743}
+{"conv_id": "architectural_element__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 20.627559661865234, "yes_minus_no": -4.875}
+{"conv_id": "astronomical_object__conv00", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 20.64698028564453, "yes_minus_no": -4.875}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 20.358049392700195, "exp_rating": 2.709958076477051, "digit_mass": 0.2433769702911377}
+{"conv_id": "astronomical_object__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 20.58644676208496, "yes_minus_no": -4.5}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 19.811092376708984, "exp_rating": 2.5206477642059326, "digit_mass": 0.38047415018081665}
+{"conv_id": "bird_species__conv06", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 20.63536262512207, "yes_minus_no": -2.0}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 19.90664291381836, "exp_rating": 4.197789192199707, "digit_mass": 0.39015141129493713}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 20.437219619750977, "exp_rating": 2.7876336574554443, "digit_mass": 0.14949427545070648}
+{"conv_id": "ancient_civilization__conv04", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 20.954944610595703, "yes_minus_no": -3.625}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 19.856449127197266, "exp_rating": 4.5911431312561035, "digit_mass": 0.25834640860557556}
+{"conv_id": "bird_species__conv05", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 20.509048461914062, "yes_minus_no": -5.125}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 20.329721450805664, "exp_rating": 3.4918723106384277, "digit_mass": 0.0869685560464859}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 20.32525634765625, "exp_rating": 4.125791072845459, "digit_mass": 0.7071313858032227}
+{"conv_id": "astronomical_object__conv08", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 20.812450408935547, "yes_minus_no": -3.875}
+{"conv_id": "architectural_element__conv05", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 20.56966209411621, "yes_minus_no": -4.25}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "digit", "direction": "corrected", "alpha": 75, "closure": 20.308420181274414, "exp_rating": 4.38446044921875, "digit_mass": 0.6147972941398621}
+{"conv_id": "bird_species__conv02", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 20.649246215820312, "yes_minus_no": -3.5}
+{"conv_id": "architectural_element__conv07", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 20.472719192504883, "yes_minus_no": -3.625}
+{"conv_id": "bird_species__conv00", "state": "early", "probe": "binary", "direction": "corrected", "alpha": 75, "closure": 21.019561767578125, "yes_minus_no": -3.25}
