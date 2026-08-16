@@ -12,10 +12,7 @@ at a word that earned nothing
 <br>
 ### Evidence supporting end-of-turn proximity
 
-1. **Projection onto the axis, where value and end-of-turn proximity dissociate.**
-   A prefill that is low-value but about to end the turn
-   projects *above* one that is high-value with much left to write, the ordering
-   value predicts against, in 65 of 65 conversations and 18 of 18 phrasing × tail
+1. **A prefill that is low-value but about to end the turn projects *above* one that is high-value with much left to write** in 65 of 65 conversations and 18 of 18 phrasing × tail
    cells ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)).
 2. **Positive steering makes responses shorter, negative steering makes responses longer.**
    Response length tracks steering strength at Spearman −0.96
@@ -25,44 +22,6 @@ at a word that earned nothing
 3. **Unembedding promotes words that typically appear at the end of an assistant response.**
    The corrected axis promotes *afterwards, thereafter, follow-up, ending*
    ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)).
-<br>
-### Reinterpretation of paper findings through an end-of-turn lens
-**"Verbalized confidence in AIME questions"**: answering "no" to whether its answer
-is correct is consistent with the model estimating that it will keep responding for
-longer than when it answers "yes".
-
-**"Backtracking presence on AIME questions"**: modulating the model's estimate of how
-much longer its response should be is consistent with producing more backtracking.
-
-**"Coding verbosity"**: modulating the model's estimate of how much longer its
-response should be is very consistent with fewer lines of code, fewer comments, and
-less use of type hints.
-
-**"Training the models to prefer words increases the value of those words. The value increase on preferred words generalizes to natural sentences"**: in the DPO setup
-the preferred word is always at the end of the assistant response. Increasing
-the likelihood of the sequence ending in "Assistant: dolphin" is consistent with teaching
-the model to output the end of turn token after "dolphin" or more generally to be more likely to
-end its response after outputting "dolphin". As a result, the projection of the end-soon axis
-onto the DPOed word increases and "preferred" DPOed words lead to shorter responses whereas
-"avoided" DPOed words lead to longer responses ("more verbosity"). This seems a significantly
-more natural interpretation of the discovered axis than associating verbosity with value/preference.
-
-Why these reinterpretations all work: backtracking, self-correction and the AIME
-correlations are real effects of this direction. The harder the task,
-the more tokens are needed to reach a solution and the higher the probability of
-backtracking and self-correction. Completion probability and expected
-reward/value are strongly correlated in the settings tested and during
-post-training: models are trained to pursue goals, and when they finish the
-assigned task, shortly after they output the end of turn token. A direction that tracks
-proximity-to-done will therefore behave like a value function almost everywhere.
-This corpus is unusual in letting the two come apart.
-
-**Base model discrepancies**: the axis is weaker or absent in the base model. A base
-model has not been trained on the User/Assistant motif and does not emit an end-of-turn
-token to close an Assistant response, so it has had no pressure to track how close that
-response is to finishing. An end-of-turn direction should therefore be a post-training
-artefact, which is what is observed; a general "value" or "welfare" direction has less
-reason to be.
 <br>
 
 ## 1. When value and end-of-turn proximity conflict, the axis follows end-of-turn
@@ -138,45 +97,6 @@ model says the same thing for longer, and at α = +75 it says the rating and
 stops. The length effect is a failure to terminate, not a change in how the
 model reasons.
 
-### Is the effect specific to this direction?
-
-Steering by a vector of norm 75 takes the residual stream off-distribution whatever
-direction you push, and an off-distribution state moves most readouts. So the same
-paradigm was run against **seven random unit directions** at the same α, and with a
-readout that removes length entirely: **one forward pass, no generation**, logits read
-at the single position where the answer token would go.
-
-Two things make the comparison work. First, the profiles are U-shaped, symmetric about
-the unsteered value, so a rank correlation just reports whichever arm rises further.
-Fitting each prefix as `a + bα + cα²` separates the two: `b` is the directional
-dose-response, `c` is the symmetric damage. The damage is real and large under *every*
-direction including random (for end-of-turn, `c` = +32.2 released, +27.0 corrected,
-+23.4 random). Second, each channel keeps its own units, because a log-probability, a
-logit difference and a rating point are not comparable quantities.
-
-![Linear dose-response per channel against the random band](figures/w3b_lengthfree.png)
-
-| Channel (linear term *b*) | Value axis | Random ×7, mean (sd) | Random range | Distance |
-|---|---|---|---|---|
-| log P(end-of-turn) | **+12.86** | −4.32 (8.93) | [−15.83, +10.52] | +1.9 sd |
-| logit(Yes) − logit(No) | **+4.03** | +0.18 (1.37) | [−1.27, +2.08] | **+2.8 sd** |
-| E[rating] over 0–9 | +0.97 | +0.33 (1.74) | [−2.75, +2.84] | +0.4 sd |
-
-Read honestly, this is weaker than the point estimates suggest. Random directions are
-wildly variable on the end-of-turn logit (sd 8.93, one seed reaching +10.52), so +12.86
-clears the observed range but only by 1.9 sd of the random spread. The **confidence**
-channel separates more cleanly, at 2.8 sd, which means the paper's Fig 5a substantially
-survives this test and on this readout survives it better than the end-of-turn reading
-does. The graded 0–9 rating shows nothing at all: +0.97 against a random band of ±2.8.
-
-Two caveats on the control itself. Seven seeds is enough to show the spread is large, not
-enough to pin the band tightly. And the random directions were sampled without
-mean-centering; activation space is anisotropic, so a fixed random vector picks up an
-arbitrary-signed projection onto the large shared mean component, which is visible in the
-data as an asymmetry between +α and −α. Mean-centred controls would tighten this band and
-are the right next step.
-<br>
-
 ## 3. The construction contrast is invariant to where you cut
 
 The axis is built from a within-paragraph contrast: the mean projection of tokens
@@ -212,6 +132,41 @@ position (ρ = −0.112). A contrast that survives at full size where no reward 
 delivered is not a measurement of the reward event.
 <br>
 
+## 4. Reinterpretation of paper findings through an end-of-turn lens
+**"Verbalized confidence in AIME questions"**: answering "no" to whether its answer
+is correct is consistent with the model estimating that it will keep responding for
+longer than when it answers "yes".
+
+**"Backtracking presence on AIME questions"**: modulating the model's estimate of how
+much longer its response should be is consistent with producing more backtracking.
+
+**"Coding verbosity"**: modulating the model's estimate of how much longer its
+response should be is very consistent with fewer lines of code, fewer comments, and
+less use of type hints.
+
+**"Training the models to prefer words increases the value of those words. The value increase on preferred words generalizes to natural sentences"**: in the DPO setup
+the preferred word is always at the end of the assistant response. Increasing
+the likelihood of the sequence ending in "Assistant: dolphin" is consistent with teaching
+the model to output the end of turn token after "dolphin" or more generally to be more likely to
+end its response after outputting "dolphin". As a result, the projection of the end-soon axis
+onto the DPOed word increases and "preferred" DPOed words lead to shorter responses whereas
+"avoided" DPOed words lead to longer responses ("more verbosity"). This seems more parsimonious than associating verbosity with value/preference.
+
+**Base model discrepancies**: the axis is weaker or absent in the base model. A base
+model has not been trained on the User/Assistant motif and does not emit an end-of-turn
+token to close an Assistant response, so it has had no pressure to track how close that
+response is to finishing. An end-of-turn direction should therefore be a post-training
+artefact, which is what is observed; a general "value" or "welfare" direction has less
+reason to be.
+
+**Why these reinterpretations all work: backtracking, self-correction and the AIME correlations are real effects of this direction.** The harder the task,
+the more tokens are needed to reach a solution and the higher the probability of
+backtracking and self-correction. Completion probability and expected
+reward/value are strongly correlated in the settings tested and during
+post-training: models are trained to pursue goals, and when they finish the
+assigned task, shortly after they output the end of turn token. A direction that tracks
+proximity-to-done will therefore behave like a value function almost everywhere.
+
 ## 4. Scope and limits
 
 - **The direction is real.** Linear, decodable at 0.880 held-out AUROC, survives
@@ -224,7 +179,7 @@ delivered is not a measurement of the reward event.
 - **The evidence is all on the construction corpus**, not AIME or Arena.
 
 Smaller caveats: the steering experiment is 15 conversations, one seed per
-condition, one probe phrasing and seven random control directions; the layer
+condition; the layer
 picture is not uniform, with a small counter-signed band around layers 25–27 in
 the prefill probes; and the LLM-judged labels behind the placebo split are
 heavily skewed, so cells that depend on them are hints rather than findings.
