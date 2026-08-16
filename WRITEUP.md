@@ -14,20 +14,21 @@ where you cut the paragraph, the algebraic signature of a monotone ramp, and it
 appears 34% *larger* in failed attempts split at a word that earned nothing (§1).
 
 **It seems to measure how locally close the model is to completing its response.**
-Three lines of evidence:
+Three lines of evidence, and one that comes out negative:
 
 1. **Causally, steering it moves when the model stops.** Response length tracks
    steering strength at Spearman −0.96 (§2). A length-free version of the same
    test — one forward pass, no generation — moves the end-of-turn logit hard
-   (+12.9) but, measured against a band of seven random directions, less
-   decisively than the point estimate suggests; that section is the one with the
-   most caveats.
+   (+12.9), but against a band of seven random directions less decisively than
+   that number suggests; §2 is the section with the most caveats.
 2. **Projection onto the axis.** On byte-identical text, a "give up and call it
    done" prefill projects *above* a "found the criterion, ten paragraphs still to
-   go" prefill — the ordering value predicts against. 18 of 18 phrasing × tail
-   cells, 100% of conversations (§3).
+   go" prefill — the ordering value predicts against — in 65 of 65 conversations
+   and 18 of 18 phrasing × tail cells (§3).
 3. **Unembedding.** The corrected axis promotes *afterwards, thereafter,
    follow-up, ending* (§3).
+4. **Against it:** on natural text, a token's projection does *not* predict
+   P(end-of-turn) at that position once distance-from-the-end is held fixed (§4).
 
 This does not overturn the behavioral results. Backtracking, self-correction and
 the AIME correlations are real effects of this direction. The harder the task,
@@ -45,7 +46,7 @@ makes the paper's own effect *stronger* — held-out AUROC 0.850 → 0.880 (§6)
 
 ---
 
-## 1. The construction contrast is a ramp, not a jump
+## 1. The construction contrast is invariant to where you cut
 
 The axis is built from a within-paragraph contrast: the mean projection of tokens
 *after* the criterion-satisfying token, minus tokens *before* it, inside one
@@ -94,7 +95,7 @@ Two corollaries from the same data:
 
 ---
 
-## 2. Steering it moves when the model stops
+## 2. Steering shortens responses; the length-free decomposition is ambiguous
 
 Using the paper's own paradigm — the unit direction at layer 21 added as `α·d` by
 a forward hook on decoder block 20, at every position throughout generation,
@@ -140,12 +141,12 @@ log-probability, a logit difference and a rating point are not comparable.
 Read honestly, this is a weaker result than the point estimates suggest:
 
 - **Random directions are wildly variable on the end-of-turn logit** — sd 8.93,
-  with one of seven seeds reaching +10.52. The axis's +12.86 is a large effect and
-  it beats the random mean by roughly five standard errors, but it is not
-  qualitatively outside what a single random direction of the same norm can do.
+  with one of seven seeds reaching +10.52. The axis's +12.86 beats the random mean
+  by roughly five standard errors, but it is not qualitatively outside what a
+  single random direction of the same norm can do.
 - **The confidence channel is the one that cleanly separates.** +4.03 logits
   clears the entire random range, at +2.8 sd. **The paper's Fig 5a substantially
-  survives this test** — and, on this readout, survives it better than the closure
+  survives this test** — and on this readout survives it better than the closure
   reading does.
 - **The graded rating shows nothing:** +0.97 against a random band of ±2.8.
 
@@ -156,8 +157,8 @@ correctly (−23.8 logits early against −17.9 post) but its level sits far to 
 "No" side, which is why the linear steering component and not the level is used.
 And hidden states have a large mean component, so a fixed random vector picks up
 an effective sign from its chance projection onto that mean: `+d` and `−d` are
-not equivalent perturbations. Seven seeds is enough to show the spread is large;
-it is not enough to pin the band tightly.
+not equivalent perturbations. Seven seeds shows the spread is large; it is not
+enough to pin the band tightly.
 
 **What this section does and does not support.** The generation result is
 unambiguous: steering changes how much the model writes, by a lot. The
@@ -165,12 +166,11 @@ length-free decomposition is where the closure reading is weakest, because
 off-distribution steering is a blunt instrument and random directions move the
 end-of-turn logit almost as much. The generation experiment does not yet have a
 random-direction arm of its own, which is the single most valuable thing to add
-(§7, item 1). The claim that the axis is *mostly* closure rests on §1 and §3,
-which have their own controls, more than it rests on this section.
+(§7, item 1).
 
 ---
 
-## 3. On identical text, giving up beats succeeding
+## 3. A give-up prefill projects above a success prefill on identical text
 
 §1 shows the construction contrast is not a value update. This is the test that
 names the quantity, by constructing a case where value and completion predict
@@ -189,12 +189,16 @@ what came before differs.
 A value or welfare direction predicts A > B. A completion direction predicts the
 reverse.
 
-![Projection of each arm by segment, paired by conversation](figures/w2_prefill.png)
+![Arm means and the per-conversation paired difference](figures/w2_prefill.png)
 
 B is higher everywhere, including on the tail, where the two arms are the same
-bytes in the same positions. On that tail the gap is **0.0087 cosine** (t = −32.4,
-paired over 65 conversations) — about 5% of the axis's full 0.165 swing, against
-a random-direction control of +0.0004 on the very same tokens.
+bytes in the same positions. On that tail the gap is **0.0087 cosine**
+(95% CI ±0.0005, t = −32.4) — about 5% of the axis's full 0.165 swing, against a
+random-direction control of +0.0004 on the very same tokens. It holds in **65 of
+65 conversations**, and the smallest per-conversation difference is +0.0038, so
+this is not a mean dragged by outliers. The design is paired, so panel (b) shows
+the quantity that carries the inference; the independent spread of each arm's
+mean in panel (a) is about 0.0004 and smaller than the markers.
 
 A single phrasing pair could carry something idiosyncratic, so the whole thing was
 rerun with 3 phrasings per arm × 2 different tails. **All 18 cells are
@@ -230,46 +234,40 @@ readout in this setting.
 
 ---
 
-## 4. What the retry structure rules out
+## 4. Projection does not predict P(end-of-turn) on natural text
 
-Within a paragraph, the projection at the assistant header climbs with retry
-depth. The header is a 7-token span, byte-identical everywhere it appears, so
-token identity is controlled by construction. In the released corpus, paired
-consecutive steps for attempts 2→3, 3→4 and 4→5 are +0.0159, +0.0093 and +0.0033
-cosine (t = +34.7, +27.9, +6.6).
+If the axis is a closure signal, the most direct observational prediction is that
+a token's projection should track the model's probability of ending its turn at
+that position — no intervention, no off-distribution push. It does not.
 
-**That climb is not the position trend.** Everything in this corpus drifts with
-absolute token position, and the retry steps sit ~190 tokens apart. But per 1000
-tokens the within-paragraph retry slope is **+0.0616 cosine** against **+0.0126**
-for cross-paragraph drift — a factor of **4.9** — and residualizing the retry
-levels against the cross-paragraph trend leaves the climb intact (+0.0235 →
-+0.0392 → +0.0479 → +0.0517 for attempts 2 through 5). This is the only
-*in-corpus* defense of the climb; what follows is synthetic and a skeptical
-reader can discount it accordingly.
+Over 138,687 assistant tokens in 60 conversations, each token's projection at
+layer 21 was paired with log P(`<|im_end|>`) at the same position, alongside the
+released axis and eight random unit directions. The confound is position: both
+quantities rise toward the end of a turn, so a raw correlation would be produced
+by anything that tracks position at all. The load-bearing number is the
+association *within* relative-position bins.
 
-Corpus depth only reaches about 5, too short to discriminate. So: scripted
-20-failure sequences spliced from the shared paragraph pool, two arms of 35
-paragraphs each — `diverse`, where every attempt is a new rewrite, and
-`duplicate`, where attempts 6–20 repeat the first five verbatim and therefore
-deliver no new information about the criterion at all.
+![Projection versus end-of-turn probability, position-controlled](figures/w6_eos.png)
 
-![Header projection by retry depth, two arms](figures/w4_retry.png)
+The corrected axis gives Spearman ρ of +0.055, +0.109, −0.208, −0.137, +0.109
+across the five position bins — inconsistent in sign, and inside the range that
+eight random directions produce in every bin (worst case 1.4 sd from the random
+mean). Position-matched, the relation between projection and end-of-turn
+probability is U-shaped rather than monotone: both tails of the projection
+distribution have slightly *higher* end-of-turn mass than the middle.
 
-**The climb never reverses.** It decelerates by roughly 4.5× (band-to-band steps
-of +0.0158, +0.0050, +0.0035 cosine) but stays positive out to twenty consecutive
-failures. A value or solvability-inference account needs it to turn *negative*:
-twenty failures is strong evidence the paragraph will not be solved, and expected
-value should fall.
+This is a real negative for the simplest version of the closure reading, and it
+should be weighed against §2 and §3. Two things temper it without rescuing it.
+Per-token projection is dominated by token identity rather than by state — the
+same fact that makes the Yes/No probes in §3 useless, and the reason the
+matched-tail design exists. And log P(end-of-turn) within a turn is itself mostly
+a function of local syntax, whether the current token ends a sentence or a
+clause, which is a large source of variance the axis has no reason to explain.
+A cleaner version of this test would compare matched positions across conditions
+rather than correlating across tokens.
 
-**Zero new information does not flatten the climb — it raises it.** The duplicate
-arm sits *above* the diverse arm from the moment they separate, by 0.0036 / 0.0070
-/ 0.0056 cosine across the three bands (t = −8.3, −10.1, −7.3, paired by
-paragraph). No information-accumulation account produces that sign.
-
-This is also the one result the pure closure reading does not straightforwardly
-explain. Repetition makes context more predictable, and a "settledness" variant
-handles it more naturally than "proximity to done" does. Which of the two it is
-remains open (§7, item 5).
+Taken at face value: steering the axis changes when the model stops, but the
+axis's natural variation does not tell you when the model is about to stop.
 
 ---
 
@@ -286,6 +284,10 @@ remains open (§7, item 5).
   confidence channel separates from the random band more cleanly than the closure
   channel does. What survives on my side is a claim about which component
   dominates, not that the confidence component is absent.
+- **The observational test is negative** (§4). The strongest form of the closure
+  claim — that the axis encodes how near the model is to stopping — is not
+  supported by the axis's natural variation, only by what happens when it is
+  steered.
 - **This is all on the construction corpus**, not AIME or Arena. The most
   reasonable objection is that closure and value are confounded in-distribution
   and dissociate only here. Testing that means running the matched-tail design in
@@ -294,9 +296,8 @@ remains open (§7, item 5).
 Smaller caveats: the steering experiments are 15 conversations, one seed per
 condition, one probe phrasing, and seven random control directions; the layer
 picture is not uniform, with a small counter-signed band around layers 25–27 in
-the prefill probes; the spliced retry sequences carry mild history-incoherence;
-and the LLM-judged confidence labels are heavily skewed, so the belief-correctness
-cells are hints rather than findings.
+the prefill probes; and the LLM-judged labels behind the placebo split are
+heavily skewed, so cells that depend on them are hints rather than findings.
 
 Throughout, "held-out" means **function-held-out** — the direction was built
 without that criterion's data, using the paper's exact split seeding
@@ -305,7 +306,7 @@ conversations. Every measurement above uses the corrected axis (§6).
 
 ---
 
-## 6. The construction bug
+## 6. A span-localization bug misplaces 62% of the training tokens
 
 Independent of the argument above, and reported separately because it is a
 data-pipeline defect rather than a problem with the thesis.
@@ -401,12 +402,13 @@ Ordered by discriminating power per unit of cost.
 
 1. **A random-direction arm on the generation experiment.** §2's generation result
    is the strongest causal evidence and the only one without its own control. The
-   length-free band showed that random directions of the same norm do more than
-   expected, so the length effect needs the same treatment before it can be
-   leaned on.
+   length-free band showed random directions of the same norm do more than
+   expected, so the length effect needs the same treatment before it can be leaned
+   on.
 2. **EOS-masked and prompt-only steering.** Separates "the axis encodes a closure
    state that then promotes end-of-turn" from "the axis promotes the EOS logit
-   directly". Cheap, and the main unresolved mechanistic question.
+   directly". Cheap, and the main unresolved mechanistic question — and the §4
+   null makes it more pressing, not less.
 3. **The matched-tail prefill design on AIME/Arena** — takes the experiment that
    actually discriminates into the paper's own distribution. The most decisive
    test of whether the reinterpretation generalizes.
@@ -416,15 +418,12 @@ Ordered by discriminating power per unit of cost.
    results on the residual. If the Fig 3 effects live in the closure component,
    that settles it. Notably the Fig 3b bands rise monotonically through rollouts,
    which is what a position or length component would do.
-5. **A designed predictability-versus-closure manipulation** — matched depth,
-   entropy-varied continuations — to resolve the duplicate-beats-diverse residue
-   in §4.
-6. **Scripted post-discovery failures.** The retry climb cannot be tested after
-   discovery observationally: post-discovery paragraphs are 100% single-attempt
-   (1042 of 1042). Rule known, execution scripted to fail, retry structure
-   matched. Information-gain predicts no climb; hazard or value predicts a high
-   flat start; a counter or closure account predicts the same climb as before.
-7. **A matched-suffix history experiment.** Identical final rounds, differing
+5. **A matched-position version of §4.** Correlating across tokens is a weak
+   instrument when token identity dominates the projection. The right design
+   compares end-of-turn probability at *the same position* across conditions that
+   differ only in how close the model is to done — the observational analogue of
+   the §3 prefills.
+6. **A matched-suffix history experiment.** Identical final rounds, differing
    prefix valence:
 
    ```
@@ -461,9 +460,13 @@ gives the command that regenerates each artifact. Every figure comes from
 | Matched-token prefills (§3) | `prefill_probes_report.py` |
 | Phrasing robustness (§3) | `prefill_rephrase_report.py` |
 | Logit lens, corrected axis (§3) | `results/logit_lens_corrected.json` |
-| Retry depth versus position drift (§4) | `depth_check.py` |
-| Extended retries (§4) | `extend_retries_report.py`, `assistant_headers_report.py` |
+| Projection versus P(end-of-turn) (§4) | `eos_association_report.py` |
 | The bug fix (§6) | `corrected_spans.py`, `check_corrected_labels.py` |
 | Replication gates, corrected versus released axis (§6) | `corrected_axis_report.py` |
 | The paper's mean-level metric on corrected means (§6) | `corrected_mean_validation.py` |
-| Position confounds that killed earlier findings | `confidence_correlation.py` |
+
+Two analyses are in the repository but not used above, because neither speaks
+directly to the end-of-turn claim: the retry-depth climb and its extended-retry
+falsifications (`depth_check.py`, `extend_retries_report.py`,
+`assistant_headers_report.py`), and the position confounds that killed several
+earlier findings (`confidence_correlation.py`).

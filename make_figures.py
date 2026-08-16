@@ -98,36 +98,82 @@ def fig_ramp():
 
 # ------------------------------------------------------------- fig 2: prefill
 def fig_prefill():
-    """prefill_probes_report.py -- matched-tail arms, paired by conversation."""
+    """prefill_probes_report.py -- matched-tail arms, paired by conversation.
+
+    Panel (b) is the inferential one. The design is PAIRED by conversation, so
+    the uncertainty that matters is on the per-conversation difference, not the
+    independent spread of each arm's mean (which is ~0.0004 here -- smaller than
+    a marker, and not the right quantity anyway).
+    """
     d = np.load(RES / "prefill_probes.npz", allow_pickle=True)
     cos, fam, cond, seg = d["cos"][:, L], d["family"], d["cond"], d["segment"]
     base = d["base_conv"]
-    segs = [("thinking", "thinking\n(condition-specific text)"),
-            ("body", "body\n(condition-specific text)"),
+    segs = [("thinking", "thinking\n(different text)"),
+            ("body", "body\n(different text)"),
             ("tail", "tail\nBYTE-IDENTICAL")]
 
-    fig, ax = plt.subplots(figsize=(7.2, 3.5))
-    for i, (s, lab) in enumerate(segs):
-        va = cos[(fam == "continuation") & (cond == "correct_nocomplete") & (seg == s)].mean()
-        vb = cos[(fam == "continuation") & (cond == "complete_nosucc") & (seg == s)].mean()
-        ax.plot([i, i], [va, vb], color=GREY, lw=1.2, zorder=2)
-        ax.scatter([i], [va], s=64, color=INDIGO, zorder=3,
-                   label="“I found it — ten paragraphs to go”  (HIGH value)" if not i else None)
-        ax.scatter([i], [vb], s=64, color=AMBER, zorder=3,
-                   label="“I'll stop here and call it done”  (HIGH completion)" if not i else None)
-        ax.annotate(f"{vb - va:+.4f}", xy=(i + .08, (va + vb) / 2), fontsize=8,
-                    color="#3C414B", va="center")
-    ax.set_xticks(range(len(segs)))
-    ax.set_xticklabels([l for _, l in segs])
-    ax.set_xlim(-.5, 2.6)
-    ax.set_ylabel("cosine with the axis, layer 21")
-    ax.set_title("Giving up projects ABOVE succeeding — including on tokens that "
-                 "are byte-identical\nacross the two arms (n=65 conversations, "
-                 "paired; random-direction control +0.0004)",
-                 loc="left", pad=10)
-    ax.legend(loc="upper center", bbox_to_anchor=(.5, -.13), ncol=1,
-              frameon=False, handletextpad=.5)
-    save(fig, "w2_prefill.png")
+    def per_conv(arm, s_):
+        m = (fam == "continuation") & (cond == arm) & (seg == s_)
+        acc = {}
+        for c, v in zip(base[m], cos[m]):
+            acc.setdefault(c, []).append(v)
+        return {c: float(np.mean(v)) for c, v in acc.items()}
+
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(9.8, 4.0),
+                                 gridspec_kw={"width_ratios": [1, 1.1]})
+    rng = np.random.default_rng(0)
+
+    for i, (s_, lab) in enumerate(segs):
+        A, B = per_conv("correct_nocomplete", s_), per_conv("complete_nosucc", s_)
+        keys = sorted(set(A) & set(B))
+        va = np.array([A[c] for c in keys]); vb = np.array([B[c] for c in keys])
+        diff = vb - va                      # positive = completion arm is higher
+        n = len(keys)
+
+        # (a) arm means. Error bars are SEM across conversations and are smaller
+        #     than the markers; the dotted line only connects the pair.
+        a1.plot([i, i], [va.mean(), vb.mean()], color=GREY, lw=.9, ls=":", zorder=2)
+        a1.errorbar([i], [va.mean()], yerr=[va.std(ddof=1) / np.sqrt(n)], fmt="o",
+                    ms=8, color=INDIGO, capsize=4, zorder=4,
+                    label='A: "I found it \u2014 ten paragraphs to go"' if not i else None)
+        a1.errorbar([i], [vb.mean()], yerr=[vb.std(ddof=1) / np.sqrt(n)], fmt="o",
+                    ms=8, color=AMBER, capsize=4, zorder=4,
+                    label='B: "I\u2019ll stop here and call it done"' if not i else None)
+
+        # (b) every per-conversation paired difference, plus mean and 95% CI
+        x = i + rng.uniform(-.13, .13, n)
+        a2.scatter(x, diff, s=13, color=AMBER, alpha=.5, edgecolors="none", zorder=3)
+        ci = 1.96 * diff.std(ddof=1) / np.sqrt(n)
+        a2.errorbar([i], [diff.mean()], yerr=[ci], fmt="_", ms=26, mew=2.2,
+                    color="#1F2430", ecolor="#1F2430", capsize=6, elinewidth=2.2,
+                    zorder=5)
+        a2.annotate(f"{diff.mean():+.4f}\n{int((diff > 0).sum())}/{n} (100%)",
+                    xy=(i + .22, diff.mean()), fontsize=8.5, color="#3C414B",
+                    va="center", linespacing=1.35,
+                    fontweight="bold" if s_ == "tail" else "normal")
+
+    a1.set_xticks(range(len(segs))); a1.set_xticklabels([l for _, l in segs])
+    a1.set_xlim(-.5, 2.5)
+    a1.set_ylabel("cosine with the axis, layer 21")
+    a1.set_title("(a) mean projection per arm\n(bars are SEM; dotted line just "
+                 "connects the pair)", loc="left", pad=8)
+    a1.legend(loc="upper center", bbox_to_anchor=(.5, -.22), frameon=False,
+              handletextpad=.4, fontsize=8)
+
+    a2.axhline(0, color="#C3C8D1", lw=1.2, zorder=1)
+    a2.set_xticks(range(len(segs))); a2.set_xticklabels([l for _, l in segs])
+    a2.set_xlim(-.5, 2.72)
+    a2.set_ylabel("B \u2212 A, per conversation  (cosine)")
+    a2.set_title("(b) paired difference, one dot per conversation\n"
+                 "(black marker is the mean with its 95% CI)", loc="left", pad=8)
+
+    fig.suptitle("Give-up prefill projects above success prefill in every "
+                 "conversation, including on\nbyte-identical tokens",
+                 x=.005, y=1.06, ha="left", fontsize=10.5)
+    fig.tight_layout()
+    fig.savefig(FIGS / "w2_prefill.png", bbox_inches="tight", facecolor="white")
+    plt.close(fig)
+    print("  figures/w2_prefill.png")
 
 
 # ------------------------------------------------------------ fig 3: steering
@@ -172,8 +218,7 @@ def fig_steering():
     a1.set_yticklabels(["response\nlength", "verbalized\nconfidence"])
     a1.set_xlim(-1.1, .55)
     a1.set_xlabel("Spearman \u03c1 with steering strength \u03b1,\nmean over prefixes")
-    a1.set_title("(a) generation readout\nsteering changes how much it writes,\n"
-                 "not what it claims", loc="left", pad=8)
+    a1.set_title("(a) generation readout", loc="left", pad=8)
     a1.legend(loc="upper left", frameon=False)
 
     # (b) length-free readout. Each channel has its OWN units -- log-probability,
@@ -212,9 +257,9 @@ def fig_steering():
 
     fig.text(.545, 1.015, "(b) length-free readout \u2014 one forward pass, nothing "
              "generated", fontsize=9.5, ha="left")
-    fig.suptitle("Steering changes how much the model writes; against a "
-                 "random-direction band, the\nlength-free channels are far less "
-                 "clear-cut", x=.005, y=1.16, ha="left", fontsize=10.5)
+    fig.suptitle("Steering shortens responses (\u03c1 = \u22120.96); in the "
+                 "length-free readout only the confidence\nchannel clears the "
+                 "random-direction band", x=.005, y=1.16, ha="left", fontsize=10.5)
     fig.savefig(FIGS / "w3_steering.png", bbox_inches="tight", facecolor="white")
     plt.close(fig)
     print("  figures/w3_steering.png")
@@ -242,7 +287,7 @@ def fig_retry():
     ax.set_xlabel("consecutive failed attempts on the same paragraph")
     ax.set_ylabel("cosine at the assistant header, layer 21")
     ax.set_xticks([2, 5, 8, 11, 14, 17, 20])
-    ax.set_title("The retry climb decelerates but never turns over, and the "
+    ax.set_title("Retry climb decelerates but never reverses; the "
                  "zero-information arm sits higher\n(35 paragraphs per arm; the "
                  "header span is byte-identical throughout)", loc="left", pad=10)
     ax.legend(loc="upper center", bbox_to_anchor=(.5, -.19), ncol=2,
@@ -277,7 +322,7 @@ def fig_bug():
     a1.grid(False)
     for sp in a1.spines.values():
         sp.set_visible(False)
-    a1.set_title("(a) the 47,863 tokens the released axis was built from",
+    a1.set_title("(a) 62% of the 47,863 training tokens are in the wrong turn",
                  loc="left", pad=8)
 
     # (b) what fixing it did to the paper's own metric
@@ -318,6 +363,79 @@ def fig_bug():
     save(fig, "w5_bug.png")
 
 
+# ----------------------------------------------------------------- fig 6: eos
+def fig_eos():
+    """eos_association_report.py -- projection vs P(end-of-turn) on natural text."""
+    from scipy.stats import spearmanr
+    f = RES / "eos_association.npz"
+    if not f.exists():
+        print("  (skipping w6_eos.png: results/eos_association.npz not found)")
+        return
+    d = np.load(f, allow_pickle=True)
+    proj, eos, rel = d["proj"], d["eos"], d["rel_pos"]
+    names = [str(x) for x in d["dir_names"]]
+    ci, si = names.index("corrected"), names.index("shipped")
+    ri = [i for i, n in enumerate(names) if n.startswith("random")]
+
+    NB = 5
+    edges = np.linspace(0, 1, NB + 1)
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(9.8, 3.6),
+                                 gridspec_kw={"width_ratios": [1.15, 1]})
+
+    # (a) position-matched binned means: does a higher projection mean more
+    #     end-of-turn mass, holding distance-from-the-end fixed?
+    z = np.full(len(eos), np.nan); ez = np.full(len(eos), np.nan)
+    for a, b in zip(edges, edges[1:]):
+        m = (rel >= a) & (rel < b if b < 1 else rel <= b)
+        if m.sum() < 30:
+            continue
+        p_, e_ = proj[m, ci], eos[m]
+        z[m] = (p_ - p_.mean()) / (p_.std() + 1e-9)
+        ez[m] = (e_ - e_.mean()) / (e_.std() + 1e-9)
+    ok = np.isfinite(z)
+    qs = np.quantile(z[ok], np.linspace(0, 1, 11))
+    xs, ys, se = [], [], []
+    for i in range(10):
+        m = ok & (z >= qs[i]) & ((z <= qs[i + 1]) if i == 9 else (z < qs[i + 1]))
+        xs.append(z[m].mean()); ys.append(ez[m].mean())
+        se.append(ez[m].std(ddof=1) / np.sqrt(m.sum()))
+    a1.errorbar(xs, ys, yerr=se, marker="o", ms=4, lw=1.5, color=INDIGO,
+                capsize=2, ecolor="#A8B4E0", zorder=3)
+    a1.axhline(0, color="#C3C8D1", lw=1)
+    a1.set_xlabel("projection on the value axis\n(z-scored within position bin)")
+    a1.set_ylabel("log P(end-of-turn)\n(z-scored within position bin)")
+    a1.set_title("(a) relation is U-shaped, not monotone", loc="left", pad=8)
+
+    # (b) the association per position bin, against the random-direction band
+    def rho(idx, m):
+        return spearmanr(proj[m, idx], eos[m])[0] if m.sum() >= 30 else np.nan
+    mids, rc, rs, rb = [], [], [], []
+    for a, b in zip(edges, edges[1:]):
+        m = (rel >= a) & (rel < b if b < 1 else rel <= b)
+        mids.append((a + b) / 2)
+        rc.append(rho(ci, m)); rs.append(rho(si, m))
+        rb.append([rho(i, m) for i in ri])
+    rb = np.array(rb)
+    a2.fill_between(mids, rb.min(1), rb.max(1), color=GREY, alpha=.25, zorder=2,
+                    label=f"random directions (n={len(ri)}, full range)")
+    a2.plot(mids, rc, marker="o", ms=4, lw=1.6, color=INDIGO,
+            label="corrected axis", zorder=4)
+    a2.plot(mids, rs, marker="s", ms=3.5, lw=1.3, ls="--", color=AMBER,
+            label="released axis", zorder=3)
+    a2.axhline(0, color="#C3C8D1", lw=1)
+    a2.set_xlabel("position within the assistant turn  (0 = start, 1 = end)")
+    a2.set_ylabel("Spearman \u03c1 (projection, log P(end-of-turn))")
+    a2.set_title("(b) corrected axis stays inside the random band", loc="left", pad=8)
+    a2.legend(loc="best", framealpha=.95, fontsize=8)
+
+    fig.suptitle("Axis projection does not predict P(end-of-turn) at fixed "
+                 "position on natural text", x=.005, y=1.03, ha="left", fontsize=10.5)
+    fig.tight_layout()
+    fig.savefig(FIGS / "w6_eos.png", bbox_inches="tight", facecolor="white")
+    plt.close(fig)
+    print("  figures/w6_eos.png")
+
+
 if __name__ == "__main__":
     print("writing figures:")
-    fig_ramp(); fig_prefill(); fig_steering(); fig_retry(); fig_bug()
+    fig_ramp(); fig_prefill(); fig_steering(); fig_retry(); fig_bug(); fig_eos()
