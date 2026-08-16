@@ -100,17 +100,19 @@ def fig_ramp():
 def fig_prefill():
     """prefill_probes_report.py -- matched-tail arms, paired by conversation.
 
-    Panel (b) is the inferential one. The design is PAIRED by conversation, so
-    the uncertainty that matters is on the per-conversation difference, not the
-    independent spread of each arm's mean (which is ~0.0004 here -- smaller than
-    a marker, and not the right quantity anyway).
+    Only the paired difference is plotted. The design pairs arms within a
+    conversation, so the per-arm means carry conversation-level variance that
+    cancels in the pairing; their independent SEM is ~0.0004, smaller than a
+    marker, and is not the quantity the inference rests on.
+
+    The top panel is the legend: it shows the actual prefilled assistant turn,
+    verbatim from prefill_probes_build.py, so "thinking", "body" and "tail" are
+    defined by example rather than by name.
     """
     d = np.load(RES / "prefill_probes.npz", allow_pickle=True)
     cos, fam, cond, seg = d["cos"][:, L], d["family"], d["cond"], d["segment"]
     base = d["base_conv"]
-    segs = [("thinking", "thinking\n(different text)"),
-            ("body", "body\n(different text)"),
-            ("tail", "tail\nBYTE-IDENTICAL")]
+    segs = ["thinking", "body", "tail"]
 
     def per_conv(arm, s_):
         m = (fam == "continuation") & (cond == arm) & (seg == s_)
@@ -119,58 +121,85 @@ def fig_prefill():
             acc.setdefault(c, []).append(v)
         return {c: float(np.mean(v)) for c, v in acc.items()}
 
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(9.8, 4.0),
-                                 gridspec_kw={"width_ratios": [1, 1.1]})
-    rng = np.random.default_rng(0)
+    fig = plt.figure(figsize=(9.4, 6.2))
+    gs = fig.add_gridspec(2, 1, height_ratios=[1.05, 1], hspace=.28)
 
-    for i, (s_, lab) in enumerate(segs):
+    # ---- top: the two prefills, verbatim, with the segments marked -----------
+    ax = fig.add_subplot(gs[0]); ax.axis("off"); ax.grid(False)
+    arms = [
+        (INDIGO, "ARM A \u2014 high value, low completion",
+         "I am now confident that I have finally\n"
+         "identified the hidden criterion\u2026 I will\n"
+         "produce ten additional rewritten versions.",
+         "I've figured out the criterion. Here are\n"
+         "ten more versions of the paragraph, each\n"
+         "one satisfying it:"),
+        (AMBER, "ARM B \u2014 low value, high completion",
+         "I have tried many different approaches\n"
+         "now and none of them has earned a +1\u2026 the\n"
+         "most sensible move is to stop here.",
+         "I'm going to stop guessing now. Could you\n"
+         "tell me more about what the hidden\n"
+         "criterion involves?"),
+    ]
+    for j, (c, title, think, body) in enumerate(arms):
+        x = .015 + j * .52
+        ax.text(x, .97, title, transform=ax.transAxes, fontsize=9,
+                color=c, fontweight="bold", va="top")
+        ax.text(x, .865, "<thinking>", transform=ax.transAxes, fontsize=7,
+                family="monospace", color=GREY, va="top")
+        ax.text(x, .815, think, transform=ax.transAxes, fontsize=7,
+                family="monospace", color=c, va="top", linespacing=1.45)
+        ax.text(x, .625, "</thinking>", transform=ax.transAxes, fontsize=7,
+                family="monospace", color=GREY, va="top")
+        ax.text(x, .565, body, transform=ax.transAxes, fontsize=7,
+                family="monospace", color=c, va="top", linespacing=1.45)
+    # the shared tail, drawn once across the full width
+    ax.add_patch(plt.Rectangle((.02, .10), .96, .17, transform=ax.transAxes,
+                               facecolor="#1F243010", edgecolor="#1F2430",
+                               linewidth=1.1, zorder=1))
+    ax.text(.5, .225, "TAIL \u2014 appended verbatim to BOTH arms",
+            transform=ax.transAxes, fontsize=8, ha="center", va="top",
+            fontweight="bold", color="#1F2430")
+    ax.text(.5, .155, '"Please let me know how you would like me to proceed."',
+            transform=ax.transAxes, fontsize=8, ha="center", va="top",
+            family="monospace", color="#1F2430")
+    ax.annotate("", xy=(.30, .29), xytext=(.30, .46), xycoords="axes fraction",
+                arrowprops=dict(arrowstyle="->", color=INDIGO, lw=1.1))
+    ax.annotate("", xy=(.70, .29), xytext=(.70, .46), xycoords="axes fraction",
+                arrowprops=dict(arrowstyle="->", color=AMBER, lw=1.1))
+    ax.set_title("The two prefilled assistant turns, verbatim. Only the tail is "
+                 "shared, so only the tail\nholds token identity, count and "
+                 "position fixed across arms.", loc="left", pad=6, fontsize=9.5)
+
+    # ---- bottom: every per-conversation paired difference --------------------
+    a2 = fig.add_subplot(gs[1])
+    rng = np.random.default_rng(0)
+    for i, s_ in enumerate(segs):
         A, B = per_conv("correct_nocomplete", s_), per_conv("complete_nosucc", s_)
         keys = sorted(set(A) & set(B))
-        va = np.array([A[c] for c in keys]); vb = np.array([B[c] for c in keys])
-        diff = vb - va                      # positive = completion arm is higher
+        diff = np.array([B[c] - A[c] for c in keys])
         n = len(keys)
-
-        # (a) arm means. Error bars are SEM across conversations and are smaller
-        #     than the markers; the dotted line only connects the pair.
-        a1.plot([i, i], [va.mean(), vb.mean()], color=GREY, lw=.9, ls=":", zorder=2)
-        a1.errorbar([i], [va.mean()], yerr=[va.std(ddof=1) / np.sqrt(n)], fmt="o",
-                    ms=8, color=INDIGO, capsize=4, zorder=4,
-                    label='A: "I found it \u2014 ten paragraphs to go"' if not i else None)
-        a1.errorbar([i], [vb.mean()], yerr=[vb.std(ddof=1) / np.sqrt(n)], fmt="o",
-                    ms=8, color=AMBER, capsize=4, zorder=4,
-                    label='B: "I\u2019ll stop here and call it done"' if not i else None)
-
-        # (b) every per-conversation paired difference, plus mean and 95% CI
-        x = i + rng.uniform(-.13, .13, n)
-        a2.scatter(x, diff, s=13, color=AMBER, alpha=.5, edgecolors="none", zorder=3)
+        a2.scatter(i + rng.uniform(-.13, .13, n), diff, s=14, color=AMBER,
+                   alpha=.5, edgecolors="none", zorder=3)
         ci = 1.96 * diff.std(ddof=1) / np.sqrt(n)
-        a2.errorbar([i], [diff.mean()], yerr=[ci], fmt="_", ms=26, mew=2.2,
-                    color="#1F2430", ecolor="#1F2430", capsize=6, elinewidth=2.2,
+        a2.errorbar([i], [diff.mean()], yerr=[ci], fmt="_", ms=28, mew=2.4,
+                    color="#1F2430", ecolor="#1F2430", capsize=6, elinewidth=2.4,
                     zorder=5)
         a2.annotate(f"{diff.mean():+.4f}\n{int((diff > 0).sum())}/{n} (100%)",
-                    xy=(i + .22, diff.mean()), fontsize=8.5, color="#3C414B",
+                    xy=(i + .23, diff.mean()), fontsize=9, color="#3C414B",
                     va="center", linespacing=1.35,
                     fontweight="bold" if s_ == "tail" else "normal")
-
-    a1.set_xticks(range(len(segs))); a1.set_xticklabels([l for _, l in segs])
-    a1.set_xlim(-.5, 2.5)
-    a1.set_ylabel("cosine with the axis, layer 21")
-    a1.set_title("(a) mean projection per arm\n(bars are SEM; dotted line just "
-                 "connects the pair)", loc="left", pad=8)
-    a1.legend(loc="upper center", bbox_to_anchor=(.5, -.22), frameon=False,
-              handletextpad=.4, fontsize=8)
-
-    a2.axhline(0, color="#C3C8D1", lw=1.2, zorder=1)
-    a2.set_xticks(range(len(segs))); a2.set_xticklabels([l for _, l in segs])
-    a2.set_xlim(-.5, 2.72)
-    a2.set_ylabel("B \u2212 A, per conversation  (cosine)")
-    a2.set_title("(b) paired difference, one dot per conversation\n"
-                 "(black marker is the mean with its 95% CI)", loc="left", pad=8)
-
-    fig.suptitle("Give-up prefill projects above success prefill in every "
-                 "conversation, including on\nbyte-identical tokens",
-                 x=.005, y=1.06, ha="left", fontsize=10.5)
-    fig.tight_layout()
+    a2.axhline(0, color="#C3C8D1", lw=1.3, zorder=1)
+    a2.set_xticks(range(3))
+    a2.set_xticklabels(["thinking\n(arm-specific text)", "body\n(arm-specific text)",
+                        "tail\n(SHARED, byte-identical)"])
+    a2.set_xlim(-.45, 2.78)
+    a2.set_ylabel("B \u2212 A, per conversation  (cosine, layer 21)")
+    a2.set_title("Paired difference, one dot per conversation; black marker is the "
+                 "mean with its 95% CI.\nAbove zero means the give-up arm projects "
+                 "higher \u2014 the ordering value predicts against.",
+                 loc="left", pad=8, fontsize=9.5)
     fig.savefig(FIGS / "w2_prefill.png", bbox_inches="tight", facecolor="white")
     plt.close(fig)
     print("  figures/w2_prefill.png")

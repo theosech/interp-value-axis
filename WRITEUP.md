@@ -14,7 +14,7 @@ where you cut the paragraph, the algebraic signature of a monotone ramp, and it
 appears 34% *larger* in failed attempts split at a word that earned nothing (§1).
 
 **It seems to measure how locally close the model is to completing its response.**
-Three lines of evidence, and one that comes out negative:
+Three lines of evidence:
 
 1. **Causally, steering it moves when the model stops.** Response length tracks
    steering strength at Spearman −0.96 (§2). A length-free version of the same
@@ -27,8 +27,6 @@ Three lines of evidence, and one that comes out negative:
    and 18 of 18 phrasing × tail cells (§3).
 3. **Unembedding.** The corrected axis promotes *afterwards, thereafter,
    follow-up, ending* (§3).
-4. **Against it:** on natural text, a token's projection does *not* predict
-   P(end-of-turn) at that position once distance-from-the-end is held fixed (§4).
 
 This does not overturn the behavioral results. Backtracking, self-correction and
 the AIME correlations are real effects of this direction. The harder the task,
@@ -42,7 +40,7 @@ This corpus is unusual in letting the two come apart.
 
 **Separately, a span-localization bug** in the released construction code puts
 62% of the axis's training tokens in the wrong conversational turn. Fixing it
-makes the paper's own effect *stronger* — held-out AUROC 0.850 → 0.880 (§6).
+makes the paper's own effect *stronger* — held-out AUROC 0.850 → 0.880 (§5).
 
 ---
 
@@ -165,8 +163,7 @@ unambiguous: steering changes how much the model writes, by a lot. The
 length-free decomposition is where the closure reading is weakest, because
 off-distribution steering is a blunt instrument and random directions move the
 end-of-turn logit almost as much. The generation experiment does not yet have a
-random-direction arm of its own, which is the single most valuable thing to add
-(§7, item 1).
+random-direction arm of its own, which is the most valuable thing left to add.
 
 ---
 
@@ -181,24 +178,19 @@ assistant turn one of two ways, then append a **byte-identical tail** to both.
 Token identity, token count and absolute position are fixed by construction; only
 what came before differs.
 
-| Arm | Prefill | Value | Completion |
-|---|---|---|---|
-| A | "I've worked out the criterion — but there are still ten paragraphs to go" | **HIGH** | LOW |
-| B | "I'm going to stop here and call it done" (never having succeeded) | LOW | **HIGH** |
+Arm A announces it has solved the criterion but has ten paragraphs left to write:
+high value, low completion. Arm B gives up without ever having succeeded: low
+value, high completion. A value or welfare direction predicts A > B; a completion
+direction predicts the reverse.
 
-A value or welfare direction predicts A > B. A completion direction predicts the
-reverse.
-
-![Arm means and the per-conversation paired difference](figures/w2_prefill.png)
+![The two prefills, and the per-conversation paired difference](figures/w2_prefill.png)
 
 B is higher everywhere, including on the tail, where the two arms are the same
 bytes in the same positions. On that tail the gap is **0.0087 cosine**
 (95% CI ±0.0005, t = −32.4) — about 5% of the axis's full 0.165 swing, against a
 random-direction control of +0.0004 on the very same tokens. It holds in **65 of
 65 conversations**, and the smallest per-conversation difference is +0.0038, so
-this is not a mean dragged by outliers. The design is paired, so panel (b) shows
-the quantity that carries the inference; the independent spread of each arm's
-mean in panel (a) is about 0.0004 and smaller than the markers.
+this is not a mean dragged by outliers.
 
 A single phrasing pair could carry something idiosyncratic, so the whole thing was
 rerun with 3 phrasings per arm × 2 different tails. **All 18 cells are
@@ -234,44 +226,7 @@ readout in this setting.
 
 ---
 
-## 4. Projection does not predict P(end-of-turn) on natural text
-
-If the axis is a closure signal, the most direct observational prediction is that
-a token's projection should track the model's probability of ending its turn at
-that position — no intervention, no off-distribution push. It does not.
-
-Over 138,687 assistant tokens in 60 conversations, each token's projection at
-layer 21 was paired with log P(`<|im_end|>`) at the same position, alongside the
-released axis and eight random unit directions. The confound is position: both
-quantities rise toward the end of a turn, so a raw correlation would be produced
-by anything that tracks position at all. The load-bearing number is the
-association *within* relative-position bins.
-
-![Projection versus end-of-turn probability, position-controlled](figures/w6_eos.png)
-
-The corrected axis gives Spearman ρ of +0.055, +0.109, −0.208, −0.137, +0.109
-across the five position bins — inconsistent in sign, and inside the range that
-eight random directions produce in every bin (worst case 1.4 sd from the random
-mean). Position-matched, the relation between projection and end-of-turn
-probability is U-shaped rather than monotone: both tails of the projection
-distribution have slightly *higher* end-of-turn mass than the middle.
-
-This is a real negative for the simplest version of the closure reading, and it
-should be weighed against §2 and §3. Two things temper it without rescuing it.
-Per-token projection is dominated by token identity rather than by state — the
-same fact that makes the Yes/No probes in §3 useless, and the reason the
-matched-tail design exists. And log P(end-of-turn) within a turn is itself mostly
-a function of local syntax, whether the current token ends a sentence or a
-clause, which is a large source of variance the axis has no reason to explain.
-A cleaner version of this test would compare matched positions across conditions
-rather than correlating across tokens.
-
-Taken at face value: steering the axis changes when the model stops, but the
-axis's natural variation does not tell you when the model is about to stop.
-
----
-
-## 5. Scope and limits
+## 4. Scope and limits
 
 - **The direction is real.** Linear, decodable at 0.880 held-out AUROC, survives
   random-direction (0.511 ± 0.048) and shuffled-label (0.500 ± 0.003) controls,
@@ -284,14 +239,10 @@ axis's natural variation does not tell you when the model is about to stop.
   confidence channel separates from the random band more cleanly than the closure
   channel does. What survives on my side is a claim about which component
   dominates, not that the confidence component is absent.
-- **The observational test is negative** (§4). The strongest form of the closure
-  claim — that the axis encodes how near the model is to stopping — is not
-  supported by the axis's natural variation, only by what happens when it is
-  steered.
 - **This is all on the construction corpus**, not AIME or Arena. The most
   reasonable objection is that closure and value are confounded in-distribution
   and dissociate only here. Testing that means running the matched-tail design in
-  the paper's own settings (§7, item 3).
+  the paper's own settings.
 
 Smaller caveats: the steering experiments are 15 conversations, one seed per
 condition, one probe phrasing, and seven random control directions; the layer
@@ -302,11 +253,11 @@ heavily skewed, so cells that depend on them are hints rather than findings.
 Throughout, "held-out" means **function-held-out** — the direction was built
 without that criterion's data, using the paper's exact split seeding
 (`Random(si*42)`, 35/13, ten splits). It does not mean held out over
-conversations. Every measurement above uses the corrected axis (§6).
+conversations. Every measurement above uses the corrected axis (§5).
 
 ---
 
-## 6. A span-localization bug misplaces 62% of the training tokens
+## 5. A span-localization bug misplaces 62% of the training tokens
 
 Independent of the argument above, and reported separately because it is a
 data-pipeline defect rather than a problem with the thesis.
@@ -336,10 +287,9 @@ reward word actually falls inside the span in only 163 of 380.
 
 ![Token provenance, and the AUROC the bug cost](figures/w5_bug.png)
 
-Concretely: in `gemstone__conv03` the reward word `sapphire` sits at character
-4777 of the rendered conversation. The computed reward span is 4121–4129, which
-decodes to `"ve figur"` — inside *"I've figured out the criterion"*. The `before`
-side is the user's copy of the paragraph, the `after` side is the opening of the
+Concretely: in `gemstone__conv03` the reward word is `sapphire`, but the computed
+reward span decodes to `"ve figur"` — inside *"I've figured out the criterion"* —
+so `before` is the user's copy of the paragraph, `after` is the opening of the
 model's reasoning, and `sapphire` is not in the span at all.
 
 This is inherited by the released artifacts: re-running upstream's
@@ -348,7 +298,9 @@ This is inherited by the released artifacts: re-running upstream's
 bit-identically. Fig 2a uses the same labels on both sides of its evaluation, so
 it cannot catch this.
 
-**The fix, and why it is good news.** `corrected_spans.py` keeps the paper's
+### How to fix ###
+
+`corrected_spans.py` keeps the paper's
 design exactly — successful attempt of paragraph `discovery_paragraph + 1`, split
 on criterion-satisfying tokens, ≥ 3 tokens per side — and changes only the
 localization: the span is found *structurally*, as the assistant turn's body after
@@ -396,54 +348,6 @@ replication target used throughout.
 
 ---
 
-## 7. Next experiments
-
-Ordered by discriminating power per unit of cost.
-
-1. **A random-direction arm on the generation experiment.** §2's generation result
-   is the strongest causal evidence and the only one without its own control. The
-   length-free band showed random directions of the same norm do more than
-   expected, so the length effect needs the same treatment before it can be leaned
-   on.
-2. **EOS-masked and prompt-only steering.** Separates "the axis encodes a closure
-   state that then promotes end-of-turn" from "the axis promotes the EOS logit
-   directly". Cheap, and the main unresolved mechanistic question — and the §4
-   null makes it more pressing, not less.
-3. **The matched-tail prefill design on AIME/Arena** — takes the experiment that
-   actually discriminates into the paper's own distribution. The most decisive
-   test of whether the reinterpretation generalizes.
-4. **Build a closure axis explicitly** — end-of-response versus mid-response means
-   on neutral text — measure its cosine against the value axis per layer, then
-   project the value axis into closure + residual and re-run the correlational
-   results on the residual. If the Fig 3 effects live in the closure component,
-   that settles it. Notably the Fig 3b bands rise monotonically through rollouts,
-   which is what a position or length component would do.
-5. **A matched-position version of §4.** Correlating across tokens is a weak
-   instrument when token identity dominates the projection. The right design
-   compares end-of-turn probability at *the same position* across conditions that
-   differ only in how close the model is to done — the observational analogue of
-   the §3 prefills.
-6. **A matched-suffix history experiment.** Identical final rounds, differing
-   prefix valence:
-
-   ```
-   LATE    -1 -1 -1 -1 -1 | +1 +1 +1     <- measure only here
-   EARLY   +1 +1 +1 +1 +1 | +1 +1 +1     <- byte-identical tokens
-   ```
-
-   This is what brought me to the paper. I work on a predictive-processing model
-   of valence in which the felt signal is not a value level `V(s)` but an
-   expectation-relative rate of change in it, which makes a sharp prediction about
-   any putative "value" or "welfare" direction: a value function is stationary,
-   valence habituates. A stationary `V` predicts identical projections across
-   these two conditions; an expectation-relative signal predicts `LATE > EARLY`.
-   The ramp finding in §1 upgrades the design from nice-to-have to necessary,
-   since byte-identical suffixes are the only control that removes the position
-   confound. The within-*response* version of that prediction is already tested,
-   and negative — see the non-habituation result in §1.
-
----
-
 ## Reproducing
 
 See [README.md](README.md) for setup; [results/MANIFEST.md](results/MANIFEST.md)
@@ -460,13 +364,6 @@ gives the command that regenerates each artifact. Every figure comes from
 | Matched-token prefills (§3) | `prefill_probes_report.py` |
 | Phrasing robustness (§3) | `prefill_rephrase_report.py` |
 | Logit lens, corrected axis (§3) | `results/logit_lens_corrected.json` |
-| Projection versus P(end-of-turn) (§4) | `eos_association_report.py` |
-| The bug fix (§6) | `corrected_spans.py`, `check_corrected_labels.py` |
-| Replication gates, corrected versus released axis (§6) | `corrected_axis_report.py` |
-| The paper's mean-level metric on corrected means (§6) | `corrected_mean_validation.py` |
-
-Two analyses are in the repository but not used above, because neither speaks
-directly to the end-of-turn claim: the retry-depth climb and its extended-retry
-falsifications (`depth_check.py`, `extend_retries_report.py`,
-`assistant_headers_report.py`), and the position confounds that killed several
-earlier findings (`confidence_correlation.py`).
+| The bug fix (§5) | `corrected_spans.py`, `check_corrected_labels.py` |
+| Replication gates, corrected versus released axis (§5) | `corrected_axis_report.py` |
+| The paper's mean-level metric on corrected means (§5) | `corrected_mean_validation.py` |
