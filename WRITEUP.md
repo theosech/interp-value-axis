@@ -1,4 +1,4 @@
-# Is it really a value axis? End of Assistant turn likelihood seems better
+# Is it really a value axis? Or is it proximity to end of turn?
 
 A replication of **The Value Axis** (Jiang, Kauvar & Lindsey, [arXiv 2606.17056](https://arxiv.org/abs/2606.17056))
 on Qwen3-8B, and causal evidence that much of what the direction carries is
@@ -196,14 +196,14 @@ heavily skewed, so cells that depend on them are hints rather than findings.
 Throughout, "held-out" means **function-held-out**: the direction was built
 without that criterion's data, using the paper's exact split seeding
 (`Random(si*42)`, 35/13, ten splits). It does not mean held out over
-conversations. Every measurement above uses the corrected axis ([see the bug section](#unrelatedly-a-span-localization-bug-misplaces-62-of-the-training-tokens)).
+conversations. Every measurement above uses the corrected axis ([see the bug section](#a-span-localization-bug-misplaces-62-of-the-training-tokens-all-the-analysis-above-is-with-the-bug-free-data-pipeline)).
 
 <br>
 
-## Unrelatedly, a span-localization bug misplaces 62% of the training tokens
+## A span-localization bug misplaces 62% of the training tokens (all the analysis above is with the bug-free data pipeline)
 
-Independent of the argument above, and reported separately because it is a
-data-pipeline defect rather than a problem with the thesis.
+Mostly independent of the argument above wrt interpretation of discovered axis (although if published
+results were in fact generated with buggy data pipeline I expect discovered direction to have some user/assistant-text contrast artifacts)
 
 **`construction/extract_activations.py:47`**, upstream commit `44ad182`, inside
 `find_modified_text_spans()`:
@@ -283,6 +283,6 @@ gives the command that regenerates each artifact. Every figure comes from
 | Matched-token prefills ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)) | `prefill_probes_report.py` |
 | Phrasing robustness ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)) | `prefill_rephrase_report.py` |
 | Logit lens, corrected axis ([§1](#1-when-value-and-end-of-turn-proximity-conflict-the-axis-follows-end-of-turn)) | `results/logit_lens_corrected.json` |
-| The bug fix ([bug](#unrelatedly-a-span-localization-bug-misplaces-62-of-the-training-tokens)) | `corrected_spans.py`, `check_corrected_labels.py` |
-| Replication gates, corrected versus released axis ([bug](#unrelatedly-a-span-localization-bug-misplaces-62-of-the-training-tokens)) | `corrected_axis_report.py` |
-| The paper's mean-level metric on corrected means ([bug](#unrelatedly-a-span-localization-bug-misplaces-62-of-the-training-tokens)) | `corrected_mean_validation.py` |
+| The bug fix ([bug](#a-span-localization-bug-misplaces-62-of-the-training-tokens-all-the-analysis-above-is-with-the-bug-free-data-pipeline)) | `corrected_spans.py`, `check_corrected_labels.py` |
+| Replication gates, corrected versus released axis ([bug](#a-span-localization-bug-misplaces-62-of-the-training-tokens-all-the-analysis-above-is-with-the-bug-free-data-pipeline)) | `corrected_axis_report.py` |
+| The paper's mean-level metric on corrected means ([bug](#a-span-localization-bug-misplaces-62-of-the-training-tokens-all-the-analysis-above-is-with-the-bug-free-data-pipeline)) | `corrected_mean_validation.py` |
